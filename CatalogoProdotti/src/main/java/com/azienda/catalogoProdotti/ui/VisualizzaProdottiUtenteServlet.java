@@ -26,7 +26,7 @@ public class VisualizzaProdottiUtenteServlet extends HttpServlet {
 
 			
 			req.setAttribute("chiave_listaProdottiUtente", listaProdotti);
-
+			req.setAttribute("Chiave_aggiunta", req.getAttribute("Chiave_messaggio"));
 			req.getRequestDispatcher("/jsp/HomepageNegozio.jsp").forward(req, resp);
 
 		} catch (Exception e) {

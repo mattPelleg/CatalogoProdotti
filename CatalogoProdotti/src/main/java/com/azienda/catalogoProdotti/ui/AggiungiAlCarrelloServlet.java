@@ -2,7 +2,10 @@ package com.azienda.catalogoProdotti.ui;
 
 import java.io.IOException;
 
+import javax.persistence.EntityManager;
+
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
+import com.azienda.catalogoProdotti.model.Carrello;
 import com.azienda.catalogoProdotti.model.Utente;
 
 import jakarta.servlet.ServletException;
@@ -11,7 +14,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
+@WebServlet("/aggiungiAlCarrello")
 public class AggiungiAlCarrelloServlet extends HttpServlet {
 	
 	@Override
@@ -22,6 +25,7 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			
 			String idStringa = req.getParameter("id");
 			Integer id = Integer.parseInt(idStringa);
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
@@ -29,9 +33,11 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 			Utente utente = (Utente)req.getSession().getAttribute("chiave_utente");
 			service.aggiungiAlCarrello(id, utente);
 			
-			req.setAttribute("chiave_messaggio", "Prodotto aggiunto al carrello");
-			resp.sendRedirect(req.getContextPath() + "visualizzaProdottiUtente?chiave_messaggio=Prodotto aggiunto al carrello");
+			String message = "Prodotto aggiunto al carrello";
+			req.setAttribute("Chiave_messaggio", message);
+			resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente?Chiave_messaggio=" + message);
 			
+		
 			
 		} catch (Exception e) {
 			e.printStackTrace();

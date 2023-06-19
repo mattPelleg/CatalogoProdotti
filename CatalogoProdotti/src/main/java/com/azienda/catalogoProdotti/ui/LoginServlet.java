@@ -40,7 +40,6 @@ public class LoginServlet extends HttpServlet {
 			Utente utente = service.cercaUtente(email, password);
 
 			// risposta
-//			Utente utente = new Utente(email, password);
 
 			if (utente != null) {
 				req.getSession().setAttribute("chiave_utente", utente);

@@ -37,8 +37,8 @@
 	</form>
 	<br><br>
 	
-	<% if(request.getAttribute("Chiave_messaggio") != null) {%>
-		<p> <%= request.getAttribute("Chiave_messaggio") %></p>
+	<% if(request.getAttribute("Chiave_aggiornamento") != null) {%>
+		<p> <%= request.getAttribute("Chiave_aggiornamento")%></p>
 	<%} %>
 	
 	 <%if(listaProdotti.size()==0) {%> 	
