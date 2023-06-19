@@ -12,16 +12,21 @@
 <body>
 <jsp:include page="/jsp/Menu.jsp"></jsp:include><br>
 <%
-	Utente utenteLoggato = (Utente)request.getAttribute("chiave_utente");
+// 	Utente utenteLoggato = (Utente)request.getAttribute("chiave_utente");
+	Utente utenteLoggato = (Utente)session.getAttribute("chiave_utente");
+	
 	String urlAggiungiAlCarrello = request.getContextPath() + "/aggiungiAlCarrello";
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdottiUtente");
-
 %>
 
 	<h1>Mayone & Mayoni</h1>
 	
-<%-- 	<h3>Ciao <%=utenteLoggato.getEmail() %></h3> <br> --%>
+	<h3>Ciao <%=utenteLoggato.getEmail() %></h3> <br>
 	<h4> Elenco Prodotti</h4>
+	
+	<%if(request.getAttribute("chiave_messaggio") != null) {%>
+		<p><%=request.getAttribute("chiave_messaggio") %></p>
+	<%} %>
 	
 	<%if(listaProdotti != null && listaProdotti.size()==0) {%> 	
  		<p> Lista prodotti vuota </p>

@@ -62,11 +62,11 @@ public class ServiceUtenti {
 			} else {
 				profilo = new Profilo("simpleUser");
 				u.setProfiloUtente(profilo); // associa l'utente al profilo
+				profiloDao.create(profilo);
 			}
 
 			u.setCarrelloUtente(carrelloUtente);
 			utenteDao.create(u);
-			profiloDao.create(profilo);
 			carrelloDao.create(carrelloUtente);
 			
 			em.getTransaction().commit();

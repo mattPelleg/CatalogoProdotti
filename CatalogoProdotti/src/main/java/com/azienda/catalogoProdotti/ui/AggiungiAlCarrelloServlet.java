@@ -27,8 +27,11 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			
 			Utente utente = (Utente)req.getSession().getAttribute("chiave_utente");
+			service.aggiungiAlCarrello(id, utente);
 			
-//			service.aggiungiAlCarrello(id, utente);
+			req.setAttribute("chiave_messaggio", "Prodotto aggiunto al carrello");
+			resp.sendRedirect(req.getContextPath() + "visualizzaProdottiUtente?chiave_messaggio=Prodotto aggiunto al carrello");
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

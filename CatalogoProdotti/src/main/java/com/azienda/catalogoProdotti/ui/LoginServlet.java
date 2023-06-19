@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 //			Utente utente = new Utente(email, password);
 
 			if (utente != null) {
-				req.setAttribute("chiave_utente", utente);
+				req.getSession().setAttribute("chiave_utente", utente);
 //				req.getRequestDispatcher("/jsp/HomepageNegozio.jsp").forward(req, resp);
 				resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente");
 			}

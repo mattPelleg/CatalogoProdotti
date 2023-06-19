@@ -152,16 +152,21 @@ public class ServiceProdotti {
 		}
 	}
 
-	public void aggiungiAlCarrello(Integer id, Utente utente) {
+	public void aggiungiAlCarrello(Integer id, Utente utenteLoggato) {
 		try {
 			em.getTransaction().begin();
 			
-			List<Utente> utentiDb = utenteDao.findUtenteByEmail(utente.getEmail());
+			List<Utente> utentiDb = utenteDao.findUtenteByEmail(utenteLoggato.getEmail());
+			
 			Utente utenteDb = utentiDb.get(0);
 			
 			Prodotto prodottoDb = prodottoDao.findById(id);
 			
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
+			
+			if(prodottoDb.getListaCarrelli().contains(carrelloUtente)) {
+				
+			}
 			
 			prodottoDb.getListaCarrelli().add(carrelloUtente);
 			
