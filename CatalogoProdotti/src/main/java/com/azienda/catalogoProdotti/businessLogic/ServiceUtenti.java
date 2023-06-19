@@ -12,6 +12,7 @@ import com.azienda.catalogoProdotti.dao.UtenteDao;
 import com.azienda.catalogoProdotti.exception.DatiNonValidiException;
 import com.azienda.catalogoProdotti.exception.UtenteDuplicatoException;
 import com.azienda.catalogoProdotti.exception.UtenteNonRegistratoException;
+import com.azienda.catalogoProdotti.model.Carrello;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Profilo;
 import com.azienda.catalogoProdotti.model.Utente;
@@ -52,6 +53,7 @@ public class ServiceUtenti {
 
 			Utente u = new Utente(email, password);
 			Profilo profilo;
+			Carrello carrelloUtente = new Carrello();
 
 			List<Profilo> listaProfilo = profiloDao.findProfiloByNome("simpleUser");
 			if (listaProfilo.size() == 1) {
@@ -59,12 +61,14 @@ public class ServiceUtenti {
 				u.setProfiloUtente(profilo);
 			} else {
 				profilo = new Profilo("simpleUser");
-				u.setProfiloUtente(profilo); // associ l'utente al profilo
+				u.setProfiloUtente(profilo); // associa l'utente al profilo
 			}
 
+			u.setCarrelloUtente(carrelloUtente);
 			utenteDao.create(u);
 			profiloDao.create(profilo);
-
+			carrelloDao.create(carrelloUtente);
+			
 			em.getTransaction().commit();
 
 			return u;

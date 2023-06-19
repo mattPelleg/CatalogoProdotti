@@ -12,7 +12,9 @@ import com.azienda.catalogoProdotti.dao.ProfiloDao;
 import com.azienda.catalogoProdotti.dao.UtenteDao;
 import com.azienda.catalogoProdotti.exception.DatiNonValidiException;
 import com.azienda.catalogoProdotti.exception.ProdottoDuplicatoException;
+import com.azienda.catalogoProdotti.model.Carrello;
 import com.azienda.catalogoProdotti.model.Prodotto;
+import com.azienda.catalogoProdotti.model.Utente;
 
 public class ServiceProdotti {
 	private EntityManager em;
@@ -119,33 +121,52 @@ public class ServiceProdotti {
 		}
 	}
 
-	
 	/**
-	 * DA CORREGGERE:
-	 * - ricerca con nome e prezzo vuoti va in eccezione
-	 * - ricerca con solo il nome va in eccezione
-	 * - ricerca con solo il prezzo, non da nessun risultato
+	 * DA CORREGGERE: - ricerca con nome e prezzo vuoti va in eccezione - ricerca
+	 * con solo il nome va in eccezione - ricerca con solo il prezzo, non da nessun
+	 * risultato
 	 */
 	public List<Prodotto> ricercaProdotti(String nome, Float prezzo) {
-	
+
 		try {
 			List<Prodotto> ricercaProdotti = new ArrayList<>();
 			em.getTransaction().begin();
-			
+
 			if (nome != null && !nome.isBlank() && prezzo != null && prezzo > 0)
 				ricercaProdotti = prodottoDao.findProdottoByNomeAndPrezzoLike(nome, prezzo);
-			
+
 			else if (nome != null && !nome.isBlank())
 				ricercaProdotti = prodottoDao.findProdottoByNomeLike(nome);
-			
+
 			else if (prezzo != null && prezzo > 0)
 				ricercaProdotti = prodottoDao.findProdottoByPrezzoLike(prezzo);
-			
+
 			else
 				ricercaProdotti = prodottoDao.retrieve();
 			em.getTransaction().commit();
-			
+
 			return ricercaProdotti;
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			throw e;
+		}
+	}
+
+	public void aggiungiAlCarrello(Integer id, Utente utente) {
+		try {
+			em.getTransaction().begin();
+			
+			List<Utente> utentiDb = utenteDao.findUtenteByEmail(utente.getEmail());
+			Utente utenteDb = utentiDb.get(0);
+			
+			Prodotto prodottoDb = prodottoDao.findById(id);
+			
+			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
+			
+			prodottoDb.getListaCarrelli().add(carrelloUtente);
+			
+
+			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw e;

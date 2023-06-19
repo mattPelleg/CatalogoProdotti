@@ -37,10 +37,10 @@ public class LoginServlet extends HttpServlet {
 
 			// chiamata al metodo del service
 			ServiceUtenti service = (ServiceUtenti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_UTENTE);
-			service.cercaUtente(email, password);
+			Utente utente = service.cercaUtente(email, password);
 
 			// risposta
-			Utente utente = new Utente(email, password);
+//			Utente utente = new Utente(email, password);
 
 			if (utente != null) {
 				req.setAttribute("chiave_utente", utente);
