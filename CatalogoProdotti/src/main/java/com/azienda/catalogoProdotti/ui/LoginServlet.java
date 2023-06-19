@@ -44,7 +44,8 @@ public class LoginServlet extends HttpServlet {
 
 			if (utente != null) {
 				req.setAttribute("chiave_utente", utente);
-				req.getRequestDispatcher("/jsp/HomepageNegozio.jsp").forward(req, resp);
+//				req.getRequestDispatcher("/jsp/HomepageNegozio.jsp").forward(req, resp);
+				resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente");
 			}
 
 		} catch (DatiNonValidiException | UtenteNonRegistratoException e) {
@@ -54,6 +55,7 @@ public class LoginServlet extends HttpServlet {
 			req.getRequestDispatcher("/jsp/Login.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 			req.getRequestDispatcher("jsp/Registrazione.jsp").forward(req, resp);
 		}
 	}

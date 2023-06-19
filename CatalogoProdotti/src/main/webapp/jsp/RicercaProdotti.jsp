@@ -23,8 +23,8 @@
 %>
 	<h3>Form di ricerca prodotti</h3>
 	<form action="<%= formAction %>" method="post">
-  		nome <input type="text" name="nome"> <br>
-  		prezzo <input type="number" step="0.01" name="prezzo"> <br>
+  		nome: <input type="text" name="nome"> <br>
+  		prezzo: <input type="number" step="0.01" name="prezzo"> <br>
   		<input type="submit" value="Cerca">
  
  	</form>

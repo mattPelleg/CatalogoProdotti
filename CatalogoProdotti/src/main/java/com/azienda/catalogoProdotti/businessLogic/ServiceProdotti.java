@@ -119,6 +119,13 @@ public class ServiceProdotti {
 		}
 	}
 
+	
+	/**
+	 * DA CORREGGERE:
+	 * - ricerca con nome e prezzo vuoti va in eccezione
+	 * - ricerca con solo il nome va in eccezione
+	 * - ricerca con solo il prezzo, non da nessun risultato
+	 */
 	public List<Prodotto> ricercaProdotti(String nome, Float prezzo) {
 	
 		try {

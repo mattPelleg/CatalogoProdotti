@@ -50,6 +50,10 @@ public class InitServlet extends HttpServlet {
 			ServiceProdotti serviceProdotti = new ServiceProdotti(em, profiloDao, utenteDao, prodottoDao, carrelloDao, ordineDao);
 			
 			serviceUtenti.salvaAdmin("admin@gmail.com", "admin");
+			serviceProdotti.salvaProdotto("mayone", 3, 4f);
+			serviceProdotti.salvaProdotto("felpone", 3, 5f);
+			serviceProdotti.salvaProdotto("maglietta", 0, 5f);
+			
 			getServletContext().setAttribute(BUSINESS_LOGIC_UTENTE, serviceUtenti);
 			getServletContext().setAttribute(BUSINESS_LOGIC_PRODOTTO, serviceProdotti);
 
