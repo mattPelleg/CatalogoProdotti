@@ -31,11 +31,15 @@ public class InserisciUtenteServlet extends HttpServlet {
 			
 			//chiamata del metodo nella service
 			ServiceUtenti service = (ServiceUtenti)getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_UTENTE);
-			service.salvaUtente(email, password);
+			Utente utente = service.salvaUtente(email, password);
 			
 			//risposta
-			Utente utente = new Utente(email, password); 
+//			Utente utente = new Utente(email, password); 
 			
+			/* Se l'utente che mi restituisce la query sulla
+			 * 34  esiste, allora rimando la richiesta http
+			 * alla pagina di login, altrimenti andrò a gestire
+			 * la risposta nelle eccezioni*/
 			if(utente != null) {
 				req.setAttribute("chiave_utente", utente);
 				req.getRequestDispatcher("/jsp/Login.jsp").forward(req, resp);

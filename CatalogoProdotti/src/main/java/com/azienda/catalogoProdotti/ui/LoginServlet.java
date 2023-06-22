@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
 			String email = req.getParameter("emailFormInput");
 			String password = req.getParameter("passwordFormInput");
 
+			//Controllo login dell'admin
 			if (email.equals("admin@gmail.com") && password.equals("admin")) {
 				req.setAttribute("chiave_admin", new Utente("admin@gmail.com", "admin"));
 				req.getRequestDispatcher("/jsp/HomepageAdmin.jsp").forward(req, resp);

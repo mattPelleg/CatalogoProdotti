@@ -45,10 +45,10 @@ public class InitServlet extends HttpServlet {
 			CarrelloDao carrelloDao = new CarrelloDao(em);
 			OrdineDao ordineDao = new OrdineDao(em);
 			
-			//Creazione admin fisso
 			ServiceUtenti serviceUtenti = new ServiceUtenti(em, profiloDao, utenteDao, prodottoDao, carrelloDao, ordineDao);
 			ServiceProdotti serviceProdotti = new ServiceProdotti(em, profiloDao, utenteDao, prodottoDao, carrelloDao, ordineDao);
 			
+			//Creazione admin e prodotti fissi
 			serviceUtenti.salvaAdmin("admin@gmail.com", "admin");
 			serviceProdotti.salvaProdotto("mayone", 3, 4f);
 			serviceProdotti.salvaProdotto("felpone", 3, 5f);
