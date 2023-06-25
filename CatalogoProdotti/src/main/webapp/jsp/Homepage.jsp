@@ -12,7 +12,9 @@
 <body>
 	<h1>Mayone & Mayoni</h1>
 
-	<jsp:include page="/jsp/Menu.jsp"></jsp:include>
+	<div>
+		<jsp:include page="/jsp/Menu.jsp"></jsp:include>	
+	</div>
 
 </body>
 </html>
