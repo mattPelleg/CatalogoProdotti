@@ -37,7 +37,6 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 			req.setAttribute("Chiave_messaggio", message);
 			resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente?Chiave_messaggio=" + message);
 			
-		
 			
 		} catch (Exception e) {
 			e.printStackTrace();
