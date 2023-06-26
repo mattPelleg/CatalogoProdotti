@@ -15,5 +15,5 @@
 	<a href="<%=prodottiUrl%>">Prodotti</a> &nbsp;
 	<a href="<%=registrazioneUrl%>">Registrati</a> &nbsp;
 	<a href="<%=loginUrl%>">Login</a> &nbsp;
-	<a href="<%=logoutUrl%>">Logout</a> &nbsp;
+<%-- 	<a href="<%=logoutUrl%>">Logout</a> &nbsp; --%>
 </nav>

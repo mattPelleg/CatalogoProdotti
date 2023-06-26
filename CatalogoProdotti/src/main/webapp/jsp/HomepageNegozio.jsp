@@ -11,14 +11,23 @@
 </head>
 <body>
 <jsp:include page="/jsp/Menu.jsp"></jsp:include><br>
+
+
 <%
 	String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
 	String carrello = baseUrl + "/visualizzaCarrello";
+	
+	String logoutUrl = baseUrl + "/jsp/Homepage.jsp";
 	//Utente utenteLoggato = (Utente)request.getAttribute("chiave_utente");
+	
 	Utente utenteLoggato = (Utente)session.getAttribute("chiave_utente");
 	String urlAggiungiAlCarrello = request.getContextPath() + "/aggiungiAlCarrello";
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdottiUtente");
 %>
+
+<div>
+	<a href="<%=logoutUrl%>">Logout</a> &nbsp;
+</div>
 
 	<h1>Mayone & Mayoni</h1>
 	

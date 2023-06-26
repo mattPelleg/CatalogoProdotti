@@ -24,18 +24,42 @@ public class CercaProdottoServlet extends HttpServlet {
 		try {
 			String nome = req.getParameter("nome");
 			//QUI VA IN ECCEZIONE, DA RISOLVERE
-			Float prezzo = Float.parseFloat(req.getParameter("prezzo"));
-			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
-			List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome,prezzo);
+			/**
+			 * Va in eccezione perchè quando non si inserisce niente nel campo
+			 * prezzo, il parseFloat va in eccezione e quindi nel service non 
+			 * passiamo mai ai controlli, quindi bisonga aggiungere un controllo qui
+			 */
+			//prendo il prezzo inserito nella form di ricerca come stringa
+			String prezzoStringa = req.getParameter("prezzo");
+			//se è diversa da isBlank, ovvero è stato inserito un valore
+			if(!prezzoStringa.isBlank()) {
+				//mi prendo il float con il parse float
+				Float prezzo = Float.parseFloat(req.getParameter("prezzo"));
+				
+				//e cerco la lista di prodotti con il prezzo float
+				ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
+				List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzo);
+				req.setAttribute("Chiave_ricerca", ricercaProdotti);
+				req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);
+			}
+			else {
+				//se invece non è stato inserito un valore nella form
+				//uso come valore del prezzo un float = a null
+				Float prezzoNull = null;
+				ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
+				List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzoNull);
+				req.setAttribute("Chiave_ricerca", ricercaProdotti);
+				req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);
+				
+			}
+				
 
-			req.setAttribute("Chiave_ricerca", ricercaProdotti);
-			req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			String message = "Errore imprevisto";
 			req.setAttribute("Chiave_messaggio", message);
-			req.getRequestDispatcher("jsp/Messaggio.jsp").forward(req, resp);
+			req.getRequestDispatcher("jsp/RicercaProdotti.jsp").forward(req, resp);
 		}
 	}
 }

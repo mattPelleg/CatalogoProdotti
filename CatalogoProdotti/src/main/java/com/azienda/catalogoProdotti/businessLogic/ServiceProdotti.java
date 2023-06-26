@@ -143,6 +143,7 @@ public class ServiceProdotti {
 
 			else
 				ricercaProdotti = prodottoDao.retrieve();
+			
 			em.getTransaction().commit();
 
 			return ricercaProdotti;

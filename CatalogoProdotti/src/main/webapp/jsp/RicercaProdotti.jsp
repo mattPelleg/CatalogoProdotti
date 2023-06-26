@@ -30,29 +30,33 @@
  	</form>
  
 <%if(listaProdotti != null && !listaProdotti.isEmpty()) {%> 	
- 		<h3>Risultato Ricerca</h3>
+ 	<h3>Risultato Ricerca</h3>
 	<table border=1>
-		<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Modifica</th><th>Cancella</th></tr>
-		<%for(Prodotto p : listaProdotti) {%>
+	<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Modifica</th><th>Cancella</th></tr>
+	<%for(Prodotto p : listaProdotti) {%>
 		<%if(p.isCancellato() == false) { %>		
-		<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
+			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
 			<td>
 				<form action="<%= urlModifica %>" method="post">
-				<input type="hidden" name="id" value="<%= p.getId() %>">
-				<input type="submit" value="modifica">
+					<input type="hidden" name="id" value="<%= p.getId() %>">
+					<input type="submit" value="modifica">
 				</form>
 			</td>
 			
 			<td>
 				<form action="<%= urlCancella %>" method="post">
-				<input type="hidden" name="id" value="<%= p.getId() %>">
-				<input type="submit" value="cancella">
+					<input type="hidden" name="id" value="<%= p.getId() %>">
+					<input type="submit" value="cancella">
 				</form>
 			</td>
 		</tr>
 		<%} %>	
+	<%} %>
 	</table>
-	<%	}%>
-<%	}%>
+<%} %>
+
+<%if(request.getAttribute("Chiave_messaggio") != null) {%>
+	<%=request.getAttribute("Chiave_messaggio") %>
+<%} %>
 </body>
 </html>
