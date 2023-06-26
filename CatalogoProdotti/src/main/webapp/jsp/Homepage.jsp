@@ -11,7 +11,7 @@
 <body>
 	<h1>Mayone & Mayoni</h1>
 	
-	<img alt="cime_di_lavaredo" src="../static/tre_cime_lavaredo.jpg">
+<!-- 	<img alt="cime_di_lavaredo" src="../static/tre_cime_lavaredo.jpg"> -->
 
 	<div>
 		<jsp:include page="/jsp/Menu.jsp"></jsp:include>	

@@ -10,9 +10,10 @@
 	String prodottiUrl = baseUrl + "/jsp/ElencoProdotti.jsp";
 	String logoutUrl = baseUrl + "/jsp/Homepage.jsp";
 %>
-
-<a href="<%=registrazioneUrl%>">Registrati</a> &nbsp;
-<a href="<%=loginUrl%>">Login</a> &nbsp;
-<a href="<%=homePageUrl%>">Home</a> &nbsp;
-<a href="<%=prodottiUrl%>">Prodotti</a> &nbsp;
-<a href="<%=logoutUrl%>">Logout</a> &nbsp;
+<nav>
+	<a href="<%=homePageUrl%>">Home</a> &nbsp;
+	<a href="<%=prodottiUrl%>">Prodotti</a> &nbsp;
+	<a href="<%=registrazioneUrl%>">Registrati</a> &nbsp;
+	<a href="<%=loginUrl%>">Login</a> &nbsp;
+	<a href="<%=logoutUrl%>">Logout</a> &nbsp;
+</nav>

@@ -30,10 +30,7 @@ public class InserisciAdminServlet extends HttpServlet {
 			ServiceUtenti service = (ServiceUtenti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_UTENTE);
 			Utente admin = service.salvaAdmin(email, password);
 
-			// Utente admin = new Utente(email, password);
-
 			if (admin != null) {
-//				req.setAttribute("chiave_admin", admin);
 				req.setAttribute("chiave_adminInserito", "Inserimento admin riuscito");
 				req.getRequestDispatcher("/jsp/HomepageAdmin.jsp").forward(req, resp);
 			}
