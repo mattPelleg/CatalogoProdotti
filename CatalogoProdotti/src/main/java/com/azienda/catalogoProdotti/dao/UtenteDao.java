@@ -33,6 +33,18 @@ public class UtenteDao implements DaoInterface<Utente> {
 	public void delete(Utente object) {
 		this.em.remove(object);
 	}
+	
+	/**
+	 * Metodo che restituisce la lista di utenti
+	 * cercando per id, quindi per pk
+	 * 
+	 * @param id l'id dell'utente
+	 * @return la lista di utenti
+	 */
+	public List<Utente> findUtenteById(Integer id) {
+		return this.em.createQuery("select u from Utente u where u.id = :parId", Utente.class).
+				setParameter("parId", id).getResultList();
+	}
 
 	/**
 	 * Metodo che restituisce la lista di utenti

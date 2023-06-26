@@ -32,7 +32,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			List<Prodotto> listaProdottiCarrello = carrello.getListaProdottiCarrello(); //colleghiamo lista prodotti al carrello
 			//se la lista è vuota invertire relazione o svuotare la cache em.clear
 			
-			listaProdottiCarrello.add(new Prodotto("borsa", 2, 3f));
+//			listaProdottiCarrello.add(new Prodotto("borsa", 2, 3f));
 			req.setAttribute("chiave_listaCarrello", listaProdottiCarrello);
 			req.getRequestDispatcher("/jsp/VisualizzaCarrello.jsp").forward(req, resp);
 		//	resp.sendRedirect(req.getContextPath()+"/visualizzaCarrello");

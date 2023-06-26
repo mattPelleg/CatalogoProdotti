@@ -45,7 +45,7 @@
 	<table border=1>
 		<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Aggiungi al carrello</th></tr>
 		<%for(Prodotto p : listaProdotti) {%>
-		<%if(p.isCancellato() == false && p.getDisponibilita() >0) { %>		
+		<%if(p.isCancellato() == false && p.getDisponibilita() > 0) { %>		
 		<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
 	
 			<td>

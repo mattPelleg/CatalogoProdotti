@@ -10,27 +10,27 @@
 </head>
 <body>
 <% 
-		String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-		String homePageAdmin = baseUrl + "/jsp/HomepageAdmin.jsp";
-		String visualizzaUtentiUrl = request.getContextPath()+ "/visualizzaUtenti";
+	String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+	String homePageAdmin = baseUrl + "/jsp/HomepageAdmin.jsp";
+	String visualizzaUtentiUrl = request.getContextPath()+ "/visualizzaUtenti";
 
-		String webApp = request.getContextPath();
-		String formAction = webApp + "/ricerca";
-		List<Prodotto> listaProdotti = (List<Prodotto>) request.getAttribute("Chiave_ricerca");
+	String webApp = request.getContextPath();
+	String formAction = webApp + "/ricerca";
+	List<Prodotto> listaProdotti = (List<Prodotto>) request.getAttribute("chiave_ricerca");
 		
-		String urlModifica = request.getContextPath() + "/goToModifica";
-		String urlCancella = request.getContextPath() + "/delete";		
+	String urlModifica = request.getContextPath() + "/goToModifica";
+	String urlCancella = request.getContextPath() + "/delete";		
 %>
-	<h3>Form di ricerca prodotti</h3>
-	<form action="<%= formAction %>" method="post">
-  		nome: <input type="text" name="nome"> <br>
-  		prezzo: <input type="number" step="0.01" name="prezzo"> <br>
-  		<input type="submit" value="Cerca">
+<h3>Form di ricerca prodotti</h3>
+<form action="<%= formAction %>" method="post">
+  	nome: <input type="text" name="nome"> <br>
+  	prezzo: <input type="number" step="0.01" name="prezzo"> <br>
+  	<input type="submit" value="Cerca">
  
- 	</form>
+ </form>
  
+ <h3>Risultato Ricerca</h3>
 <%if(listaProdotti != null && !listaProdotti.isEmpty()) {%> 	
- 	<h3>Risultato Ricerca</h3>
 	<table border=1>
 	<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Modifica</th><th>Cancella</th></tr>
 	<%for(Prodotto p : listaProdotti) {%>
@@ -53,10 +53,13 @@
 		<%} %>	
 	<%} %>
 	</table>
+<%} else {%>
+	<p>Lista vuota, effettua una ricerca</p>
 <%} %>
 
-<%if(request.getAttribute("Chiave_messaggio") != null) {%>
-	<%=request.getAttribute("Chiave_messaggio") %>
+
+<%if(request.getAttribute("chiave_messaggio") != null) {%>
+	<%=request.getAttribute("chiave_messaggio") %>
 <%} %>
 </body>
 </html>

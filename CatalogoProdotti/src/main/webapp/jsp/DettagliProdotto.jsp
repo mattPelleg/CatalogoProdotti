@@ -14,13 +14,12 @@
  %>
  
  <form action="<%= urlUpdate %>" method="post">
-  nome <input type="text" name="name" value= "<%= prodotto.getNome() %>"> <br>
-  disponibilita <input type="number" name="disponibilita" value= "<%=prodotto.getDisponibilita()%>"> <br>
-  prezzo <input type="number" step="0.01" name="prezzo" value="<%=prodotto.getPrezzo()%>"> <br>
-  <input type="submit" value="Modifica">
+ 	 nome <input type="text" name="nome" value= "<%= prodotto.getNome() %>"> <br>
+ 	disponibilita <input type="number" name="disponibilita" value= "<%=prodotto.getDisponibilita()%>"> <br>
+  	prezzo <input type="number" step="0.01" name="prezzo" value="<%=prodotto.getPrezzo()%>"> <br>
+  	<input type="submit" value="Modifica">
   
-  <input type="hidden" name="id" value="<%= prodotto.getId()%>">
- 
+  	<input type="hidden" name="id" value="<%= prodotto.getId()%>">
  </form>
 
 </body>

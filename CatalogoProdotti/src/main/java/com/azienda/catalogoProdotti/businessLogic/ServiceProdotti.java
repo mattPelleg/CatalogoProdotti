@@ -157,7 +157,7 @@ public class ServiceProdotti {
 		try {
 			em.getTransaction().begin();
 			
-			List<Utente> utentiDb = utenteDao.findUtenteByEmail(utenteLoggato.getEmail());
+			List<Utente> utentiDb = utenteDao.findUtenteById(utenteLoggato.getId());
 			
 			Utente utenteDb = utentiDb.get(0);
 			

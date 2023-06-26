@@ -39,7 +39,7 @@ public class CercaProdottoServlet extends HttpServlet {
 				//e cerco la lista di prodotti con il prezzo float
 				ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 				List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzo);
-				req.setAttribute("Chiave_ricerca", ricercaProdotti);
+				req.setAttribute("chiave_ricerca", ricercaProdotti);
 				req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);
 			}
 			else {
@@ -48,7 +48,7 @@ public class CercaProdottoServlet extends HttpServlet {
 				Float prezzoNull = null;
 				ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 				List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzoNull);
-				req.setAttribute("Chiave_ricerca", ricercaProdotti);
+				req.setAttribute("chiave_ricerca", ricercaProdotti);
 				req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);
 				
 			}
@@ -58,7 +58,7 @@ public class CercaProdottoServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			String message = "Errore imprevisto";
-			req.setAttribute("Chiave_messaggio", message);
+			req.setAttribute("chiave_messaggio", message);
 			req.getRequestDispatcher("jsp/RicercaProdotti.jsp").forward(req, resp);
 		}
 	}

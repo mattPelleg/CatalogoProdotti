@@ -11,20 +11,20 @@
 <body>
 
 <% 
-		String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-		String homePageAdmin = baseUrl + "/jsp/HomepageAdmin.jsp";
-		String visualizzaUtentiUrl = request.getContextPath()+ "/visualizzaUtenti";
-		String ricercaProdottiUrl = baseUrl + "/jsp/RicercaProdotti.jsp";
+	String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+	String homePageAdmin = baseUrl + "/jsp/HomepageAdmin.jsp";
+	String visualizzaUtentiUrl = request.getContextPath()+ "/visualizzaUtenti";
+	String ricercaProdottiUrl = baseUrl + "/jsp/RicercaProdotti.jsp";
 		
-		String urlModifica = request.getContextPath() + "/goToModifica";
-		String urlCancella = request.getContextPath() + "/delete";		
-		String urlCreaProdotto = request.getContextPath() + "/creaProdotto";	
-		List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdotti");
+	String urlModifica = request.getContextPath() + "/goToModifica";
+	String urlCancella = request.getContextPath() + "/delete";		
+	String urlCreaProdotto = request.getContextPath() + "/creaProdotto";	
+	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdotti");
 %>
 	<h1>Pagina gestione prodotti</h1>
-<a href="<%= homePageAdmin%>"> HomePage Admin </a> &nbsp; &nbsp;
-<a href="<%= visualizzaUtentiUrl%>"> Visualizza utenti </a> &nbsp; &nbsp;
-<a href="<%= ricercaProdottiUrl%>"> Ricerca prodotti</a>
+	<a href="<%= homePageAdmin%>"> HomePage Admin </a> &nbsp; &nbsp;
+	<a href="<%= visualizzaUtentiUrl%>"> Visualizza utenti </a> &nbsp; &nbsp;
+	<a href="<%= ricercaProdottiUrl%>"> Ricerca prodotti</a>
 	
 	<h3>Form inserisci prodotto</h3>
 	<form action="<%= urlCreaProdotto %>"method="post">

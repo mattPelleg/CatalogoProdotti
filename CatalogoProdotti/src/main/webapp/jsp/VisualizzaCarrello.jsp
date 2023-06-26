@@ -16,7 +16,7 @@ List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_list
 %>
 <h1> Carrello utente </h1>
  <%if(listaProdotti != null && listaProdotti.size()==0) {%> 	
- 		<p> Lista prodotti vuota </p>
+ 		<p> Carrello vuoto </p>
 	<% } else{ %> 
 	<table border=1>
 		<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Rimuovi dal carrello</th></tr>
