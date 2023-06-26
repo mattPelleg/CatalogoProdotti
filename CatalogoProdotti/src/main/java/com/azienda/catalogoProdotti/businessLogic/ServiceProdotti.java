@@ -153,26 +153,28 @@ public class ServiceProdotti {
 		}
 	}
 
-	public void aggiungiAlCarrello(Integer id, Utente utenteLoggato) {
+	public void aggiungiAlCarrello(Integer idProdotto, Utente utenteLoggato) {
 		try {
 			em.getTransaction().begin();
 			
+			//prendo l'utente dalla lista di utenti nel db, è un ulteriore controllo
 			List<Utente> utentiDb = utenteDao.findUtenteById(utenteLoggato.getId());
-			
 			Utente utenteDb = utentiDb.get(0);
 			
-			Prodotto prodottoDb = prodottoDao.findById(id);
+			//tramite l'id del prodotto, prendo il prodotto da aggiungere al carrello
+			Prodotto prodottoDb = prodottoDao.findById(idProdotto);
 			
+			//prendo il carrello dell'utente
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
 			
-			if(prodottoDb.getListaCarrelli().contains(carrelloUtente)) {
-				
-			}
-			
-			prodottoDb.getListaCarrelli().add(carrelloUtente);
-			
+			/*
+			 * Adesso bisogna settare l'associazione tra prodotto - carrello
+			 * dalla parte di prodotto (prodotto contiene la join table della
+			 * relazione molti-molti)
+			 */
 
 			em.getTransaction().commit();
+			
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw e;

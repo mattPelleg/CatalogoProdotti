@@ -47,11 +47,10 @@
 		<%for(Prodotto p : listaProdotti) {%>
 		<%if(p.isCancellato() == false && p.getDisponibilita() > 0) { %>		
 		<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
-	
 			<td>
 				<form action="<%= urlAggiungiAlCarrello %>" method="post">
-				<input type="hidden" name="id" value="<%= p.getId() %>">
-				<input type="submit" value="aggiungi">
+					<input type="hidden" name="idProdotto" value="<%= p.getId() %>">
+					<input type="submit" value="aggiungi">
 				</form>
 			</td>
 		</tr>

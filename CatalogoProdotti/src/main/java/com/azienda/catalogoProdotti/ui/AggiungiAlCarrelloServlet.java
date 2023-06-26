@@ -26,12 +26,15 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			
-			String idStringa = req.getParameter("id");
-			Integer id = Integer.parseInt(idStringa);
+			//prendo i dati da homepageNegozio.jsp
+//			String idStringa = req.getParameter("idProdotto");
+//			Integer id = Integer.parseInt(idStringa);
+			
+			Integer idProdottoDaAggiungereAlCarrello = Integer.parseInt(req.getParameter("idProdotto"));
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			
 			Utente utente = (Utente)req.getSession().getAttribute("chiave_utente");
-			service.aggiungiAlCarrello(id, utente);
+			service.aggiungiAlCarrello(idProdottoDaAggiungereAlCarrello, utente);
 			
 			String message = "Prodotto aggiunto al carrello";
 			req.setAttribute("Chiave_messaggio", message);
