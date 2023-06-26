@@ -1,4 +1,3 @@
-<%@page import="com.azienda.catalogoProdotti.model.Utente"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +10,8 @@
 </head>
 <body>
 	<h1>Mayone & Mayoni</h1>
+	
+	<img alt="cime_di_lavaredo" src="../static/tre_cime_lavaredo.jpg">
 
 	<div>
 		<jsp:include page="/jsp/Menu.jsp"></jsp:include>	
