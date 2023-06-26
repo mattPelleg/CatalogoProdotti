@@ -122,9 +122,15 @@ public class ServiceProdotti {
 	}
 
 	/**
-	 * DA CORREGGERE: - ricerca con nome e prezzo vuoti va in eccezione - ricerca
-	 * con solo il nome va in eccezione - ricerca con solo il prezzo, non da nessun
-	 * risultato
+	 * Metodo che ricerca i prodotti in base al nome ed al prezzo, 
+	 * oppure in base solo al nome, o in base solo al prezzo
+	 * o se entrambi sono campi vuoti allora restituisce tutti
+	 * i prodotti
+	 * 
+	 * @param nome il nome del prodotto cercato
+	 * @prezzo il prezzo del prodotto cercato
+	 * 
+	 * @return la lista con i prodotti cercati
 	 */
 	public List<Prodotto> ricercaProdotti(String nome, Float prezzo) {
 
@@ -153,6 +159,12 @@ public class ServiceProdotti {
 		}
 	}
 
+	/**
+	 * Metodo che aggiunge un prodotto al carrello del'ytente
+	 * 
+	 * @param idProdotto l'id del prodotto da aggiungere
+	 * @param utenteLoggato l'utente in sessione
+	 */
 	public void aggiungiAlCarrello(Integer idProdotto, Utente utenteLoggato) {
 		try {
 			em.getTransaction().begin();
