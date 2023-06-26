@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.azienda.catalogoProdotti.model.Carrello;
+import com.azienda.catalogoProdotti.model.Prodotto;
 
 public class CarrelloDao implements DaoInterface<Carrello>{
 	
@@ -39,5 +40,6 @@ public class CarrelloDao implements DaoInterface<Carrello>{
 	public void delete(Carrello object) {
 		this.em.remove(object);
 	}
+	
 
 }

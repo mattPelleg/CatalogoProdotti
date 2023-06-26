@@ -167,12 +167,20 @@ public class ServiceProdotti {
 			//prendo il carrello dell'utente
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
 			
+			//prima di aggiungere il prodotto nel carrello, controllo
+			//se nel carrello dell'utente c'è già quel prodotto
+			//@toDo
+			
+			//e ci aggiungo il prodotto
+			carrelloUtente.getListaProdottiCarrello().add(prodottoDb);
+			
 			/*
 			 * Adesso bisogna settare l'associazione tra prodotto - carrello
 			 * dalla parte di prodotto (prodotto contiene la join table della
 			 * relazione molti-molti)
 			 */
-
+			prodottoDb.getListaCarrelli().add(carrelloUtente);
+			
 			em.getTransaction().commit();
 			
 		} catch (Exception e) {
