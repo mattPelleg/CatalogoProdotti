@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ricerca Prodotti</title>
+
 </head>
 <body>
 <% 

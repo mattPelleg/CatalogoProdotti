@@ -11,8 +11,8 @@
 <body>
 
 <%
-String urlRimuovi = request.getContextPath() + "/visualizzaCarrello";
-List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
+	String urlRimuovi = request.getContextPath() + "/visualizzaCarrello";
+	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
 %>
 <h1> Carrello utente </h1>
  <%if(listaProdotti != null && listaProdotti.size()==0) {%> 	

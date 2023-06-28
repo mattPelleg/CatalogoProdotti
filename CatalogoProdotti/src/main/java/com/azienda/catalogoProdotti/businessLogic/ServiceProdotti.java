@@ -181,7 +181,7 @@ public class ServiceProdotti {
 			
 			//prima di aggiungere il prodotto nel carrello, controllo
 			//se nel carrello dell'utente c'è già quel prodotto
-			//@toDo
+			
 			
 			//e ci aggiungo il prodotto
 			carrelloUtente.getListaProdottiCarrello().add(prodottoDb);

@@ -29,10 +29,13 @@ public class Prodotto {
 
 	private boolean cancellato = false;
 
-	@ManyToMany
-	@JoinTable(name = "ProdottoOrdine", joinColumns =
-	@JoinColumn(name = "Id_Prodotto"), inverseJoinColumns =
-	@JoinColumn(name = "Id_Ordine"))
+//	@ManyToMany
+//	@JoinTable(name = "ProdottoOrdine", joinColumns =
+//	@JoinColumn(name = "Id_Prodotto"), inverseJoinColumns =
+//	@JoinColumn(name = "Id_Ordine"))
+//	private List<Ordine> listaOrdini = new ArrayList<>();
+	
+	@ManyToMany(mappedBy = "listaOrdineProdotti")
 	private List<Ordine> listaOrdini = new ArrayList<>();
 
 	@ManyToMany
@@ -40,6 +43,7 @@ public class Prodotto {
 	@JoinColumn(name = "Id_Prodotto"), inverseJoinColumns =
 	@JoinColumn(name = "Id_Carrello"))
 	private List<Carrello> listaCarrelli = new ArrayList<>();
+	
 
 	public Prodotto() {
 	}
