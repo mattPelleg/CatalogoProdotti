@@ -41,5 +41,13 @@ public class CarrelloDao implements DaoInterface<Carrello>{
 		this.em.remove(object);
 	}
 	
-
+	public List<Prodotto> cercaProdottiInCarrello(Integer idCarrello) {
+//		return this.em.createQuery("select p from Prodotto p where p.id = :idProdotto", Prodotto.class).
+//				setParameter("idProdotto", idProdotto).getResultList();
+//		return this.em.createQuery("select p from Prodotto p where p.id = :idProdotto", Prodotto.class)
+//				.setParameter("idProdotto", idProdotto).getResultList();
+		return this.em.createQuery("select p from Prodotto join p.carrello c where c.id = :idCarrello", Prodotto.class)
+			.setParameter("idProdotto", idCarrello).getResultList();
+		
+	}
 }

@@ -179,13 +179,12 @@ public class ServiceProdotti {
 			//prendo il carrello dell'utente
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
 			
-			//prima di aggiungere il prodotto nel carrello, controllo
-			//se nel carrello dell'utente c'è già quel prodotto
-			
 			
 			//e ci aggiungo il prodotto
 			carrelloUtente.getListaProdottiCarrello().add(prodottoDb);
 			
+			//prima di aggiungere il prodotto nel carrello, controllo
+			//se nel carrello dell'utente c'è già quel prodotto
 			/*
 			 * Adesso bisogna settare l'associazione tra prodotto - carrello
 			 * dalla parte di prodotto (prodotto contiene la join table della
@@ -193,6 +192,9 @@ public class ServiceProdotti {
 			 */
 			prodottoDb.getListaCarrelli().add(carrelloUtente);
 			
+			List<Prodotto> listaProdottiNelCarrello = this.carrelloDao.cercaProdottiInCarrello(carrelloUtente.getId());
+			for(Prodotto p: listaProdottiNelCarrello) 
+				System.out.println(p.getNome());
 			em.getTransaction().commit();
 			
 		} catch (Exception e) {
