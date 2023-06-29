@@ -11,6 +11,10 @@
 <body>
 
 <%
+	String baseUrl = "http://" + request.getServerName() + ":" +
+		request.getServerPort() + request.getContextPath();
+	String homepageNegozioUrl = request.getContextPath() + "/visualizzaProdottiUtente";
+
 	String urlCreaOrdine = request.getContextPath() + "/creaOrdine";
 
 	String messaggioRisultatoCreaOrdine = (String) request.getAttribute("chiave_risultatoCreaOrdine");
@@ -21,13 +25,17 @@
 
 	<h1>Riepilogo Ordine</h1>
 	
+	<nav>
+		<a href="<%=homepageNegozioUrl %>">Torna alla home</a> &nbsp;
+	</nav>
+	
 	<%if(messaggioRisultatoCreaOrdine != null) {%>
 		<p><%=messaggioRisultatoCreaOrdine %></p>
 	<%} %>
 	
-	<%if(listaProdotti != null && listaProdotti.size()==0) {%> 	
+	<%if(listaProdotti != null && listaProdotti.isEmpty()) {%> 	
  		<p> Nessun prodotto nel carrello </p>
-	<% } else{ %> 
+	<% } else { %> 
 	<table border=1>
 		<tr><th>Nome</th><th>Prezzo</th><th>Immagine</th></tr>
 		<%for(Prodotto p : listaProdotti) {%>
@@ -41,7 +49,6 @@
 		<form action="<%=urlCreaOrdine %>" method="POST">
 			<input type="submit" value="Conferma Ordine">
 		</form>
-		
 	<%} %>
 </body>
 </html>

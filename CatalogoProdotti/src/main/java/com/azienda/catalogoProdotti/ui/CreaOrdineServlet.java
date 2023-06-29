@@ -35,10 +35,10 @@ public class CreaOrdineServlet extends HttpServlet {
 			prodotti.addAll(listaProdottiCarrello);
 			
 			
-			
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			service.creaOrdine(prodotti, utenteInSessione);
 			service.svuotaCarrello(utenteInSessione);
+//			service.aggiornaDisponibilita(prodotti);
 			
 			req.setAttribute("chiave_risultatoCreaOrdine", "Ordine confermato");
 			req.getRequestDispatcher("/jsp/ProcediAllOrdine.jsp").forward(req, resp);

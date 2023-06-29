@@ -15,13 +15,14 @@
 
 <%
 	String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-	String carrello = baseUrl + "/visualizzaCarrello";
 	
+	String carrello = baseUrl + "/visualizzaCarrello";
 	String logoutUrl = baseUrl + "/jsp/Homepage.jsp";
-	//Utente utenteLoggato = (Utente)request.getAttribute("chiave_utente");
 	
 	Utente utenteLoggato = (Utente)session.getAttribute("chiave_utente");
 	String urlAggiungiAlCarrello = request.getContextPath() + "/aggiungiAlCarrello";
+	String visualizzaOrdiniUtente = request.getContextPath() + "/visualizzaOrdiniUtente";
+	
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdottiUtente");
 	
 	String messaggioRisultatoAggiungiAlCarrello = (String) request.getAttribute("chiave_risultatoAggiunta");
@@ -35,7 +36,8 @@
 	
 	<h3>Ciao <%=utenteLoggato.getEmail() %></h3> <br>
 	
-	<a href="<%= carrello%>"> Visualizza carrello </a> 
+	<a href="<%= carrello%>"> Visualizza carrello </a> &nbsp;
+	<a href = "<%= visualizzaOrdiniUtente%>"> Visualizza Ordini </a> &nbsp;
 	
 	<h4>Elenco Prodotti</h4>
 	

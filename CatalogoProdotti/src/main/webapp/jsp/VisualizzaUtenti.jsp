@@ -12,12 +12,16 @@
 <body>
 <% 
 	String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+
 	String homePageAdmin = baseUrl + "/jsp/HomepageAdmin.jsp";
+	
 	String visualizzaProdottiUrl = request.getContextPath()+ "/visualizzaProdotti";
 	
 	List<Utente> listaUtenti = (List<Utente>) request.getAttribute("chiave_listaUtenti");
 %>
+
 <h1> Lista Utenti registrati</h1>
+
 <a href = "<%= homePageAdmin%>"> HomePage Admin </a> &nbsp;
 <a href = "<%= visualizzaProdottiUrl%>"> Visualizza Prodotti </a> &nbsp;
 

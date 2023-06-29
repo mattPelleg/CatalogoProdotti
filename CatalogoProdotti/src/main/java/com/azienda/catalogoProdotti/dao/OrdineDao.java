@@ -34,4 +34,9 @@ public class OrdineDao implements DaoInterface<Ordine> {
 		this.em.remove(object);
 	}
 
+	public List<Ordine> findOrdiniByIdUtente(Integer id) {
+		return this.em.createQuery("select o from Ordine o where o.utente = :idUtente", Ordine.class).
+				setParameter("idUtente", id).getResultList();
+	}
+
 }
