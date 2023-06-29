@@ -35,7 +35,7 @@
 	
 	<a href="<%= carrello%>"> Visualizza carrello </a> 
 	
-	<h4> Elenco Prodotti</h4>
+	<h4>Elenco Prodotti</h4>
 	<% if(request.getAttribute("Chiave_aggiornamento") != null) {%>
 		<p> <%= request.getAttribute("Chiave_aggiornamento")%></p>
 	<%} %>
@@ -58,6 +58,7 @@
 	<%} %>
 	</table>
 <%} %>
+
 
 	
 </body>

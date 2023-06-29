@@ -31,13 +31,13 @@ public class ModificaProdottoServlet extends HttpServlet {
 			service.modifica(id, nome, disponibilita, prezzo);
 			
 			String message = "Aggiornamento effettuato";
-			req.setAttribute("Chiave_messaggio", message);
-			resp.sendRedirect(req.getContextPath() + "/visualizzaProdotti?Chiave_messaggio=" + message);
+//			req.setAttribute("chiave_risultatoModificaProdotto", message);
+			resp.sendRedirect(req.getContextPath() + "/visualizzaProdotti?chiave_risultatoModificaProdotto=" + message);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			String message = "Aggiornamento non effettuato, problema non previsto";
-			req.setAttribute("Chiave_messaggio", message);
+			req.setAttribute("chiave_risultatoModificaProdotto", message);
 			req.getRequestDispatcher("jsp/DettagliProdotto.jsp").forward(req, resp);
 		}
 	

@@ -27,13 +27,13 @@ public class CancellaProdottoServlet extends HttpServlet {
 			service.cancella(id);
 			
 			String message = "Cancellazione effettuata";
-			req.setAttribute("Chiave_messaggio", message);
-			resp.sendRedirect(req.getContextPath() + "/visualizzaProdotti?Chiave_messaggio=" + message);
+//			req.setAttribute("Chiave_messaggio", message);
+			resp.sendRedirect(req.getContextPath() + "/visualizzaProdotti?chiave_risultatoCancellaProdotto=" + message);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			String message = "Cancellazione non effettuata, problema non previsto";
-			req.setAttribute("Chiave_messaggio", message);
+			req.setAttribute("chiave_risultatoCancellaProdotto", message);
 			req.getRequestDispatcher("/visualizzaProdotti").forward(req, resp);
 		}
 	}

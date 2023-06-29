@@ -164,8 +164,9 @@ public class ServiceProdotti {
 	 * 
 	 * @param idProdotto l'id del prodotto da aggiungere
 	 * @param utenteLoggato l'utente in sessione
+	 * @throws Exception 
 	 */
-	public void aggiungiAlCarrello(Integer idProdotto, Utente utenteLoggato) {
+	public void aggiungiAlCarrello(Integer idProdotto, Utente utenteLoggato) throws Exception {
 		try {
 			em.getTransaction().begin();
 			
@@ -179,9 +180,12 @@ public class ServiceProdotti {
 			//prendo il carrello dell'utente
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
 			
+			List<Prodotto> listaProdottiCarrelloUtente = carrelloUtente.getListaProdottiCarrello();
+			if(listaProdottiCarrelloUtente.contains(prodottoDb)) 
+				throw new ProdottoDuplicatoException("Il prodotto " + prodottoDb.getNome() + " è già nel carrello!", null);
 			
 			//e ci aggiungo il prodotto
-			carrelloUtente.getListaProdottiCarrello().add(prodottoDb);
+			listaProdottiCarrelloUtente.add(prodottoDb);
 			
 			//prima di aggiungere il prodotto nel carrello, controllo
 			//se nel carrello dell'utente c'è già quel prodotto
@@ -192,9 +196,6 @@ public class ServiceProdotti {
 			 */
 			prodottoDb.getListaCarrelli().add(carrelloUtente);
 			
-			List<Prodotto> listaProdottiNelCarrello = this.carrelloDao.cercaProdottiInCarrello(carrelloUtente.getId());
-			for(Prodotto p: listaProdottiNelCarrello) 
-				System.out.println(p.getNome());
 			em.getTransaction().commit();
 			
 		} catch (Exception e) {

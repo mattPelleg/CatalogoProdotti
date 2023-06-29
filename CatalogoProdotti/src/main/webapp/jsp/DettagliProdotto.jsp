@@ -9,8 +9,10 @@
 </head>
 <body>
  <% 
-  String urlUpdate= request.getContextPath()+"/modifica";
-  Prodotto prodotto =(Prodotto) request.getAttribute("dettagliProdotto");
+	String urlUpdate= request.getContextPath()+"/modifica";
+	Prodotto prodotto =(Prodotto) request.getAttribute("dettagliProdotto");
+	
+	String erroreImprevistoModificaProdotto = (String) request.getAttribute("chiave_risultatoModificaProdotto");
  %>
  
  <form action="<%= urlUpdate %>" method="post">
@@ -21,6 +23,10 @@
   
   	<input type="hidden" name="id" value="<%= prodotto.getId()%>">
  </form>
+
+<% if(erroreImprevistoModificaProdotto != null) {%>
+	<p><%=erroreImprevistoModificaProdotto %></p>
+<%} %>
 
 </body>
 </html>

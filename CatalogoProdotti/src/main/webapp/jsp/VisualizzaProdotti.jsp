@@ -20,6 +20,10 @@
 	String urlCancella = request.getContextPath() + "/delete";		
 	String urlCreaProdotto = request.getContextPath() + "/creaProdotto";	
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdotti");
+	
+	String messaggioRisultatoModificaProdotto = (String) request.getAttribute("chiave_modificaProdotto");
+	String messaggioRisultatoInserisciProdotto = (String) request.getAttribute("chiave_erroreInserisciProdotto");
+	
 %>
 	<h1>Pagina gestione prodotti</h1>
 	<a href="<%= homePageAdmin%>"> HomePage Admin </a> &nbsp; &nbsp;
@@ -36,11 +40,16 @@
 	</form>
 	<br><br>
 	
-	<% if(request.getAttribute("Chiave_aggiornamento") != null) {%>
-		<p> <%= request.getAttribute("Chiave_aggiornamento")%></p>
+	<!-- 	stampa un messaggio quando si modifica un prodotto -->
+	<%if(messaggioRisultatoModificaProdotto != null) {%>
+		<p> <%= messaggioRisultatoModificaProdotto%></p>
+	<%} %>
+	<!-- 	stampa un messaggio quando si aggiunge un prodotto  -->
+	<%if(messaggioRisultatoInserisciProdotto != null) {%>
+		 <p> <%= messaggioRisultatoInserisciProdotto%></p>
 	<%} %>
 	
-	 <%if(listaProdotti.size()==0) {%> 	
+	<%if(listaProdotti.size()==0) {%> 	
  		<p> Lista prodotti vuota </p>
 	<% } else{ %> 
 	<table border=1>

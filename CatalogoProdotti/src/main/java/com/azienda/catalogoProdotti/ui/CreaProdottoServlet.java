@@ -32,6 +32,7 @@ public class CreaProdottoServlet extends HttpServlet {
 			String nome = req.getParameter("nomeFormInput");
 			Integer disponibilita = Integer.parseInt(req.getParameter("disponibilitaFormInput"));
 			Float prezzo = Float.parseFloat(req.getParameter("prezzoFormInput"));
+			
 			// chiamata del metodo nella service
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			service.salvaProdotto(nome, disponibilita, prezzo);

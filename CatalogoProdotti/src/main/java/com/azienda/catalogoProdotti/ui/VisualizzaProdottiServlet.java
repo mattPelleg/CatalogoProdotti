@@ -25,19 +25,28 @@ public class VisualizzaProdottiServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
-			
+			ServiceProdotti service = (ServiceProdotti) getServletContext()
+					.getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
+
 			List<Prodotto> listaProdotti = service.visualizzaProdotti();
 
 			req.setAttribute("chiave_listaProdotti", listaProdotti);
-			if(req.getAttribute("Chiave_messaggio") != null) {
-				req.setAttribute("Chiave_aggiornamento", req.getAttribute("Chiave_messaggio"));
+
+			if (req.getParameter("chiave_risultatoCancellaProdotto") != null) {
+				// qui chiave_modificaProdotto si riferisce al risultato della cancellazione
+				req.setAttribute("chiave_modificaProdotto", req.getParameter("chiave_risultatoCancellaProdotto"));
 			}
-			if(req.getAttribute("Chiave_errore") != null) {
-				req.setAttribute("Chiave_aggiornamento", req.getAttribute("Chiave_errore"));
+
+			if (req.getParameter("chiave_risultatoModificaProdotto") != null) {
+				req.setAttribute("chiave_modificaProdotto", req.getParameter("chiave_risultatoModificaProdotto"));
 			}
+
+			if (req.getAttribute("Chiave_errore") != null) {
+				req.setAttribute("chiave_erroreInserisciProdotto", req.getAttribute("Chiave_errore"));
+			}
+
 			req.getRequestDispatcher("/jsp/VisualizzaProdotti.jsp").forward(req, resp);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

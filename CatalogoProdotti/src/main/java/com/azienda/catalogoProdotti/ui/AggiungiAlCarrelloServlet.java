@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.persistence.EntityManager;
 
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
+import com.azienda.catalogoProdotti.exception.ProdottoDuplicatoException;
 import com.azienda.catalogoProdotti.model.Carrello;
 import com.azienda.catalogoProdotti.model.Utente;
 
@@ -26,10 +27,6 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			
-			//prendo i dati da homepageNegozio.jsp
-//			String idStringa = req.getParameter("idProdotto");
-//			Integer id = Integer.parseInt(idStringa);
-			
 			Integer idProdottoDaAggiungereAlCarrello = Integer.parseInt(req.getParameter("idProdotto"));
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			
@@ -37,10 +34,13 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 			service.aggiungiAlCarrello(idProdottoDaAggiungereAlCarrello, utente);
 			
 			String message = "Prodotto aggiunto al carrello";
-			req.setAttribute("Chiave_messaggio", message);
+//			req.setAttribute("Chiave_messaggio", message);
 			resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente?Chiave_messaggio=" + message);
 			
 			
+		} catch (ProdottoDuplicatoException e) {
+			req.setAttribute("chiave_errore", e.getMessage());
+			req.getRequestDispatcher("jsp/HomepageNegozio.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
