@@ -43,7 +43,7 @@ public class CreaProdottoServlet extends HttpServlet {
 		} catch (DatiNonValidiException | ProdottoDuplicatoException e) {
 			e.printStackTrace();
 			String messaggioEccezione = e.getMessage();
-			req.setAttribute("Chiave_errore", messaggioEccezione);
+			req.setAttribute("chiave_erroreCreaProdotto", messaggioEccezione);
 			req.getRequestDispatcher("/visualizzaProdotti").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();

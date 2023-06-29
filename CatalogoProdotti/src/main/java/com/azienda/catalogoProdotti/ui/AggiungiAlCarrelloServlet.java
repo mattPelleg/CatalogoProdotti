@@ -35,12 +35,15 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 			
 			String message = "Prodotto aggiunto al carrello";
 //			req.setAttribute("Chiave_messaggio", message);
-			resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente?Chiave_messaggio=" + message);
+			resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente?chiave_risultatoAggiungiProdottoCarrello=" + message);
+			
 			
 			
 		} catch (ProdottoDuplicatoException e) {
 			req.setAttribute("chiave_errore", e.getMessage());
-			req.getRequestDispatcher("jsp/HomepageNegozio.jsp").forward(req, resp);
+//			req.getRequestDispatcher("jsp/HomepageNegozio.jsp").forward(req, resp);
+			String message = "Il prodotto e' gia' nel carrello!";
+			resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente?chiave_risultatoAggiungiProdottoCarrello=" + message);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -41,7 +41,6 @@ public class LoginServlet extends HttpServlet {
 			Utente utente = service.cercaUtente(email, password);
 
 			// risposta
-
 			if (utente != null) {
 				req.getSession().setAttribute("chiave_utente", utente);
 //				req.getRequestDispatcher("/jsp/HomepageNegozio.jsp").forward(req, resp);

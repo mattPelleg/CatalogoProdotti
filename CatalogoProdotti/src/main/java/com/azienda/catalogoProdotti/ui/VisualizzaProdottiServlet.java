@@ -41,8 +41,8 @@ public class VisualizzaProdottiServlet extends HttpServlet {
 				req.setAttribute("chiave_modificaProdotto", req.getParameter("chiave_risultatoModificaProdotto"));
 			}
 
-			if (req.getAttribute("Chiave_errore") != null) {
-				req.setAttribute("chiave_erroreInserisciProdotto", req.getAttribute("Chiave_errore"));
+			if (req.getAttribute("chiave_erroreCreaProdotto") != null) {
+				req.setAttribute("chiave_erroreInserisciProdotto", req.getAttribute("chiave_erroreCreaProdotto"));
 			}
 
 			req.getRequestDispatcher("/jsp/VisualizzaProdotti.jsp").forward(req, resp);

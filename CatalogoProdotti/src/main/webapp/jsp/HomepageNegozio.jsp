@@ -23,6 +23,8 @@
 	Utente utenteLoggato = (Utente)session.getAttribute("chiave_utente");
 	String urlAggiungiAlCarrello = request.getContextPath() + "/aggiungiAlCarrello";
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdottiUtente");
+	
+	String messaggioRisultatoAggiungiAlCarrello = (String) request.getAttribute("chiave_risultatoAggiunta");
 %>
 
 <div>
@@ -36,9 +38,12 @@
 	<a href="<%= carrello%>"> Visualizza carrello </a> 
 	
 	<h4>Elenco Prodotti</h4>
-	<% if(request.getAttribute("Chiave_aggiornamento") != null) {%>
-		<p> <%= request.getAttribute("Chiave_aggiornamento")%></p>
+	
+	<!-- 	stampa messaggio risultato aggiungi prodotto al carrello -->
+	<% if(messaggioRisultatoAggiungiAlCarrello != null) {%>
+		<p> <%= messaggioRisultatoAggiungiAlCarrello%></p>
 	<%} %>
+	
 	<%if(listaProdotti != null && listaProdotti.size()==0) {%> 	
  		<p> Lista prodotti vuota </p>
 	<% } else { %> 

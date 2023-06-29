@@ -180,6 +180,8 @@ public class ServiceProdotti {
 			//prendo il carrello dell'utente
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
 			
+			//prima di aggiungere il prodotto nel carrello, controllo
+			//se nel carrello dell'utente c'è già quel prodotto
 			List<Prodotto> listaProdottiCarrelloUtente = carrelloUtente.getListaProdottiCarrello();
 			if(listaProdottiCarrelloUtente.contains(prodottoDb)) 
 				throw new ProdottoDuplicatoException("Il prodotto " + prodottoDb.getNome() + " è già nel carrello!", null);
@@ -187,8 +189,6 @@ public class ServiceProdotti {
 			//e ci aggiungo il prodotto
 			listaProdottiCarrelloUtente.add(prodottoDb);
 			
-			//prima di aggiungere il prodotto nel carrello, controllo
-			//se nel carrello dell'utente c'è già quel prodotto
 			/*
 			 * Adesso bisogna settare l'associazione tra prodotto - carrello
 			 * dalla parte di prodotto (prodotto contiene la join table della
