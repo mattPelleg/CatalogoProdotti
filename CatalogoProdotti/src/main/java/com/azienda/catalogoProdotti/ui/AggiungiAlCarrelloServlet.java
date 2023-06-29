@@ -37,8 +37,6 @@ public class AggiungiAlCarrelloServlet extends HttpServlet {
 //			req.setAttribute("Chiave_messaggio", message);
 			resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente?chiave_risultatoAggiungiProdottoCarrello=" + message);
 			
-			
-			
 		} catch (ProdottoDuplicatoException e) {
 			req.setAttribute("chiave_errore", e.getMessage());
 //			req.getRequestDispatcher("jsp/HomepageNegozio.jsp").forward(req, resp);

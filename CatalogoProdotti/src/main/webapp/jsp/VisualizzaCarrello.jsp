@@ -11,31 +11,37 @@
 <body>
 
 <%
-	String urlRimuovi = request.getContextPath() + "/visualizzaCarrello";
+	String urlRimuovi = request.getContextPath() + "/rimuoviProdotto";
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
+	
+	String messaggioRisultatoRimuoviProdotto = (String) request.getAttribute("chiave_risultatoRisultatoRimuoviProdottoCarrello");
 %>
+
 <h1> Carrello utente </h1>
+
+<%if(messaggioRisultatoRimuoviProdotto != null) {%>
+	<p><%=messaggioRisultatoRimuoviProdotto %></p>
+<%} %>
+
  <%if(listaProdotti != null && listaProdotti.size()==0) {%> 	
  		<p> Carrello vuoto </p>
 	<% } else{ %> 
 	<table border=1>
 		<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Rimuovi dal carrello</th></tr>
 		<%for(Prodotto p : listaProdotti) {%>
-		<%if(p.isCancellato() == false) { %>		
-		<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
-			<td>
-				<form action="<%= urlRimuovi %>" method="post">
-				<input type="hidden" name="id" value="<%= p.getId() %>">
-				<input type="submit" value="rimuovi">
-				</form>
-			</td>
-		</tr>
-		<%} %>	
+			<%if(p.isCancellato() == false) { %>		
+			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
+				<td>
+					<form action="<%= urlRimuovi %>" method="post">
+						<input type="hidden" name="id" value="<%= p.getId() %>">
+						<input type="submit" value="rimuovi">
+					</form>
+				</td>
+			</tr>
+			<%} %>	
+		<%} %>
+		</table>
 	<%} %>
-	</table>
-<%
-	}
-%>
 
 </body>
 </html>

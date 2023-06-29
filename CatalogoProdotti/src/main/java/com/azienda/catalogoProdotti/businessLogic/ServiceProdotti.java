@@ -204,4 +204,28 @@ public class ServiceProdotti {
 		}
 	}
 
+	public void rimuoviProdotto(Prodotto daRimuovere, Utente utente) {
+		try {
+			this.em.getTransaction().begin();
+			
+			//prendo il carrello dell'utente
+			Carrello carrelloUtente = utente.getCarrelloUtente();
+			
+			//prendo la lista dei prodotti contenuti nel carrello
+			List<Prodotto> prodottiNelCarrello = carrelloUtente.getListaProdottiCarrello();
+			//rimuovo il carrello dal prodotto --> rimuove l'associazione carrello-prodotto
+			prodottiNelCarrello.remove(daRimuovere);
+			
+			//rimuovo il prodotto dal carrello --> rimuove l'associazione prodotto-carrello
+			daRimuovere.getListaCarrelli().remove(carrelloUtente);
+			
+			this.em.getTransaction().commit();
+			
+		} catch (Exception e) {
+			this.em.getTransaction().rollback();
+			throw e;
+		}
+		
+	}
+
 }

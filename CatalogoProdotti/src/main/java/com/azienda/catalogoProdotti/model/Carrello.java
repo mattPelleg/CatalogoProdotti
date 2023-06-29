@@ -25,7 +25,7 @@ public class Carrello {
 
 	public Carrello() {
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}

@@ -27,8 +27,7 @@ public class CancellaProdottoServlet extends HttpServlet {
 			service.cancella(id);
 			
 			String message = "Cancellazione effettuata";
-//			req.setAttribute("Chiave_messaggio", message);
-			resp.sendRedirect(req.getContextPath() + "/visualizzaProdotti?chiave_risultatoCancellaProdotto=" + message);
+			resp.sendRedirect(req.getContextPath() + "/visualizzaCarrello?chiave_risultatoCancellaProdotto=" + message);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
