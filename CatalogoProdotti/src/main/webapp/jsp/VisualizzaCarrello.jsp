@@ -11,9 +11,14 @@
 <body>
 
 <%
+	String baseUrl = "http://" + request.getServerName() + ":" +
+		request.getServerPort() + request.getContextPath();
+
 	String urlRimuovi = request.getContextPath() + "/rimuoviProdotto";
-	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
+	String urlProcediAllOrdine = baseUrl + "/jsp/ProcediAllOrdine.jsp";
 	
+	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
+	request.setAttribute("chiave_listaCarrello", listaProdotti);
 	String messaggioRisultatoRimuoviProdotto = (String) request.getAttribute("chiave_risultatoRisultatoRimuoviProdottoCarrello");
 %>
 
@@ -22,6 +27,11 @@
 <%if(messaggioRisultatoRimuoviProdotto != null) {%>
 	<p><%=messaggioRisultatoRimuoviProdotto %></p>
 <%} %>
+
+<nav>
+	<a href="<%=urlProcediAllOrdine %>">Procedi all'ordine</a> &nbsp;
+</nav>
+
 
  <%if(listaProdotti != null && listaProdotti.size()==0) {%> 	
  		<p> Carrello vuoto </p>

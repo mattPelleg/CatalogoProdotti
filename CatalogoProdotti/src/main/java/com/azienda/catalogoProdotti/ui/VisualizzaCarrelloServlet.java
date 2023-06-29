@@ -34,6 +34,9 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			
 			req.setAttribute("chiave_listaCarrello", listaProdottiCarrello);
 			req.setAttribute("chiave_risultatoRisultatoRimuoviProdottoCarrello", req.getParameter("chiave_risultatoRimuoviProdotto"));
+			
+			req.getSession().setAttribute("chiave_listaProdottiCarrello", listaProdottiCarrello);
+			
 			req.getRequestDispatcher("/jsp/VisualizzaCarrello.jsp").forward(req, resp);
 			
 		} catch (Exception e) {
