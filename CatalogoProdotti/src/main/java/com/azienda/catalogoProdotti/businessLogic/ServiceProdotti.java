@@ -1,5 +1,6 @@
 package com.azienda.catalogoProdotti.businessLogic;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.azienda.catalogoProdotti.dao.UtenteDao;
 import com.azienda.catalogoProdotti.exception.DatiNonValidiException;
 import com.azienda.catalogoProdotti.exception.ProdottoDuplicatoException;
 import com.azienda.catalogoProdotti.model.Carrello;
+import com.azienda.catalogoProdotti.model.Ordine;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Utente;
 
@@ -226,6 +228,68 @@ public class ServiceProdotti {
 			throw e;
 		}
 		
+	}
+
+	public void creaOrdine(List<Prodotto> listaProdottiCarrello, Utente utenteInSessione) {
+		// TODO Auto-generated method stub
+		try {
+			
+			this.em.getTransaction().begin();
+			
+			Ordine nuovoOrdine = new Ordine(LocalDate.now());
+			nuovoOrdine.setUtente(utenteInSessione);
+			
+//			Carrello carrelloUtente = utenteInSessione.getCarrelloUtente();
+			
+			for(Prodotto p: listaProdottiCarrello) {
+				nuovoOrdine.getListaOrdineProdotti().add(p);
+				p.getListaOrdini().add(nuovoOrdine);
+			}
+			
+			this.ordineDao.create(nuovoOrdine);
+			
+			this.em.getTransaction().commit();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			this.em.getTransaction().rollback();
+			throw e;
+		}
+	}
+	
+	public void svuotaCarrello(Utente utente) {
+		try {
+			this.em.getTransaction().begin();
+			
+			//prendo il carrello dell'utente
+			Carrello carrelloUtente = utente.getCarrelloUtente();
+			
+			//prendo la lista dei prodotti contenuti nel carrello
+			List<Prodotto> prodottiNelCarrello = carrelloUtente.getListaProdottiCarrello();
+			
+//			for(Prodotto p: prodottiNelCarrello) {
+//				//rimuovo il carrello dal prodotto --> rimuove l'associazione carrello-prodotto
+//				prodottiNelCarrello.remove(p);
+//				
+//				//rimuovo il prodotto dal carrello --> rimuove l'associazione prodotto-carrello
+//				p.getListaCarrelli().remove(carrelloUtente);
+//			}
+			int lunghezza = prodottiNelCarrello.size();
+			
+			for(int i = 0; i < lunghezza; i++) {
+				//rimuovo il carrello dal prodotto --> rimuove l'associazione carrello-prodotto
+				prodottiNelCarrello.remove(prodottiNelCarrello.get(0));
+				
+				//rimuovo il prodotto dal carrello --> rimuove l'associazione prodotto-carrello
+				prodottiNelCarrello.get(0).getListaCarrelli().remove(carrelloUtente);
+			}
+			
+			this.em.getTransaction().commit();
+			
+		} catch (Exception e) {
+			this.em.getTransaction().rollback();
+			throw e;
+		}
 	}
 
 }

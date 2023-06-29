@@ -15,7 +15,7 @@
 	<h1>Form di login</h1>
 	
 	<form action="<%=uriWebApp%>" method="POST">
-		<input type="email" placeholder="email" name="emailFormInput"> <br>
+		<input type="email" placeholder="email" name="emailFormInput" autofocus="autofocus"> <br>
 		<input type="password" placeholder="password" name="passwordFormInput"> <br>
 		<input type="submit" value="Accedi">
 	</form>

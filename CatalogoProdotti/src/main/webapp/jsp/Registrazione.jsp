@@ -14,7 +14,7 @@
 
 	<h2>Form registrazione utente</h2>
 	<form action="<%=uriWebbApp %>" method="POST">
-		Email: <input type="email" placeholder="email" name="emailFormInput"> <br>
+		Email: <input type="email" placeholder="email" name="emailFormInput" autofocus="autofocus"> <br>
 		Password: <input type="password" placeholder="password" name="passwordFormInput"> <br>
 		<input type="submit" value="Registrati">
 	</form>
