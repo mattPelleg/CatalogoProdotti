@@ -52,8 +52,6 @@ public class CercaProdottoServlet extends HttpServlet {
 				
 			}
 				
-
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			String message = "Errore imprevisto";

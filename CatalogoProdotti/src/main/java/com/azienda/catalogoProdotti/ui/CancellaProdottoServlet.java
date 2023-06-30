@@ -22,9 +22,9 @@ public class CancellaProdottoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			String idStringa = req.getParameter("id");
-			Integer id = Integer.parseInt(idStringa);
+			Integer idProdotto = Integer.parseInt(idStringa);
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
-			service.cancella(id);
+			service.cancella(idProdotto);
 			
 			String message = "Cancellazione effettuata";
 			resp.sendRedirect(req.getContextPath() + "/visualizzaProdotti?chiave_risultatoCancellaProdotto=" + message);

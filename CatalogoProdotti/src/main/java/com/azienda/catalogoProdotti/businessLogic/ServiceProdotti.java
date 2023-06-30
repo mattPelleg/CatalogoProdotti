@@ -120,8 +120,16 @@ public class ServiceProdotti {
 	public void cancella(Integer id) {
 		try {
 			em.getTransaction().begin();
+			
 			Prodotto prodottoDb = prodottoDao.findById(id);
 			prodottoDb.setCancellato(true);
+			
+			prodottoDb.getListaCarrelli().clear();
+			List<Carrello> listaTuttiCarrelli = carrelloDao.retrieve();
+			for(Carrello c : listaTuttiCarrelli) {
+				c.getListaProdottiCarrello().remove(prodottoDb);
+			}
+			
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
