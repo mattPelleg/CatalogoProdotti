@@ -16,6 +16,10 @@
 	<div>
 		<jsp:include page="/jsp/Menu.jsp"></jsp:include>	
 	</div>
+	
+	<%if(request.getAttribute("chiave_risultatoSessione") != null) {%>
+		<p><%=request.getAttribute("chiave_risultatoSessione") %></p>
+	<%} %>
 
 </body>
 </html>

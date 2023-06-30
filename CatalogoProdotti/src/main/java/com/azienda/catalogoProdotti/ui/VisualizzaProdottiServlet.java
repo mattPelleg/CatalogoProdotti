@@ -25,6 +25,7 @@ public class VisualizzaProdottiServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
+			
 			ServiceProdotti service = (ServiceProdotti) getServletContext()
 					.getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 

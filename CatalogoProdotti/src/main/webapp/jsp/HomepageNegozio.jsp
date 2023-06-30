@@ -30,10 +30,6 @@
 	String messaggioRisultatoAggiungiAlCarrello = (String) request.getAttribute("chiave_risultatoAggiunta");
 %>
 
-<div>
-	<a href="<%=logoutUrl%>">Logout</a> &nbsp;
-</div>
-
 	<h1>Mayone & Mayoni</h1>
 	
 	<h3>Ciao <%=utenteLoggato.getEmail() %></h3> <br>

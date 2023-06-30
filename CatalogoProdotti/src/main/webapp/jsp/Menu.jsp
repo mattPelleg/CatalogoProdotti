@@ -8,12 +8,13 @@
 	String homePageUrl = baseUrl + "/jsp/Homepage.jsp";
 	//AGGIUNGERE COLLEGAMENTO PRODOTTI
 	String prodottiUrl = baseUrl + "/jsp/ElencoProdotti.jsp";
-	String logoutUrl = baseUrl + "/jsp/Homepage.jsp";
+	
+	String logoutUrl = request.getContextPath() + "//logout";
 %>
 <nav>
 	<a href="<%=homePageUrl%>">Home</a> &nbsp;
 	<a href="<%=prodottiUrl%>">Prodotti</a> &nbsp;
 	<a href="<%=registrazioneUrl%>">Registrati</a> &nbsp;
 	<a href="<%=loginUrl%>">Login</a> &nbsp;
-<%-- 	<a href="<%=logoutUrl%>">Logout</a> &nbsp; --%>
+	<a href="<%=logoutUrl%>">Logout</a> &nbsp;
 </nav>
