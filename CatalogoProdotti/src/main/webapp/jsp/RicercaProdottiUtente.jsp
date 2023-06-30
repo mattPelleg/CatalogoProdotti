@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Ricerca prodotti utente</title>
 </head>
 <body>
 
@@ -40,7 +40,7 @@
 			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
 			<td>
 				<form action="<%=urlAggiungiAlCarrello %>" method="post">
-					<input type="hidden" name="id" value="<%= p.getId() %>">
+					<input type="hidden" name="idProdotto" value="<%= p.getId() %>">
 					<input type="submit" value="Aggiungi">
 				</form>
 			</td>

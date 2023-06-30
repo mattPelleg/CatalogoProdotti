@@ -34,41 +34,26 @@ public class CercaProdottoServlet extends HttpServlet {
 			 */
 			// prendo il prezzo inserito nella form di ricerca come stringa
 			String prezzoStringa = req.getParameter("prezzo");
-
-			// se è diversa da isBlank, ovvero è stato inserito un valore
-			if (!prezzoStringa.isBlank()) {
-				// mi prendo il float con il parse float
-				Float prezzo = Float.parseFloat(req.getParameter("prezzo"));
-
-				// e cerco la lista di prodotti con il prezzo float
-				ServiceProdotti service = (ServiceProdotti) getServletContext()
-						.getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
-				List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzo);
-				if (ruoloUtente.equals("admin")) {
-					req.setAttribute("chiave_ricerca", ricercaProdotti);
-					req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);
-				} 
-				else if(ruoloUtente.equals("simpleUser")) {
-					req.setAttribute("chiave_ricerca", ricercaProdotti);
-					req.getRequestDispatcher("/jsp/RicercaProdottiUtente.jsp").forward(req, resp);
-				}
-			} else {
-				// se invece non è stato inserito un valore nella form
-				// uso come valore del prezzo un float = a null
-				Float prezzoNull = null;
-				ServiceProdotti service = (ServiceProdotti) getServletContext()
-						.getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
-				List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzoNull);
-				
-				if(ruoloUtente.equals("admin")) {
-					req.setAttribute("chiave_ricerca", ricercaProdotti);
-					req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);					
-				} 
-				else if(ruoloUtente.equals("simpleUser")) {
-					req.setAttribute("chiave_ricerca", ricercaProdotti);
-					req.getRequestDispatcher("/jsp/RicercaProdottiUtente.jsp").forward(req, resp);
-				}
+			Float prezzo;
+			
+			if(!prezzoStringa.isBlank())
+				prezzo = Float.parseFloat(req.getParameter("prezzo"));
+			else
+				prezzo = null;
+			
+			ServiceProdotti service = (ServiceProdotti) getServletContext()
+					.getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
+			List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzo);
+			
+			if (ruoloUtente.equals("admin")) {
+				req.setAttribute("chiave_ricerca", ricercaProdotti);
+				req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);
+			} 
+			else if(ruoloUtente.equals("simpleUser")) {
+				req.setAttribute("chiave_ricerca", ricercaProdotti);
+				req.getRequestDispatcher("/jsp/RicercaProdottiUtente.jsp").forward(req, resp);
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			String message = "Errore imprevisto";
