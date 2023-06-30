@@ -3,19 +3,13 @@
 	String baseUrl = "http://" + request.getServerName() + ":" +
 		request.getServerPort() + request.getContextPath();
 
-	String registrazioneUrl = baseUrl + "/jsp/Registrazione.jsp";
-	String loginUrl = baseUrl + "/jsp/Login.jsp";
-	String homePageUrl = baseUrl + "/jsp/Homepage.jsp";
 	String visualizzaUtentiUrl = request.getContextPath()+ "/visualizzaUtenti";
 	String visualizzaProdottiUrl = request.getContextPath()+ "/visualizzaProdotti";
-	String logoutUrl = baseUrl + "/jsp/Homepage.jsp";
+	String visualizzaOrdiniAdminUrl = request.getContextPath()+ "/visualizzaOrdiniAdmin";
 %>
 
 <nav>
-	<a href="<%=registrazioneUrl%>">Registrati</a> &nbsp;
-	<a href="<%=loginUrl%>">Login</a> &nbsp;
-	<a href="<%=homePageUrl%>">Home</a> &nbsp;
-	<a href = "<%=visualizzaUtentiUrl%>"> Visualizza utenti </a> &nbsp;
+	<a href = "<%=visualizzaUtentiUrl%>"> Visualizza Utenti </a> &nbsp;
 	<a href = "<%=visualizzaProdottiUrl%>"> Visualizza Prodotti </a> &nbsp;
-	<a href="<%=logoutUrl%>">Logout</a> &nbsp;
+	<a href = "<%=visualizzaOrdiniAdminUrl%>"> Visualizza Ordini Utenti </a> &nbsp;
 </nav>

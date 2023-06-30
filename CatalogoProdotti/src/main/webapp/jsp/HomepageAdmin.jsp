@@ -8,12 +8,13 @@
 <title>Homepage Admin</title>
 </head>
 <body>
-<jsp:include page="/jsp/MenuAdmin.jsp"></jsp:include>
+	<jsp:include page="/jsp/Menu.jsp"></jsp:include>
 <%
 	String uriWebapp = request.getContextPath()+ "/inserisciAdmin";
 	Utente admin =(Utente) request.getAttribute("chiave_admin");
 %>
 	<h1> Pagina gestione admin </h1>
+	<jsp:include page="/jsp/MenuAdmin.jsp"></jsp:include>
 
 	<%if(admin !=null) {%>
 		<h3> Benvenuto <%= admin.getEmail() %></h3>

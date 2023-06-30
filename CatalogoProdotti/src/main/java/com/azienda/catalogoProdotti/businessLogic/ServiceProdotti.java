@@ -310,4 +310,8 @@ public class ServiceProdotti {
 		}
 	}
 
+	public List<Ordine> visualizzaOrdini() {
+		return this.ordineDao.retrieve();
+	}
+
 }
