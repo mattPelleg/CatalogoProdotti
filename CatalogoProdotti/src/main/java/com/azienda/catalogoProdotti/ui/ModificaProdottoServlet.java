@@ -22,7 +22,7 @@ public class ModificaProdottoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			String idString = req.getParameter("id");
-			String nome = req.getParameter("name");
+			String nome = req.getParameter("nome");
 			Integer disponibilita = Integer.parseInt(req.getParameter("disponibilita"));
 			Float prezzo = Float.parseFloat(req.getParameter("prezzo"));
 

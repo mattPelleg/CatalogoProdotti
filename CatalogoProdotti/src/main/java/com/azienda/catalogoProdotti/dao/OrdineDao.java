@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.azienda.catalogoProdotti.model.Ordine;
+import com.azienda.catalogoProdotti.model.Utente;
 
 public class OrdineDao implements DaoInterface<Ordine> {
 	
@@ -33,10 +34,13 @@ public class OrdineDao implements DaoInterface<Ordine> {
 	public void delete(Ordine object) {
 		this.em.remove(object);
 	}
-
-	public List<Ordine> findOrdiniByIdUtente(Integer id) {
+	
+	/**
+	 * 
+	 */
+	public List<Ordine> findOrdiniUtente(Utente u) {
 		return this.em.createQuery("select o from Ordine o where o.utente = :idUtente", Ordine.class).
-				setParameter("idUtente", id).getResultList();
+				setParameter("idUtente", u).getResultList();
 	}
 
 }

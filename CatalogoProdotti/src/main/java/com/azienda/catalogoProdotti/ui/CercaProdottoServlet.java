@@ -23,7 +23,6 @@ public class CercaProdottoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			String nome = req.getParameter("nome");
-			//QUI VA IN ECCEZIONE, DA RISOLVERE
 			/**
 			 * Va in eccezione perchè quando non si inserisce niente nel campo
 			 * prezzo, il parseFloat va in eccezione e quindi nel service non 

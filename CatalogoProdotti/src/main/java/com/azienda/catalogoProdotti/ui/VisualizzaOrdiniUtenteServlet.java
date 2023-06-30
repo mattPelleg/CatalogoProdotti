@@ -28,12 +28,10 @@ public class VisualizzaOrdiniUtenteServlet extends HttpServlet {
 		try {
 			
 			Utente utenteInSessione = (Utente) req.getSession().getAttribute("chiave_utente");
-//			List<Ordine> listaOrdiniUtente = utenteInSessione.getListaOrdini();
 			
-			ServiceUtenti service = (ServiceUtenti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_UTENTE);
-			Utente utente = service.cercaUtente(utenteInSessione.getEmail(), utenteInSessione.getPassword());
-			List<Ordine> listaOrdiniUtente = utente.getListaOrdini();
-//			List<Ordine> listaOrdiniUtente = service.visualizzaOrdiniUtente(utenteInSessione.getId());
+			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
+			
+			List<Ordine> listaOrdiniUtente = service.visualizzaOrdiniUtente(utenteInSessione);
 			
 			req.setAttribute("chiave_risultatoGetOrdiniUtente", listaOrdiniUtente);
 			req.getRequestDispatcher("/jsp/VisualizzaOrdiniUtente.jsp").forward(req, resp);

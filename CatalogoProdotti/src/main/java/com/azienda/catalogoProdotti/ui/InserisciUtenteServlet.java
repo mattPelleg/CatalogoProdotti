@@ -33,9 +33,6 @@ public class InserisciUtenteServlet extends HttpServlet {
 			ServiceUtenti service = (ServiceUtenti)getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_UTENTE);
 			Utente utente = service.salvaUtente(email, password);
 			
-			//risposta
-//			Utente utente = new Utente(email, password); 
-			
 			/* Se l'utente che mi restituisce la query sulla
 			 * 34  esiste, allora rimando la richiesta http
 			 * alla pagina di login, altrimenti andrò a gestire

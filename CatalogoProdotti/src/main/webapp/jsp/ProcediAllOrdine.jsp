@@ -13,6 +13,7 @@
 <%
 	String baseUrl = "http://" + request.getServerName() + ":" +
 		request.getServerPort() + request.getContextPath();
+
 	String homepageNegozioUrl = request.getContextPath() + "/visualizzaProdottiUtente";
 
 	String urlCreaOrdine = request.getContextPath() + "/creaOrdine";

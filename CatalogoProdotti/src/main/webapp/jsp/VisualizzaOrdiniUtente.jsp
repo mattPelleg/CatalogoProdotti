@@ -11,11 +11,18 @@
 </head>
 <body>
 
-<h1>Riepilogo Ordini</h1>
 
 <%
+	String homepageNegozioUrl = request.getContextPath() + "/visualizzaProdottiUtente";
+
 	List<Ordine> listaOrdiniUtente =(List<Ordine>) request.getAttribute("chiave_risultatoGetOrdiniUtente");
 %>
+
+<h1>Riepilogo Ordini</h1>
+
+	<nav>
+		<a href="<%=homepageNegozioUrl %>">Torna alla home</a> &nbsp;
+	</nav>
 
 
 <%if(listaOrdiniUtente != null && listaOrdiniUtente.isEmpty()) {%> 	

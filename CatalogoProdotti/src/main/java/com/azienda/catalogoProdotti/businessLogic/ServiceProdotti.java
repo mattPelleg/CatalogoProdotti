@@ -94,17 +94,23 @@ public class ServiceProdotti {
 	public void modifica(Integer id, String nome, Integer disp, Float prezzo) {
 		try {
 			em.getTransaction().begin();
+			
 			Prodotto prodottoDb = prodottoDao.findById(id);
+			
 			if (nome != null && !nome.isBlank()) {
 				prodottoDb.setNome(nome);
 			}
+			
 			if (disp >= 0) {
 				prodottoDb.setDisponibilita(disp);
 			}
+			
 			if (prezzo >= 0) {
 				prodottoDb.setPrezzo(prezzo);
 			}
+			
 			em.getTransaction().commit();
+			
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw e;
@@ -280,11 +286,11 @@ public class ServiceProdotti {
 		}
 	}
 
-	public List<Ordine> visualizzaOrdiniUtente(Integer id) {
+	public List<Ordine> visualizzaOrdiniUtente(Utente u) {
 		try {
 			this.em.getTransaction().begin();
 			
-			List<Ordine> listaOrdiniUtente = this.ordineDao.findOrdiniByIdUtente(id);
+			List<Ordine> listaOrdiniUtente = this.ordineDao.findOrdiniUtente(u);
 			
 			this.em.getTransaction().commit();
 			

@@ -13,16 +13,23 @@
 <% 
 	String baseUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
 	String homePageAdmin = baseUrl + "/jsp/HomepageAdmin.jsp";
+	
 	String visualizzaUtentiUrl = request.getContextPath()+ "/visualizzaUtenti";
-
-	String webApp = request.getContextPath();
-	String formAction = webApp + "/ricerca";
-	List<Prodotto> listaProdotti = (List<Prodotto>) request.getAttribute("chiave_ricerca");
-		
+	String homepageAdminUrl = request.getContextPath() + "/visualizzaProdotti";
 	String urlModifica = request.getContextPath() + "/goToModifica";
 	String urlCancella = request.getContextPath() + "/delete";		
+	String webApp = request.getContextPath();
+	String formAction = webApp + "/ricerca";
+	
+	List<Prodotto> listaProdotti = (List<Prodotto>) request.getAttribute("chiave_ricerca");
+		
 %>
-<h3>Form di ricerca prodotti</h3>
+<h1>Form di ricerca prodotti</h1>
+
+	<nav>
+		<a href="<%=homepageAdminUrl %>">Torna alla home</a> &nbsp;
+	</nav>
+
 <form action="<%= formAction %>" method="post">
   	nome: <input type="text" name="nome"> <br>
   	prezzo: <input type="number" step="0.01" name="prezzo"> <br>

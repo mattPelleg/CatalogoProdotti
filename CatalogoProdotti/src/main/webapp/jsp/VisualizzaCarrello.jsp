@@ -15,6 +15,8 @@
 		request.getServerPort() + request.getContextPath();
 
 	String urlRimuovi = request.getContextPath() + "/rimuoviProdotto";
+	String homepageNegozioUrl = request.getContextPath() + "/visualizzaProdottiUtente";
+	
 	String urlProcediAllOrdine = baseUrl + "/jsp/ProcediAllOrdine.jsp";
 	
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
@@ -29,6 +31,7 @@
 <%} %>
 
 <nav>
+	<a href="<%=homepageNegozioUrl %>">Torna alla home</a> &nbsp;
 	<a href="<%=urlProcediAllOrdine %>">Procedi all'ordine</a> &nbsp;
 </nav>
 

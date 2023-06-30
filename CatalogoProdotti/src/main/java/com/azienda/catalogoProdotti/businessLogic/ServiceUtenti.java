@@ -103,6 +103,24 @@ public class ServiceUtenti {
 			throw e;
 		}
 	}
+	
+	public Utente findUtenteById(Integer id) throws Exception {
+		try {
+			em.getTransaction().begin();
+
+			this.em.clear();
+			
+			List<Utente> utente = utenteDao.findUtenteById(id);
+
+			em.getTransaction().commit();
+			
+			return utente.get(0);
+
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			throw e;
+		}
+	}
 
 	public Utente salvaAdmin(String email, String password) throws Exception {
 		try {
