@@ -18,10 +18,12 @@
 	
 	String carrello = baseUrl + "/visualizzaCarrello";
 	String logoutUrl = baseUrl + "/jsp/Homepage.jsp";
+	String ricercaProdotti = baseUrl + "/jsp/RicercaProdottiUtente.jsp";
 	
 	Utente utenteLoggato = (Utente)session.getAttribute("chiave_utente");
 	String urlAggiungiAlCarrello = request.getContextPath() + "/aggiungiAlCarrello";
 	String visualizzaOrdiniUtente = request.getContextPath() + "/visualizzaOrdiniUtente";
+// 	String ricercaProdotti = request.getContextPath() + "/ricerca";
 	
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdottiUtente");
 	
@@ -36,8 +38,9 @@
 	
 	<h3>Ciao <%=utenteLoggato.getEmail() %></h3> <br>
 	
-	<a href="<%= carrello%>"> Visualizza carrello </a> &nbsp;
-	<a href = "<%= visualizzaOrdiniUtente%>"> Visualizza Ordini </a> &nbsp;
+	<a href="<%=carrello%>"> Visualizza carrello </a> &nbsp;
+	<a href="<%=visualizzaOrdiniUtente%>"> Visualizza Ordini </a> &nbsp;
+	<a href="<%=ricercaProdotti%>">Ricerca Prodotti</a> &nbsp;
 	
 	<h4>Elenco Prodotti</h4>
 	
