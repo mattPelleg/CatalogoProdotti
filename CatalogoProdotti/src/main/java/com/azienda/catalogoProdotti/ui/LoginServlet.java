@@ -29,19 +29,16 @@ public class LoginServlet extends HttpServlet {
 			String email = req.getParameter("emailFormInput");
 			String password = req.getParameter("passwordFormInput");
 
-			//Controllo login dell'admin
-			if (email.equals("admin@gmail.com") && password.equals("admin")) {
-				req.setAttribute("chiave_admin", new Utente("admin@gmail.com", "admin"));
-				req.getRequestDispatcher("/jsp/HomepageAdmin.jsp").forward(req, resp);
-				return;
-			}
-
 			// chiamata al metodo del service
 			ServiceUtenti service = (ServiceUtenti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_UTENTE);
 			Utente utente = service.cercaUtente(email, password);
-
-			// risposta
-			if (utente != null) {
+			
+			//Controllo login dell'admin
+			if (utente.getProfiloUtente().getNome().equals("admin")) {
+				req.setAttribute("chiave_admin", utente);
+				req.getRequestDispatcher("/jsp/HomepageAdmin.jsp").forward(req, resp);
+			} 
+			else if (utente.getProfiloUtente().getNome().equals("simpleUser")){
 				req.getSession().setAttribute("chiave_utente", utente);
 				resp.sendRedirect(req.getContextPath() + "/visualizzaProdottiUtente");
 			}
