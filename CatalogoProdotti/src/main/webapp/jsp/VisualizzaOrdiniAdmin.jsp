@@ -12,10 +12,18 @@
 <body>
 
 <%
+	String baseUrl = "http://" + request.getServerName() + ":" +
+		request.getServerPort() + request.getContextPath();
+	String homepageAdmin = baseUrl + "/jsp/HomepageAdmin.jsp";
+
 	List<Ordine> listaOrdini =(List<Ordine>) request.getAttribute("chiave_risultatoOrdiniAdmin");
 %>
 	
 	<h1>Gestione ordini utenti</h1>
+	
+	<nav>
+		<a href="<%=homepageAdmin %>">Torna alla home</a> &nbsp;
+	</nav>
 	
 	<%if(listaOrdini != null && listaOrdini.isEmpty()) {%> 	
  		<p> Lista ordini vuota </p>
