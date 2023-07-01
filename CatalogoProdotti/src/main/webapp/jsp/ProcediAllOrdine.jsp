@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Ordine</title>
+
+<link rel="stylesheet" href="../css/styleButton.css">
+
 </head>
 <body>
 
@@ -47,9 +50,13 @@
 			<%} %>	
 		<%} %>
 		</table>
-		<form action="<%=urlCreaOrdine %>" method="POST">
+		<form id="formId" action="<%=urlCreaOrdine %>" method="POST">
 			<input type="submit" value="Conferma Ordine">
 		</form>
 	<%} %>
+	
+	<button class="glow-on-hover" type="button" form="formId" formaction="<%=urlCreaOrdine %>">Bottone ordine</button> &nbsp;
+	
+	<script src="../js/script.js"></script>
 </body>
 </html>

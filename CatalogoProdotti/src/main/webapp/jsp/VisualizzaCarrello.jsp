@@ -45,8 +45,8 @@
 			<%if(p.isCancellato() == false) { %>		
 			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
 				<td>
-					<form action="<%= urlRimuovi %>" method="post">
-						<input type="hidden" name="id" value="<%= p.getId() %>">
+					<form action="<%=urlRimuovi %>" method="POST">
+						<input type="hidden" name="id" value="<%=p.getId() %>">
 						<input type="submit" value="rimuovi">
 					</form>
 				</td>
