@@ -1,6 +1,7 @@
 package com.azienda.catalogoProdotti.model;
 
 import java.sql.Blob;
+
 import java.util.ArrayList;
 import java.util.List;
 
