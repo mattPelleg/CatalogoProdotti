@@ -1,5 +1,6 @@
 package com.azienda.catalogoProdotti.businessLogic;
 
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +55,7 @@ public class ServiceProdotti {
 	 * @param disponibilita la disponibilità del prodotto
 	 * @param prezzo        il prezzo del prodotto
 	 */
-	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo) throws Exception {
+	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo, Blob immagine, String nomeImmagine) throws Exception {
 		try {
 			em.getTransaction().begin();
 
@@ -70,8 +71,14 @@ public class ServiceProdotti {
 			List<Prodotto> listaProdotti = prodottoDao.findProdottoByNome(nome);
 			if (listaProdotti.size() > 0) {
 				throw new ProdottoDuplicatoException("Il prodotto " + nome + " è già presente nell'elenco", null);
-			} else
-				prodottoDao.create(new Prodotto(nome, disponibilita, prezzo));
+			} else {
+				Prodotto p = new Prodotto(nome, disponibilita, prezzo);
+				if(immagine != null) {
+					p.setImmagine(immagine);
+					p.setNomeImmagine(nomeImmagine);
+				}
+				prodottoDao.create(p);
+			}
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
@@ -256,6 +263,7 @@ public class ServiceProdotti {
 			for(Prodotto p: listaProdottiCarrello) {
 				nuovoOrdine.getListaOrdineProdotti().add(p);
 				p.getListaOrdini().add(nuovoOrdine);
+				
 				p.setDisponibilita(p.getDisponibilita() - 1);
 			}
 

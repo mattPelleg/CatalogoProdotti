@@ -31,11 +31,11 @@
 	<a href="<%= ricercaProdottiUrl%>"> Ricerca prodotti</a>
 	
 	<h3>Form inserisci prodotto</h3>
-	<form action="<%= urlCreaProdotto %>"method="post">
+	<form action="<%= urlCreaProdotto %>"method="post" enctype="multipart/form-data">
 		nome <input type="text" name="nomeFormInput" required>  <br>
 		disponibilità <input type= "number" name= "disponibilitaFormInput" required> <br>
 		prezzo <input type= "number" step="0.01" name= "prezzoFormInput" required> <br>
-		
+			<input type="file" name="fileName">
 		<input type="submit" value="Salva">
 	</form>
 	<br><br>

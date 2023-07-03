@@ -1,5 +1,6 @@
 package com.azienda.catalogoProdotti.model;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,17 +28,18 @@ public class Prodotto {
 //	Da aggiungere dopo
 //	private String urlImmagine;
 
+	private Blob immagine;
+
+	private String nomeImmagine;
+
 	private boolean cancellato = false;
-	
+
 	@ManyToMany(mappedBy = "listaOrdineProdotti")
 	private List<Ordine> listaOrdini = new ArrayList<>();
 
 	@ManyToMany
-	@JoinTable(name = "ProdottoCarrello", joinColumns =
-	@JoinColumn(name = "Id_Prodotto"), inverseJoinColumns =
-	@JoinColumn(name = "Id_Carrello"))
+	@JoinTable(name = "ProdottoCarrello", joinColumns = @JoinColumn(name = "Id_Prodotto"), inverseJoinColumns = @JoinColumn(name = "Id_Carrello"))
 	private List<Carrello> listaCarrelli = new ArrayList<>();
-	
 
 	public Prodotto() {
 	}
@@ -68,7 +70,6 @@ public class Prodotto {
 	public boolean isCancellato() {
 		return cancellato;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -104,6 +105,22 @@ public class Prodotto {
 
 	public void setCancellato(boolean cancellato) {
 		this.cancellato = cancellato;
+	}
+
+	public Blob getImmagine() {
+		return immagine;
+	}
+
+	public String getNomeImmagine() {
+		return nomeImmagine;
+	}
+
+	public void setImmagine(Blob immagine) {
+		this.immagine = immagine;
+	}
+
+	public void setNomeImmagine(String nomeImmagine) {
+		this.nomeImmagine = nomeImmagine;
 	}
 
 	@Override
