@@ -6,17 +6,19 @@
 <meta charset="UTF-8">
 
 <title>Registrazione Nuovo Utente</title>
-<link rel="stylesheet" href="../css/registrazioneStyle.css">
+
+
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/registrazioneStyle.css" %>">
 
 </head>
 <body>
-<%-- <jsp:include page="/jsp/Menu.jsp"></jsp:include><br> --%>
+<jsp:include page="/jsp/Menu.jsp"></jsp:include><br>
 <%
 	String uriWebbApp = request.getContextPath() + "/registrazione";
 %>
 
 <div class="immagineLogo">
-    <img src="../static/immagineLogo.jpg" alt= "Immagine logo" class="round-image" width="200px" height="200px">
+    <img src="<%=request.getContextPath() + "/static/immagineLogo.jpg" %>" alt= "Immagine logo" class="round-image" width="200px" height="200px">
     </div>
     <div class="login-box">
         <h2>Registrazione</h2>
@@ -31,7 +33,7 @@
           </div>
 <!--           <input type="submit" value="Registrati"> -->
           
-          <a href="#">
+          <a>
             <span></span>
             <span></span>
             <span></span>

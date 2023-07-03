@@ -25,9 +25,6 @@ public class Ordine {
 	@ManyToOne
 	private Utente utente;
 
-//	@ManyToMany(mappedBy = "listaOrdini")
-//	private List<Prodotto> listaProdottiOrdine = new ArrayList<>();
-
 	@ManyToMany
 	@JoinTable(name = "OrdineProdotto", joinColumns = 
 	@JoinColumn(name = "Id_Ordine"), inverseJoinColumns = 
@@ -73,14 +70,6 @@ public class Ordine {
 	public void setListaOrdineProdotti(List<Prodotto> listaOrdineProdotti) {
 		this.listaOrdineProdotti = listaOrdineProdotti;
 	}
-
-//	public List<Prodotto> getListaProdottiOrdine() {
-//		return listaProdottiOrdine;
-//	}
-//
-//	public void setListaProdottiOrdine(List<Prodotto> listaProdottiOrdine) {
-//		this.listaProdottiOrdine = listaProdottiOrdine;
-//	}
 
 	@Override
 	public String toString() {

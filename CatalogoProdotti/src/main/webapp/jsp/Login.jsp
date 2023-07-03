@@ -7,14 +7,14 @@
 <meta charset="UTF-8">
 <title>Login Utente</title>
 
-<link rel="stylesheet" href="../css/loginStyle.css">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/loginStyle.css" %>">
 
 </head>
 <body>
 <%
 	String uriWebApp = request.getContextPath() + "/login";
 %>
-<%-- <jsp:include page="/jsp/Menu.jsp"></jsp:include><br> --%>
+<jsp:include page="/jsp/Menu.jsp"></jsp:include><br>
 
 <!-- 	<h1>Form di login</h1> -->
 	
@@ -25,7 +25,7 @@
 <!-- 	</form> -->
 	
 	<div class="immagineLogo">
-    <img src="../static/immagineLogo.jpg" alt= "Immagine logo" class="round-image" width="200px" height="200px">
+    <img src="<%=request.getContextPath() + "/static/immagineLogo.jpg" %>" alt= "Immagine logo" class="round-image" width="200px" height="200px">
     </div>
     <div class="login-box">
         <h2>Login</h2>

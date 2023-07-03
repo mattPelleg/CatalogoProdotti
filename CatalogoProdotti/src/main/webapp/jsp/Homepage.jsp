@@ -7,10 +7,10 @@
 <title>Homepage Catalogo Prodotti</title>
 
 
-<link rel="stylesheet" href="../css/homepageStyle.css">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/homepageStyle.css" %>">
 <style>
 body {
-	background-image: url('../static/immagineSfondoHomepage.jpg');
+	background-image: url("<%=request.getContextPath() + "/static/immagineSfondoHomepage.jpg"%>");
 	background-size: cover;
 }
 </style>
@@ -24,7 +24,7 @@ body {
 <!-- 	</div> -->
 	
 	<div class="immagineLogo">
-    <img src="../static/immagineLogo.jpg" alt= "Immagine logo" class="round-image" width="200px" height="200px">
+    <img src="<%=request.getContextPath() + "/static/immagineLogo.jpg"%>" alt= "Immagine logo" class="round-image" width="200px" height="200px">
     </div>
     <div class="titolo">
         <h1 class="Mayone">Mayone e Mayoni</h1>

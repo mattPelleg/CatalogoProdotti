@@ -28,12 +28,6 @@ public class Prodotto {
 //	private String urlImmagine;
 
 	private boolean cancellato = false;
-
-//	@ManyToMany
-//	@JoinTable(name = "ProdottoOrdine", joinColumns =
-//	@JoinColumn(name = "Id_Prodotto"), inverseJoinColumns =
-//	@JoinColumn(name = "Id_Ordine"))
-//	private List<Ordine> listaOrdini = new ArrayList<>();
 	
 	@ManyToMany(mappedBy = "listaOrdineProdotti")
 	private List<Ordine> listaOrdini = new ArrayList<>();
