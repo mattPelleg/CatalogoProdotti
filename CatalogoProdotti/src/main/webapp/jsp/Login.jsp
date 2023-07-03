@@ -38,14 +38,14 @@
             <input type="password" name="passwordFormInput" required="">
             <label>Password</label>
           </div>
-          <input type="submit" value="Accedi">
-<%-- 		<button class="loginButton" formaction="<%=uriWebApp%>">Accedi</button> --%>
-          <a href="<%=uriWebApp%>">
+<!--           <input type="submit" value="Accedi"> -->
+          <a>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            Accedi
+<!--             Accedi -->
+			<button class="loginButton" formaction="<%=uriWebApp%>">Accedi</button>
           </a>
         </form>
       </div>

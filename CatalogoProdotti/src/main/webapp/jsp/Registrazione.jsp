@@ -29,14 +29,16 @@
             <input type="password" name="passwordFormInput" required="">
             <label>Password</label>
           </div>
-          <input type="submit" value="Registrati">
+<!--           <input type="submit" value="Registrati"> -->
           
           <a href="#">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            Registrati
+			<button class="loginButton" formaction="<%=uriWebbApp%>">Registrati</button>
+            
+<!--             Registrati -->
           </a>
         </form>
       </div>
