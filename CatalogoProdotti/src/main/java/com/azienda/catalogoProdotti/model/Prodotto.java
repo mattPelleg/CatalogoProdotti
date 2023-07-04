@@ -39,7 +39,9 @@ public class Prodotto {
 	private List<Ordine> listaOrdini = new ArrayList<>();
 
 	@ManyToMany
-	@JoinTable(name = "ProdottoCarrello", joinColumns = @JoinColumn(name = "Id_Prodotto"), inverseJoinColumns = @JoinColumn(name = "Id_Carrello"))
+	@JoinTable(name = "ProdottoCarrello", joinColumns = 
+	@JoinColumn(name = "Id_Prodotto"), inverseJoinColumns = 
+	@JoinColumn(name = "Id_Carrello"))
 	private List<Carrello> listaCarrelli = new ArrayList<>();
 
 	public Prodotto() {
