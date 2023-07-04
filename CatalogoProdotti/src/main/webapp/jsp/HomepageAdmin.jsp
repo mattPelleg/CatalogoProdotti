@@ -11,7 +11,8 @@
 	<jsp:include page="/jsp/Menu.jsp"></jsp:include>
 <%
 	String uriWebapp = request.getContextPath()+ "/inserisciAdmin";
-	Utente admin =(Utente) request.getAttribute("chiave_admin");
+// 	Utente admin =(Utente) request.getAttribute("chiave_admin");
+	Utente admin =(Utente) request.getSession().getAttribute("chiave_utente");
 %>
 	<h1> Pagina gestione admin </h1>
 	<jsp:include page="/jsp/MenuAdmin.jsp"></jsp:include>

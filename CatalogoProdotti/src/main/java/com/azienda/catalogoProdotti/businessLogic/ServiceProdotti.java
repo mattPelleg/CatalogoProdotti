@@ -249,7 +249,6 @@ public class ServiceProdotti {
 			this.em.getTransaction().rollback();
 			throw e;
 		}
-
 	}
 
 	public void creaOrdine(List<Prodotto> listaProdottiCarrello, Utente utenteInSessione) throws Exception {

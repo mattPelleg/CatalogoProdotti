@@ -51,11 +51,12 @@ public class CreaProdottoServlet extends HttpServlet {
 			
 			String filePath = null;
 			for ( Part part : req.getParts() ) {
-				nomeImmagine = part.getSubmittedFileName();
-				if ( nomeImmagine!=null && !nomeImmagine.isEmpty() ) {
-					filePath = uploadPath + File.separator + nomeImmagine;
+				String fileName = part.getSubmittedFileName();
+				if ( fileName!=null && !fileName.isEmpty() ) {
+					filePath = uploadPath + File.separator + fileName;
 					part.write(filePath);
 					immagine = BlobConverter.generateBlob(filePath);
+					nomeImmagine = fileName;
 				}
 			}
 			

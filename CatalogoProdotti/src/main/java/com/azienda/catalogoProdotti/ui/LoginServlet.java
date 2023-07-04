@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 			
 			//Controllo login dell'admin
 			if (utente.getProfiloUtente().getNome().equals("admin")) {
-				req.setAttribute("chiave_admin", utente);
+				req.getSession().setAttribute("chiave_utente", utente);
 				req.getRequestDispatcher("/jsp/HomepageAdmin.jsp").forward(req, resp);
 			} 
 			else if (utente.getProfiloUtente().getNome().equals("simpleUser")){
