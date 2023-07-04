@@ -33,6 +33,7 @@ public class RimuoviProdotoCarrelloServlet extends HttpServlet {
 			service.rimuoviProdotto(daRimuovere, utente);
 			
 			String message = "Prodotto rimosso dal carrello";
+			
 			resp.sendRedirect(req.getContextPath() + "/visualizzaCarrello?chiave_risultatoRimuoviProdotto=" + message);
 			
 		} catch (NumberFormatException e) {

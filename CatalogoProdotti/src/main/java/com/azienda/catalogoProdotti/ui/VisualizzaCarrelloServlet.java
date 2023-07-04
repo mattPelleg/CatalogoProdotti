@@ -27,7 +27,8 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			
 			//List<Prodotto> listaProdotti = service.visualizzaProdottiCarrello();
 			Utente utente = (Utente) req.getSession().getAttribute("chiave_utente");
-			Carrello carrello = utente.getCarrelloUtente();
+//			Carrello carrello = utente.getCarrelloUtente();
+			Carrello carrello = service.carrelloUtente(utente);
 			
 			List<Prodotto> listaProdottiCarrello = carrello.getListaProdottiCarrello(); //colleghiamo lista prodotti al carrello
 			//se la lista è vuota invertire relazione o svuotare la cache em.clear

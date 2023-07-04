@@ -14,6 +14,7 @@ import com.azienda.catalogoProdotti.dao.ProfiloDao;
 import com.azienda.catalogoProdotti.dao.UtenteDao;
 import com.azienda.catalogoProdotti.exception.DatiNonValidiException;
 import com.azienda.catalogoProdotti.exception.ProdottoDuplicatoException;
+import com.azienda.catalogoProdotti.exception.ProdottoNonDisponibileException;
 import com.azienda.catalogoProdotti.model.Carrello;
 import com.azienda.catalogoProdotti.model.Ordine;
 import com.azienda.catalogoProdotti.model.Prodotto;
@@ -55,7 +56,8 @@ public class ServiceProdotti {
 	 * @param disponibilita la disponibilità del prodotto
 	 * @param prezzo        il prezzo del prodotto
 	 */
-	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo, Blob immagine, String nomeImmagine) throws Exception {
+	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo, Blob immagine, String nomeImmagine)
+			throws Exception {
 		try {
 			em.getTransaction().begin();
 
@@ -73,7 +75,7 @@ public class ServiceProdotti {
 				throw new ProdottoDuplicatoException("Il prodotto " + nome + " è già presente nell'elenco", null);
 			} else {
 				Prodotto p = new Prodotto(nome, disponibilita, prezzo);
-				if(immagine != null) {
+				if (immagine != null) {
 					p.setImmagine(immagine);
 					p.setNomeImmagine(nomeImmagine);
 				}
@@ -101,23 +103,23 @@ public class ServiceProdotti {
 	public void modifica(Integer id, String nome, Integer disp, Float prezzo) {
 		try {
 			em.getTransaction().begin();
-			
+
 			Prodotto prodottoDb = prodottoDao.findById(id);
-			
+
 			if (nome != null && !nome.isBlank()) {
 				prodottoDb.setNome(nome);
 			}
-			
+
 			if (disp >= 0) {
 				prodottoDb.setDisponibilita(disp);
 			}
-			
+
 			if (prezzo >= 0) {
 				prodottoDb.setPrezzo(prezzo);
 			}
-			
+
 			em.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw e;
@@ -127,16 +129,16 @@ public class ServiceProdotti {
 	public void cancella(Integer id) {
 		try {
 			em.getTransaction().begin();
-			
+
 			Prodotto prodottoDb = prodottoDao.findById(id);
 			prodottoDb.setCancellato(true);
-			
+
 			prodottoDb.getListaCarrelli().clear();
 			List<Carrello> listaTuttiCarrelli = carrelloDao.retrieve();
-			for(Carrello c : listaTuttiCarrelli) {
+			for (Carrello c : listaTuttiCarrelli) {
 				c.getListaProdottiCarrello().remove(prodottoDb);
 			}
-			
+
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();
@@ -145,10 +147,9 @@ public class ServiceProdotti {
 	}
 
 	/**
-	 * Metodo che ricerca i prodotti in base al nome ed al prezzo, 
-	 * oppure in base solo al nome, o in base solo al prezzo
-	 * o se entrambi sono campi vuoti allora restituisce tutti
-	 * i prodotti
+	 * Metodo che ricerca i prodotti in base al nome ed al prezzo, oppure in base
+	 * solo al nome, o in base solo al prezzo o se entrambi sono campi vuoti allora
+	 * restituisce tutti i prodotti
 	 * 
 	 * @param nome il nome del prodotto cercato
 	 * @prezzo il prezzo del prodotto cercato
@@ -172,7 +173,7 @@ public class ServiceProdotti {
 
 			else
 				ricercaProdotti = prodottoDao.retrieve();
-			
+
 			em.getTransaction().commit();
 
 			return ricercaProdotti;
@@ -185,42 +186,42 @@ public class ServiceProdotti {
 	/**
 	 * Metodo che aggiunge un prodotto al carrello del'ytente
 	 * 
-	 * @param idProdotto l'id del prodotto da aggiungere
+	 * @param idProdotto    l'id del prodotto da aggiungere
 	 * @param utenteLoggato l'utente in sessione
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void aggiungiAlCarrello(Integer idProdotto, Utente utenteLoggato) throws Exception {
 		try {
 			em.getTransaction().begin();
-			
-			//prendo l'utente dalla lista di utenti nel db, è un ulteriore controllo
+
+			// prendo l'utente dalla lista di utenti nel db, è un ulteriore controllo
 			List<Utente> utentiDb = utenteDao.findUtenteById(utenteLoggato.getId());
 			Utente utenteDb = utentiDb.get(0);
-			
-			//tramite l'id del prodotto, prendo il prodotto da aggiungere al carrello
+
+			// tramite l'id del prodotto, prendo il prodotto da aggiungere al carrello
 			Prodotto prodottoDb = prodottoDao.findById(idProdotto);
-			
-			//prendo il carrello dell'utente
+
+			// prendo il carrello dell'utente
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
-			
-			//prima di aggiungere il prodotto nel carrello, controllo
-			//se nel carrello dell'utente c'è già quel prodotto
+
+			// prima di aggiungere il prodotto nel carrello, controllo
+			// se nel carrello dell'utente c'è già quel prodotto
 			List<Prodotto> listaProdottiCarrelloUtente = carrelloUtente.getListaProdottiCarrello();
-			if(listaProdottiCarrelloUtente.contains(prodottoDb)) 
-				throw new ProdottoDuplicatoException("Il prodotto " + prodottoDb.getNome() + " è già nel carrello!", null);
-			
-			//e ci aggiungo il prodotto
+			if (listaProdottiCarrelloUtente.contains(prodottoDb))
+				throw new ProdottoDuplicatoException("Il prodotto " + prodottoDb.getNome() + " è già nel carrello!",
+						null);
+
+			// e ci aggiungo il prodotto
 			listaProdottiCarrelloUtente.add(prodottoDb);
-			
+
 			/*
-			 * Adesso bisogna settare l'associazione tra prodotto - carrello
-			 * dalla parte di prodotto (prodotto contiene la join table della
-			 * relazione molti-molti)
+			 * Adesso bisogna settare l'associazione tra prodotto - carrello dalla parte di
+			 * prodotto (prodotto contiene la join table della relazione molti-molti)
 			 */
 			prodottoDb.getListaCarrelli().add(carrelloUtente);
-			
+
 			em.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw e;
@@ -230,72 +231,81 @@ public class ServiceProdotti {
 	public void rimuoviProdotto(Prodotto daRimuovere, Utente utente) {
 		try {
 			this.em.getTransaction().begin();
-			
-			//prendo il carrello dell'utente
+
+			// prendo il carrello dell'utente
 			Carrello carrelloUtente = utente.getCarrelloUtente();
-			
-			//prendo la lista dei prodotti contenuti nel carrello
+
+			// prendo la lista dei prodotti contenuti nel carrello
 			List<Prodotto> prodottiNelCarrello = carrelloUtente.getListaProdottiCarrello();
-			//rimuovo il carrello dal prodotto --> rimuove l'associazione carrello-prodotto
+			// rimuovo il carrello dal prodotto --> rimuove l'associazione carrello-prodotto
 			prodottiNelCarrello.remove(daRimuovere);
-			
-			//rimuovo il prodotto dal carrello --> rimuove l'associazione prodotto-carrello
+
+			// rimuovo il prodotto dal carrello --> rimuove l'associazione prodotto-carrello
 			daRimuovere.getListaCarrelli().remove(carrelloUtente);
-			
+
 			this.em.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			this.em.getTransaction().rollback();
 			throw e;
 		}
-		
+
 	}
 
-	public void creaOrdine(List<Prodotto> listaProdottiCarrello, Utente utenteInSessione) {
+	public void creaOrdine(List<Prodotto> listaProdottiCarrello, Utente utenteInSessione) throws Exception {
 		// TODO Auto-generated method stub
 		try {
-			
+
 			this.em.getTransaction().begin();
-			
+
 			Ordine nuovoOrdine = new Ordine(LocalDate.now());
 			nuovoOrdine.setUtente(utenteInSessione);
-			
-			for(Prodotto p: listaProdottiCarrello) {
+
+			List<Prodotto> prodottiNonDisponibili = new ArrayList<>();
+
+			for (Prodotto p : listaProdottiCarrello) {
+
+				if (p.getDisponibilita() == 0) {
+					String s = "Il prodotto " + p.getNome() + 
+							" non è più disponibile, il tuo carrello è stato aggiornato";
+					throw new ProdottoNonDisponibileException(s, null);
+				}
 				nuovoOrdine.getListaOrdineProdotti().add(p);
 				p.getListaOrdini().add(nuovoOrdine);
-				
+
 				p.setDisponibilita(p.getDisponibilita() - 1);
+
 			}
 
 			this.ordineDao.create(nuovoOrdine);
-			
+
 			this.em.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 			this.em.getTransaction().rollback();
 			throw e;
 		}
 	}
-	
+
 	public void svuotaCarrello(Utente utente) {
 		try {
 			this.em.getTransaction().begin();
-			
-			//prendo il carrello dell'utente
+
+			// prendo il carrello dell'utente
 			Carrello carrelloUtente = utente.getCarrelloUtente();
-			
-			//prendo la lista dei prodotti contenuti nel carrello
+
+			// prendo la lista dei prodotti contenuti nel carrello
 			List<Prodotto> prodottiNelCarrello = carrelloUtente.getListaProdottiCarrello();
-			
-			for(Prodotto p: prodottiNelCarrello) {
+
+			for (Prodotto p : prodottiNelCarrello) {
 				p.getListaCarrelli().clear();
 			}
-			
+
 			prodottiNelCarrello.clear();
-			
+
 			this.em.getTransaction().commit();
-			
+
 		} catch (Exception e) {
 			this.em.getTransaction().rollback();
 			throw e;
@@ -305,13 +315,13 @@ public class ServiceProdotti {
 	public List<Ordine> visualizzaOrdiniUtente(Utente u) {
 		try {
 			this.em.getTransaction().begin();
-			
+
 			List<Ordine> listaOrdiniUtente = this.ordineDao.findOrdiniUtente(u);
-			
+
 			this.em.getTransaction().commit();
-			
+
 			return listaOrdiniUtente;
-			
+
 		} catch (Exception e) {
 			this.em.getTransaction().rollback();
 			throw e;
@@ -320,6 +330,11 @@ public class ServiceProdotti {
 
 	public List<Ordine> visualizzaOrdini() {
 		return this.ordineDao.retrieve();
+	}
+
+	public Carrello carrelloUtente(Utente utente) {
+		return this.em.createQuery("select c from Carrello c where c.utente = :idUtente", Carrello.class).
+				setParameter("idUtente", utente).getSingleResult();
 	}
 
 }

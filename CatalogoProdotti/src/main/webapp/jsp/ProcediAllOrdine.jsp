@@ -55,7 +55,7 @@
 		</form>
 	<%} %>
 	
-	<button class="glow-on-hover" type="button" form="formId" formaction="<%=urlCreaOrdine %>">Bottone ordine</button> &nbsp;
+<%-- 	<button class="glow-on-hover" type="button" form="formId" formaction="<%=urlCreaOrdine %>">Bottone ordine</button> &nbsp; --%>
 	
 	<script src="../js/script.js"></script>
 </body>

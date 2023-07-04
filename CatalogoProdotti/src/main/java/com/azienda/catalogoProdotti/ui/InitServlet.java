@@ -51,11 +51,12 @@ public class InitServlet extends HttpServlet {
 			//Creazione admin e prodotti fissi
 			serviceUtenti.salvaAdmin("admin@gmail.com", "admin");
 			serviceUtenti.salvaUtente("matteo@gmail.com", "matteo");
+			serviceUtenti.salvaUtente("marco@gmail.com", "marco");
 			
 			serviceProdotti.salvaProdotto("mayone", 3, 4f, null, null);
 			serviceProdotti.salvaProdotto("felpone", 3, 5f, null, null);
 			serviceProdotti.salvaProdotto("maglietta", 0, 5f, null, null);
-			serviceProdotti.salvaProdotto("borsa", 2, 8f, null, null);
+			serviceProdotti.salvaProdotto("borsa", 1, 8f, null, null);
 			serviceProdotti.salvaProdotto("cappello", 3, 2f, null, null);
 			
 			getServletContext().setAttribute(BUSINESS_LOGIC_UTENTE, serviceUtenti);

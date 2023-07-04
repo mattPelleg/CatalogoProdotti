@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
+import com.azienda.catalogoProdotti.exception.ProdottoNonDisponibileException;
 import com.azienda.catalogoProdotti.model.Ordine;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Utente;
@@ -38,11 +39,14 @@ public class CreaOrdineServlet extends HttpServlet {
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			service.creaOrdine(prodotti, utenteInSessione);
 			service.svuotaCarrello(utenteInSessione);
-//			service.aggiornaDisponibilita(prodotti);
 			
 			req.setAttribute("chiave_risultatoCreaOrdine", "Ordine confermato");
 			req.getRequestDispatcher("/jsp/ProcediAllOrdine.jsp").forward(req, resp);
 			
+		} catch (ProdottoNonDisponibileException e) {
+			req.setAttribute("chiave_risultatoCreaOrdine", e.getMessage());
+			req.getRequestDispatcher("/jsp/ProcediAllOrdine.jsp").forward(req, resp);
+			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
