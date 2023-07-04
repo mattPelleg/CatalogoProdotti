@@ -13,6 +13,7 @@ import com.azienda.catalogoProdotti.exception.DatiNonValidiException;
 import com.azienda.catalogoProdotti.exception.UtenteDuplicatoException;
 import com.azienda.catalogoProdotti.exception.UtenteNonRegistratoException;
 import com.azienda.catalogoProdotti.model.Carrello;
+import com.azienda.catalogoProdotti.model.Ordine;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Profilo;
 import com.azienda.catalogoProdotti.model.Utente;
@@ -246,6 +247,22 @@ public class ServiceUtenti {
 			Prodotto prodottoDb = prodottoDao.findById(id);
 			prodottoDao.delete(prodottoDb);
 			em.getTransaction().commit();
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			throw e;
+		}
+	}
+
+	public List<Ordine> visualizzaOrdini() {
+		try {
+			em.getTransaction().begin();
+			
+			List<Ordine> listaOrdini = ordineDao.retrieve();
+			
+			em.getTransaction().commit();
+			
+			return listaOrdini;
+			
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw e;

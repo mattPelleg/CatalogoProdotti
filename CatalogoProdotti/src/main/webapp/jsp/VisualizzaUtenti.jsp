@@ -1,6 +1,4 @@
 
-<%@page import="com.azienda.catalogoProdotti.model.Prodotto"%>
-<%@page import="com.azienda.catalogoProdotti.model.Ordine"%>
 <%@page import="com.azienda.catalogoProdotti.model.Utente"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -29,17 +27,7 @@
 
 <%for(Utente u : listaUtenti){ %>
 	<% if (u.getProfiloUtente().getNome().equals("simpleUser")) { %>
-		<h4>Utente: <%=u.getEmail()%><h4>
-		<table>
-			<tr><th>ID_ORDINE</th><th>DATA_ACQUISTO</th><th>PRODOTTO</th><th>PREZZO</th><th>TOT</th></tr>
-			<%for(Ordine o: u.getListaOrdini()) {%>
-				<tr><td><%=o.getId() %></td><td><%=o.getDataAcquisto() %></td>
-				<%for(Prodotto p: o.getListaOrdineProdotti()) {%>
-					<tr><td></td><td></td><td><%=p.getNome() %></td><td><%=p.getPrezzo() %></td></tr>
-				<%} %>
-				</tr>
-			<%} %>
-		</table>
+		<p> <%=u.getEmail()%></p>
 	<%} %>
 <%} %>
 </body>
