@@ -2,6 +2,7 @@ package com.azienda.catalogoProdotti.ui;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
 import com.azienda.catalogoProdotti.model.Prodotto;
@@ -46,6 +47,13 @@ public class CercaProdottoServlet extends HttpServlet {
 					.getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzo);
 			GestioneImmagini.creaMappaImmagini(req, ricercaProdotti);
+			
+//			Map<Prodotto, Integer> prodotto2quantita = service.contaProdottoOrdine(service.visualizzaProdotti());
+//			for(Prodotto p : prodotto2quantita.keySet()) {
+//				int c = prodotto2quantita.get(p);
+//				System.out.println(p + " " + c);
+//			}
+				
 			
 			if (ruoloUtente.equals("admin")) {
 				req.setAttribute("chiave_ricerca", ricercaProdotti);

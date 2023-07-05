@@ -3,7 +3,9 @@ package com.azienda.catalogoProdotti.businessLogic;
 import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 
@@ -341,7 +343,34 @@ public class ServiceProdotti {
 	 * con profilo admin, che riporti per ogni prodotto il numero
 	 * di acquisti effettuati ed il prezzo totale speso dagli utenti 
 	 */
+	public Map<Prodotto, Integer> contaProdottoOrdine(List<Prodotto> listaProdotti) {
+		try {
+			this.em.getTransaction().begin();
+			int conta = 0;
+			
+			Map<Prodotto, Integer> prodotto2quantita = new HashMap<>();
+			
+			for(Prodotto p : listaProdotti) {
+				List<Ordine> listaOrdiniDelProdotto = p.getListaOrdini();
+				conta = 0;
+				prodotto2quantita.put(p, 0);
+				for(Ordine o : listaOrdiniDelProdotto) {
+					if(o.getListaOrdineProdotti().contains(p)) {
+						conta++;
+						prodotto2quantita.put(p, conta);
+					}
+				}
+			}
 
+			this.em.getTransaction().commit();
+			
+			return prodotto2quantita;
+
+		} catch (Exception e) {
+			this.em.getTransaction().rollback();
+			throw e;
+		}
+	}
 	
 
 }
