@@ -11,8 +11,11 @@
 <style>
 body {
 	background-image: url("<%=request.getContextPath() + "/static/immagineSfondoHomepage.jpg"%>");
-	background-size: cover;
-}
+ 	background-size: 100% 100%;
+  	background-repeat: no-repeat;
+  	background-position: center center;
+  	background-attachment: fixed;
+} 
 </style>
 
 </head>
@@ -55,7 +58,6 @@ body {
               </div>
 
       </div>
-
 
 </body>
 </html>

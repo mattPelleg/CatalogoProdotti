@@ -1,12 +1,18 @@
 package com.azienda.catalogoProdotti.ui;
 
+import java.io.File;
 import java.io.IOException;
+import java.sql.Blob;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
 import com.azienda.catalogoProdotti.model.Carrello;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Utente;
+import com.azienda.catalogoProdotti.utils.BlobConverter;
+import com.azienda.catalogoProdotti.utils.GestioneImmagini;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,13 +31,13 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		try {
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			
-			//List<Prodotto> listaProdotti = service.visualizzaProdottiCarrello();
 			Utente utente = (Utente) req.getSession().getAttribute("chiave_utente");
-//			Carrello carrello = utente.getCarrelloUtente();
 			Carrello carrello = service.carrelloUtente(utente);
 			
 			List<Prodotto> listaProdottiCarrello = carrello.getListaProdottiCarrello(); //colleghiamo lista prodotti al carrello
 			//se la lista è vuota invertire relazione o svuotare la cache em.clear
+			
+			GestioneImmagini.creaMappaImmagini(req, listaProdottiCarrello);
 			
 			req.setAttribute("chiave_listaCarrello", listaProdottiCarrello);
 			req.setAttribute("chiave_risultatoRisultatoRimuoviProdottoCarrello", req.getParameter("chiave_risultatoRimuoviProdotto"));
@@ -44,4 +50,9 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			e.printStackTrace();
 		}
 	}
+
+
+
+
+
 }

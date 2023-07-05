@@ -6,6 +6,7 @@ import java.util.List;
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Utente;
+import com.azienda.catalogoProdotti.utils.GestioneImmagini;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -44,6 +45,7 @@ public class CercaProdottoServlet extends HttpServlet {
 			ServiceProdotti service = (ServiceProdotti) getServletContext()
 					.getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzo);
+			GestioneImmagini.creaMappaImmagini(req, ricercaProdotti);
 			
 			if (ruoloUtente.equals("admin")) {
 				req.setAttribute("chiave_ricerca", ricercaProdotti);

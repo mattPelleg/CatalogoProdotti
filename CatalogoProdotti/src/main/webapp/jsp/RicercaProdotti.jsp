@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="com.azienda.catalogoProdotti.model.Prodotto"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -22,6 +23,8 @@
 	String formAction = webApp + "/ricerca";
 	
 	List<Prodotto> listaProdotti = (List<Prodotto>) request.getAttribute("chiave_ricerca");
+	Map <Integer, String> mappaImmagini = (Map <Integer, String>) request.getAttribute("chiave_mappaImmagini");
+
 		
 %>
 <h1>Form di ricerca prodotti</h1>
@@ -43,7 +46,8 @@
 	<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Modifica</th><th>Cancella</th></tr>
 	<%for(Prodotto p : listaProdotti) {%>
 		<%if(p.isCancellato() == false) { %>		
-			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
+			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> 
+			<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 			<td>
 				<form action="<%= urlModifica %>" method="post">
 					<input type="hidden" name="id" value="<%= p.getId() %>">

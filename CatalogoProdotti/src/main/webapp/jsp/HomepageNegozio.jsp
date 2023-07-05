@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="com.azienda.catalogoProdotti.model.Prodotto"%>
 <%@page import="com.azienda.catalogoProdotti.model.Utente"%>
 <%@page import="java.util.List"%>
@@ -28,6 +29,8 @@
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaProdottiUtente");
 	
 	String messaggioRisultatoAggiungiAlCarrello = (String) request.getAttribute("chiave_risultatoAggiunta");
+	Map<Integer, String> mappaImmagini = (Map <Integer, String>) request.getAttribute("chiave_mappaImmagini");
+
 %>
 
 	<h1>Mayone & Mayoni</h1>
@@ -52,7 +55,9 @@
 		<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Aggiungi al carrello</th></tr>
 		<%for(Prodotto p : listaProdotti) {%>
 		<%if(p.isCancellato() == false && p.getDisponibilita() > 0) { %>		
-		<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
+		<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> 
+		<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
+			
 			<td>
 				<form action="<%= urlAggiungiAlCarrello %>" method="post">
 					<input type="hidden" name="idProdotto" value="<%= p.getId() %>">

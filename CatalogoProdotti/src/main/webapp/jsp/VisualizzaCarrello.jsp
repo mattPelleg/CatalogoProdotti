@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="com.azienda.catalogoProdotti.model.Prodotto"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -20,6 +21,8 @@
 	String urlProcediAllOrdine = baseUrl + "/jsp/ProcediAllOrdine.jsp";
 	
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
+	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getAttribute("chiave_mappaImmagini");
+
 	request.setAttribute("chiave_listaCarrello", listaProdotti);
 	String messaggioRisultatoRimuoviProdotto = (String) request.getAttribute("chiave_risultatoRisultatoRimuoviProdottoCarrello");
 %>
@@ -43,7 +46,7 @@
 		<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Rimuovi dal carrello</th></tr>
 		<%for(Prodotto p : listaProdotti) {%>
 			<%if(p.isCancellato() == false) { %>		
-			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td></td>
+			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 				<td>
 					<form action="<%=urlRimuovi %>" method="POST">
 						<input type="hidden" name="id" value="<%=p.getId() %>">

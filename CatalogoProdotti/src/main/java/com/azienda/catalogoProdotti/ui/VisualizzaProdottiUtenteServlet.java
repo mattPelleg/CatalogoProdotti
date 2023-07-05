@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
 import com.azienda.catalogoProdotti.model.Prodotto;
+import com.azienda.catalogoProdotti.utils.GestioneImmagini;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,6 +24,8 @@ public class VisualizzaProdottiUtenteServlet extends HttpServlet {
 		try {
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			List<Prodotto> listaProdotti = service.visualizzaProdotti();
+			
+			GestioneImmagini.creaMappaImmagini(req, listaProdotti);
 			
 			req.setAttribute("chiave_listaProdottiUtente", listaProdotti);
 			req.setAttribute("chiave_risultatoAggiunta", req.getParameter("chiave_risultatoAggiungiProdottoCarrello"));

@@ -335,5 +335,13 @@ public class ServiceProdotti {
 		return this.em.createQuery("select c from Carrello c where c.utente = :idUtente", Carrello.class).
 				setParameter("idUtente", utente).getSingleResult();
 	}
+	
+	/*
+	 * Creare una funzionalità statistica, per i soli utenti
+	 * con profilo admin, che riporti per ogni prodotto il numero
+	 * di acquisti effettuati ed il prezzo totale speso dagli utenti 
+	 */
+
+	
 
 }
