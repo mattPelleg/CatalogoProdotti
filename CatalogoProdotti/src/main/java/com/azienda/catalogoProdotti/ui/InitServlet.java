@@ -49,7 +49,7 @@ public class InitServlet extends HttpServlet {
 			CarrelloDao carrelloDao = new CarrelloDao(em);
 			OrdineDao ordineDao = new OrdineDao(em);
 			
-			String scorreggia = new String("");
+			String scorreggia = new String(""); 
 			
 			ServiceUtenti serviceUtenti = new ServiceUtenti(em, profiloDao, utenteDao, prodottoDao, carrelloDao, ordineDao);
 			ServiceProdotti serviceProdotti = new ServiceProdotti(em, profiloDao, utenteDao, prodottoDao, carrelloDao, ordineDao);
