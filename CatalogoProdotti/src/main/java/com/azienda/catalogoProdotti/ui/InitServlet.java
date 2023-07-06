@@ -33,6 +33,10 @@ public class InitServlet extends HttpServlet {
 	public void init() throws ServletException {
 
 		EntityManager em = null;
+		
+		/*********************************
+		  SCORREGGIA
+		 *********************************/
 
 		try {
 
