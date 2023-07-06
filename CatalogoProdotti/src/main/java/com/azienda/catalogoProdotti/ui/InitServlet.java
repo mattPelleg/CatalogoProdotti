@@ -32,7 +32,9 @@ public class InitServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 
+		
 		EntityManager em = null;
+		
 
 		try {
 
