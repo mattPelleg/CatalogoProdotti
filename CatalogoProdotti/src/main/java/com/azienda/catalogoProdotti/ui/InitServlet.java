@@ -33,10 +33,6 @@ public class InitServlet extends HttpServlet {
 	public void init() throws ServletException {
 
 		EntityManager em = null;
-		
-		/*********************************
-		  SCORREGGIA
-		 *********************************/
 
 		try {
 
@@ -48,8 +44,6 @@ public class InitServlet extends HttpServlet {
 			ProdottoDao prodottoDao = new ProdottoDao(em);
 			CarrelloDao carrelloDao = new CarrelloDao(em);
 			OrdineDao ordineDao = new OrdineDao(em);
-			
-			String scorreggia = new String(""); 
 			
 			ServiceUtenti serviceUtenti = new ServiceUtenti(em, profiloDao, utenteDao, prodottoDao, carrelloDao, ordineDao);
 			ServiceProdotti serviceProdotti = new ServiceProdotti(em, profiloDao, utenteDao, prodottoDao, carrelloDao, ordineDao);
