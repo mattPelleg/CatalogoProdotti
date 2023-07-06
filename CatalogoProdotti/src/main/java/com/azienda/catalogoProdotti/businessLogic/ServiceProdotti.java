@@ -40,6 +40,7 @@ public class ServiceProdotti {
 		this.carrelloDao = carrelloDao;
 		this.ordineDao = ordineDao;
 	}
+	
 
 	/**
 	 * Metodo che restituisce la lista di tutti i prodotti conenuti nel database
@@ -261,8 +262,6 @@ public class ServiceProdotti {
 
 			Ordine nuovoOrdine = new Ordine(LocalDate.now());
 			nuovoOrdine.setUtente(utenteInSessione);
-
-			List<Prodotto> prodottiNonDisponibili = new ArrayList<>();
 
 			for (Prodotto p : listaProdottiCarrello) {
 
