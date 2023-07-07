@@ -9,6 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Riepilogo Ordini</title>
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/visualizzaOrdiniAdminStyle.css" %>">
+
 </head>
 <body>
 
@@ -28,10 +30,14 @@
 
 
 <%if(listaOrdiniUtente != null && listaOrdiniUtente.isEmpty()) {%> 	
- 		<p> Lista ordini vuota </p>
-	<% } else { %> 
-	<table border=1>
-		<tr><th>ID_ORDINE</th><th>DATA_ACQUISTO</th><th>NOME</th><th>PREZZO</th><th>IMMAGINE</th><th>TOT</th></tr>
+ 	<p> Lista ordini vuota </p>
+<% } else { %> 
+<div class="container">
+	<table>
+		<thead>	
+			<tr><th>ID_ORDINE</th><th>DATA_ACQUISTO</th><th>NOME</th><th>PREZZO</th><th>IMMAGINE</th><th>TOT</th></tr>
+		</thead>
+		<tbody>
 		<%for(Ordine o: listaOrdiniUtente) {%>
 			<%float tot = 0f; %>
 			<tr><td><%=o.getId() %></td><td><%=o.getDataAcquisto() %></td>
@@ -43,9 +49,11 @@
 				<td><%=tot %></td>
 				</tr>
 			</tr>
-	<%} %>
+		<%} %>
+		</tbody>
 	</table>
 <%} %>
+</div>
 
 </body>
 </html>

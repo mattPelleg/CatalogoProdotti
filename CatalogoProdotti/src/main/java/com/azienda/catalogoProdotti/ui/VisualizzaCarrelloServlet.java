@@ -12,6 +12,7 @@ import com.azienda.catalogoProdotti.model.Carrello;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Utente;
 import com.azienda.catalogoProdotti.utils.BlobConverter;
+import com.azienda.catalogoProdotti.utils.ComparatoreProdottiPerNome;
 import com.azienda.catalogoProdotti.utils.GestioneImmagini;
 
 import jakarta.servlet.ServletException;
@@ -35,7 +36,7 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			Carrello carrello = service.carrelloUtente(utente);
 			
 			List<Prodotto> listaProdottiCarrello = carrello.getListaProdottiCarrello(); //colleghiamo lista prodotti al carrello
-			//se la lista è vuota invertire relazione o svuotare la cache em.clear
+			listaProdottiCarrello.sort(new ComparatoreProdottiPerNome());
 			
 			GestioneImmagini.creaMappaImmagini(req, listaProdottiCarrello);
 			

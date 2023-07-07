@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Ordini Uteneti</title>
 
-<link rel="stylesheet"  href="<%=request.getContextPath() + "/css/visualizzaOrdiniAdminStyle.css" %>"">
+<link rel="stylesheet"  href="<%=request.getContextPath() + "/css/visualizzaOrdiniAdminStyle.css" %>">
 </head>
 <body>
 
@@ -38,7 +38,7 @@
 	</div>
 </div>
 	
-<%if(listaOrdini != null && listaOrdini.isEmpty()) {%> 	
+<%if(listaOrdini != null && listaOrdini.isEmpty()) {%>
 	<p> Lista ordini vuota </p>
 <% } else { %> 
 <div class="container">
@@ -46,7 +46,6 @@
 		<thead>
 			<tr>
 				<th>ID_UTENTE</th><th>EMAIL</th><th>ID_ORDINE</th><th>DATA_ACQUISTO</th><th>PRODOTTO</th><th>PREZZO</th>
-<!-- 				<th>ID_UTENTE</th><th>EMAIL</th><th>ID_ORDINE</th><th>DATA_ACQUISTO</th><th>NOME</th><th>PREZZO</th><th>TOT</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -57,7 +56,6 @@
 				<%tot += p.getPrezzo(); %>
 				<tr><td></td><td></td><td></td><td></td><td><%=p.getNome() %></td><td><%=p.getPrezzo() %></td>
 			<%} %>
-<%-- 				<td><%=tot %></td> --%>
 				</tr>
 				<tr><td>TOT</td><td></td><td></td><td></td><td></td><td><%=tot %></td></tr>
 			</tr>
@@ -68,36 +66,5 @@
 <%} %>
 </div>
 
-<!-- <div class="container"> -->
-<!-- <table> -->
-<!-- 	<thead> -->
-<!--         <tr> -->
-<!--             <th colspan="2">EMAIL_UTENTE</th> -->
-<!--             <th>ID_ORDINE</th> -->
-<!--             <th>DATA_ACQUISTO</th> -->
-<!--             <th>PRODOTTO</th> -->
-<!--             <th>PREZZO</th> -->
-<!--         </tr> -->
-<!-- 	</thead> -->
-<!-- 	<tbody> -->
-<%-- 	<%for(Ordine o: listaOrdini) {%> --%>
-<%-- 		<%float tot = 0f; %> --%>
-<!--         <tr> -->
-<%--             <td colspan="2" rowspan="<%=o.getListaOrdineProdotti().size() %>"><%=o.getUtente().getEmail() %></td> --%>
-<%-- 			<%for(Prodotto p: o.getListaOrdineProdotti()) {%> --%>
-<%-- 			<%tot += p.getPrezzo(); %> --%>
-<%--             <td><%=o.getId() %></td> --%>
-<%--             <td><%=o.getDataAcquisto() %></td> --%>
-<%--             <td><%=p.getNome() %></td> --%>
-<%--             <td><%=p.getPrezzo() %></td> --%>
-<!--         </tr>	 -->
-<%-- 		<%} %> --%>
-<%-- 	<%} %> --%>
-<!-- 	</tbody> -->
-<!--     </table> -->
-<%-- <%} %> --%>
-<!-- </div> -->
-
-	
 </body>
 </html>

@@ -55,11 +55,13 @@ public class InitServlet extends HttpServlet {
 			serviceUtenti.salvaUtente("matteo@gmail.com", "matteo");
 			serviceUtenti.salvaUtente("marco@gmail.com", "marco");
 			
-			serviceProdotti.salvaProdotto("mayone", 3, 4f, null, null);
-			serviceProdotti.salvaProdotto("felpone", 3, 5f, null, null);
-			serviceProdotti.salvaProdotto("maglietta", 0, 5f, null, null);
-			serviceProdotti.salvaProdotto("borsa", 1, 8f, null, null);
-			serviceProdotti.salvaProdotto("cappello", 3, 2f, null, null);
+			
+			
+			serviceProdotti.salvaProdotto("Maglione", 3, 4f, null, null);
+			serviceProdotti.salvaProdotto("Gilet", 3, 5f, null, null);
+			serviceProdotti.salvaProdotto("Top", 0, 5f, null, null);
+			serviceProdotti.salvaProdotto("Borsa", 1, 8f, null, null);
+			serviceProdotti.salvaProdotto("Berretto", 3, 2f, null, null);
 			
 			getServletContext().setAttribute(BUSINESS_LOGIC_UTENTE, serviceUtenti);
 			getServletContext().setAttribute(BUSINESS_LOGIC_PRODOTTO, serviceProdotti);

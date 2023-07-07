@@ -28,9 +28,6 @@ public class Prodotto {
 
 	private Float prezzo;
 
-//	Da aggiungere dopo
-//	private String urlImmagine;
-
 	private Blob immagine;
 
 	private String nomeImmagine;
@@ -150,7 +147,6 @@ public class Prodotto {
 		Prodotto other = (Prodotto) obj;
 		return Objects.equals(id, other.id);
 	}
-	
 	
 
 }

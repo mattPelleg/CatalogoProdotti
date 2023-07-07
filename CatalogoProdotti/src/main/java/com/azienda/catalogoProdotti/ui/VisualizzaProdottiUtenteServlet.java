@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
 import com.azienda.catalogoProdotti.model.Prodotto;
+import com.azienda.catalogoProdotti.utils.ComparatoreProdottiPerNome;
 import com.azienda.catalogoProdotti.utils.GestioneImmagini;
 
 import jakarta.servlet.ServletException;
@@ -24,6 +25,7 @@ public class VisualizzaProdottiUtenteServlet extends HttpServlet {
 		try {
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			List<Prodotto> listaProdotti = service.visualizzaProdotti();
+			listaProdotti.sort(new ComparatoreProdottiPerNome());
 			
 			GestioneImmagini.creaMappaImmagini(req, listaProdotti);
 			
