@@ -26,6 +26,7 @@ public class BlobConverter {
 		baos.close();
 		is.close();
 		return result;
+		
 	}
 	
 	//conversione da blob a file
