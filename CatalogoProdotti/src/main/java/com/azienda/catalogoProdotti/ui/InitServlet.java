@@ -1,5 +1,7 @@
 package com.azienda.catalogoProdotti.ui;
 
+import java.sql.Blob;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,6 +13,7 @@ import com.azienda.catalogoProdotti.dao.OrdineDao;
 import com.azienda.catalogoProdotti.dao.ProdottoDao;
 import com.azienda.catalogoProdotti.dao.ProfiloDao;
 import com.azienda.catalogoProdotti.dao.UtenteDao;
+import com.azienda.catalogoProdotti.utils.BlobConverter;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -28,6 +31,8 @@ public class InitServlet extends HttpServlet {
 
 	protected static final String BUSINESS_LOGIC_UTENTE = "businessLogicUtente";
 	protected static final String BUSINESS_LOGIC_PRODOTTO = "businessLogicProdotto";
+	
+	protected static final String PERCORSO_CARTELLA_FOTO = "/Users/matteopellegrini/Desktop/MAYONE/foto_progetto/";
 	
 	@Override
 	public void init() throws ServletException {
@@ -55,13 +60,26 @@ public class InitServlet extends HttpServlet {
 			serviceUtenti.salvaUtente("matteo@gmail.com", "matteo");
 			serviceUtenti.salvaUtente("marco@gmail.com", "marco");
 			
+			Blob blobMaglione = BlobConverter.generateBlob(PERCORSO_CARTELLA_FOTO + "maglione.jpeg");
+			String nomeMaglione = "maglione.jpeg";
 			
+			Blob blobGilet = BlobConverter.generateBlob(PERCORSO_CARTELLA_FOTO + "gilet.jpeg");
+			String nomeGilet = "gilet.jpeg";
 			
-			serviceProdotti.salvaProdotto("Maglione", 3, 4f, null, null);
-			serviceProdotti.salvaProdotto("Gilet", 3, 5f, null, null);
-			serviceProdotti.salvaProdotto("Top", 0, 5f, null, null);
-			serviceProdotti.salvaProdotto("Borsa", 1, 8f, null, null);
-			serviceProdotti.salvaProdotto("Berretto", 3, 2f, null, null);
+			Blob blobTop = BlobConverter.generateBlob(PERCORSO_CARTELLA_FOTO + "top.png");
+			String nomeTop = "top.png";
+			
+			Blob blobBorsa = BlobConverter.generateBlob(PERCORSO_CARTELLA_FOTO + "borsa.jpeg");
+			String nomeBorsa = "borsa.jpeg";
+			
+			Blob blobBerretto = BlobConverter.generateBlob(PERCORSO_CARTELLA_FOTO + "berretto.webp");
+			String nomeBerretto = "berretto.webp";
+			
+			serviceProdotti.salvaProdotto("Maglione", 3, 4f, blobMaglione, nomeMaglione);
+			serviceProdotti.salvaProdotto("Gilet", 3, 5f, blobGilet, nomeGilet);
+			serviceProdotti.salvaProdotto("Top", 0, 5f, blobTop, nomeGilet);
+			serviceProdotti.salvaProdotto("Borsa", 1, 8f, blobBorsa, nomeBorsa);
+			serviceProdotti.salvaProdotto("Berretto", 3, 2f, blobBerretto, nomeBerretto);
 			
 			getServletContext().setAttribute(BUSINESS_LOGIC_UTENTE, serviceUtenti);
 			getServletContext().setAttribute(BUSINESS_LOGIC_PRODOTTO, serviceProdotti);
