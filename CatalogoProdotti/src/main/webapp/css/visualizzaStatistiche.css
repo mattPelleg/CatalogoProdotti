@@ -1,26 +1,21 @@
-html,
-body {
-	height: 100%;
-}
-
-body {
-	margin: 0;
-/*	background: linear-gradient(45deg, #49a09d, #5f2c82);*/
-	background: #F9DCC4;
-	font-family: sans-serif;
-	font-weight: 100;
-}
-p{
+@charset "UTF-8";
+.w3-top {
 	 font-family: 'Nanum Myeongjo', serif;
+	 font-size: 30px;
+	 text-align: center;
 }
-
+body {
+	background-color: #F8EDEB;
+}
+h1{
+	font-family: 'Nanum Myeongjo', serif;
+	text-align:center;
+}
 .titolo {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	font-size: xx-large;
-	 font-family: 'Nanum Myeongjo', serif;
-	 color: #FFB5A7;
 }
 
 .navbar {
@@ -39,19 +34,19 @@ p{
 }
 
 .container {
-/*	position: absolute;*/
+	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	top: 50%;
 	left: 50%;
-/*	transform: translate(-50%, -50%);*/
+	transform: translate(-50%, -50%);
 }
 
 table {
 	width: 800px;
-/*	border-collapse: collapse;*/
-	border: 1px solid #FFB5A7;
+	border-collapse: collapse;
+	border: 1px solid white;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
@@ -60,19 +55,16 @@ th,
 td {
 	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
-
+	color: #fff;
 	text-align: center;
-	 font-family: 'Nanum Myeongjo', serif, bold;
-	 
 }
 
 th {
 	text-align: left;
-	color: white;
 }
 
 thead th {
-	background-color: #FFB5A7;
+	background-color: #55608f;
 }
 
 tbody tr:hover {
@@ -81,8 +73,6 @@ tbody tr:hover {
 
 td {
 	position: relative;
-	
-	color: #9c6644;
 }
 
 td:hover:before {
@@ -96,7 +86,8 @@ td:hover:before {
 	z-index: -1;
 }
 
-/*TORNA ALLA HOME*/
+
+/*torna alla home*/
 :root {
     --bg: #1a1e24;
     --color: #eee;
@@ -106,13 +97,14 @@ td:hover:before {
 .wrapper {
     padding: 1.5rem 0;
     filter: url("#goo");
+    text-align: right;
 }
 
 .button {
     display: inline-block;
     text-align: center;
-    background: var(--color);
-    color: #FFB5A7;
+    background: #FFB5A7;
+    color: black;
     font-weight: bold;
   padding: 0.8em 1em 0.7em; /* Riduci il padding del bottone */
     line-height: 1;
@@ -131,7 +123,7 @@ td:hover:before {
     position: absolute;
     content: "";
     display: inline-block;
-    background: var(--color);
+    background: #FFB5A7;
     border-radius: 50%;
     transition: transform 1s ease;
     transform: scale(0);

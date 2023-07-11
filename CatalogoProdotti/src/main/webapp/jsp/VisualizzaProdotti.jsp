@@ -110,8 +110,9 @@
 	<%} %>
 	</table>
 	</div>
-</div>
+
 <%} %>
+</div>
 	<script>
 	// Script to open and close sidebar
 	function w3_open() {

@@ -13,33 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
-<!-- <style>  -->
-/* 	body { */
-/* 	background-color:#D3DDEA; */
-/* 	} */
-/*   #mySidebar { */
-/*     background-color: #F2F7F9; */
-/*   } */
 
-/*   .w3-top { */
-/*     background-color: #F2F7F9; */
-/*   } */
-
-/*   .w3-center { */
-/*     background-color: #F2F7F9; */
-/*   } */
-
-/*   .visualizza { */
-/*     background-color: #F2F7F9; */
-/*     text-align: center; */
-/* 	margin: right; */
-/* 	font-family: 'Nanum Myeongjo', serif; */
-/*   } */
-/*   h1{ */
-/*   text-align: center; */
-/*   font-family: 'Nanum Myeongjo', serif; */
-/*   } */
-<!-- </style> -->
 </head>
 <body>
 <% 
@@ -71,24 +45,26 @@
 		<div class="w3-center w3-padding-16" style="backbground-color: #F2F7F9">
 
 		<div class="visualizza" style="background-color: #F2F7F9">
- 		<a href = "<%= homePageAdmin%>"> HomePage Admin </a> &nbsp;
-        <a href = "<%= visualizzaProdottiUrl%>"> Visualizza Prodotti </a> &nbsp;
-	</div>
+		 		<a href = "<%= homePageAdmin%>"> HomePage Admin </a> &nbsp;
+		        <a href = "<%= visualizzaProdottiUrl%>"> Visualizza Prodotti </a> &nbsp;
+		</div>
 	
 	</div>
 	</div>
 </div>
+<br> <br>
 <h1> Lista Utenti registrati</h1>
 
 
 <%-- <a href = "<%= homePageAdmin%>"> HomePage Admin </a> &nbsp; --%>
 <%-- <a href = "<%= visualizzaProdottiUrl%>"> Visualizza Prodotti </a> &nbsp; --%>
-
+<div class ="lista">
 <%for(Utente u : listaUtenti){ %>
 	<% if (u.getProfiloUtente().getNome().equals("simpleUser")) { %>
-		<ul><p><li> <%=u.getEmail()%></li></p></ul>
+		<ul><li><p> <%=u.getEmail()%></p></li></ul>
 	<%} %>
 <%} %>
+</div>
 	<script>
 	// Script to open and close sidebar
 	function w3_open() {

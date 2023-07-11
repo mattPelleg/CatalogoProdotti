@@ -9,7 +9,11 @@
 <meta charset="UTF-8">
 <title>Ordini Utenti</title>
 
-<link rel="stylesheet"  href="<%=request.getContextPath() + "/css/visualizzaOrdiniAdminStyle.css" %>"">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/visualizzaOrdiniAdminStyle.css" %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 
@@ -26,10 +30,18 @@
 </div>
 
 <div class="row">
-	<div class="navbar">
-		<nav>
-			<a href="<%=homepageAdmin %>">Torna alla home</a>
+	<div class="wrapper">
+		<nav class="torna" style="color:#FFB5A7">
+			<a class ="button"href="<%=homepageAdmin %>">Torna alla home</a>
 		</nav>
+			<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
 	</div>
 	<div class="col">
 		<nav>

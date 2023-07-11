@@ -8,6 +8,7 @@
 
   .w3-top {
     background-color: #F2F7F9;
+    
   }
 
   .w3-center {
@@ -17,16 +18,22 @@
   .visualizza {
     background-color: #F2F7F9;
     text-align: center;
-	margin: right;
-	font-family: 'Nanum Myeongjo', serif;
-	color: #2B91AD;
-  }
+    margin-right: 70px;
+    padding-right: -10px; /* Valore di padding a tua scelta */
+    font-family: 'Nanum Myeongjo', serif;
+    color: #2B91AD;
+    justify-content: space-around;
+    align-items: center;
+}
   h1{
   text-align: center;
   font-family: 'Nanum Myeongjo', serif;
   color: #2B91AD;
   }
-  
+  .lista{
+	border: 1px solid black;
+	text-align: center; 
+}
   
   .wrapper {
   position: absolute;
@@ -152,4 +159,6 @@
     background: #2B91AD;
   }
 }
+
+
   
