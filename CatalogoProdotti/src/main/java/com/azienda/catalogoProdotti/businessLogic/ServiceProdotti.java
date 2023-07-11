@@ -40,7 +40,6 @@ public class ServiceProdotti {
 		this.carrelloDao = carrelloDao;
 		this.ordineDao = ordineDao;
 	}
-	
 
 	/**
 	 * Metodo che restituisce la lista di tutti i prodotti conenuti nel database
@@ -59,8 +58,7 @@ public class ServiceProdotti {
 	 * @param disponibilita la disponibilità del prodotto
 	 * @param prezzo        il prezzo del prodotto
 	 */
-	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo, Blob immagine, String nomeImmagine)
-			throws Exception {
+	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo, Blob immagine, String nomeImmagine) throws Exception {
 		try {
 			em.getTransaction().begin();
 
@@ -75,7 +73,11 @@ public class ServiceProdotti {
 
 			List<Prodotto> listaProdotti = prodottoDao.findProdottoByNome(nome);
 			if (listaProdotti.size() > 0) {
-				throw new ProdottoDuplicatoException("Il prodotto " + nome + " è già presente nell'elenco", null);
+				if (listaProdotti.get(0).isCancellato()) {
+					listaProdotti.get(0).setCancellato(false);
+				} else {
+					throw new ProdottoDuplicatoException("Il prodotto " + nome + " è già presente nell'elenco", null);
+				}
 			} else {
 				Prodotto p = new Prodotto(nome, disponibilita, prezzo);
 				if (immagine != null) {
@@ -266,8 +268,8 @@ public class ServiceProdotti {
 			for (Prodotto p : listaProdottiCarrello) {
 
 				if (p.getDisponibilita() == 0) {
-					String s = "Il prodotto " + p.getNome() + 
-							" non è più disponibile, il tuo carrello è stato aggiornato";
+					String s = "Il prodotto " + p.getNome()
+							+ " non è più disponibile, il tuo carrello è stato aggiornato";
 					throw new ProdottoNonDisponibileException(s, null);
 				}
 				nuovoOrdine.getListaOrdineProdotti().add(p);
@@ -333,28 +335,28 @@ public class ServiceProdotti {
 	}
 
 	public Carrello carrelloUtente(Utente utente) {
-		return this.em.createQuery("select c from Carrello c where c.utente = :idUtente", Carrello.class).
-				setParameter("idUtente", utente).getSingleResult();
+		return this.em.createQuery("select c from Carrello c where c.utente = :idUtente", Carrello.class)
+				.setParameter("idUtente", utente).getSingleResult();
 	}
-	
+
 	/*
-	 * Creare una funzionalità statistica, per i soli utenti
-	 * con profilo admin, che riporti per ogni prodotto il numero
-	 * di acquisti effettuati ed il prezzo totale speso dagli utenti 
+	 * Creare una funzionalità statistica, per i soli utenti con profilo admin, che
+	 * riporti per ogni prodotto il numero di acquisti effettuati ed il prezzo
+	 * totale speso dagli utenti
 	 */
 	public Map<Prodotto, Integer> contaProdottoOrdine(List<Prodotto> listaProdotti) {
 		try {
 			this.em.getTransaction().begin();
 			int conta = 0;
-			
+
 			Map<Prodotto, Integer> prodotto2quantita = new HashMap<>();
-			
-			for(Prodotto p : listaProdotti) {
+
+			for (Prodotto p : listaProdotti) {
 				List<Ordine> listaOrdiniDelProdotto = p.getListaOrdini();
 				conta = 0;
 				prodotto2quantita.put(p, 0);
-				for(Ordine o : listaOrdiniDelProdotto) {
-					if(o.getListaOrdineProdotti().contains(p)) {
+				for (Ordine o : listaOrdiniDelProdotto) {
+					if (o.getListaOrdineProdotti().contains(p)) {
 						conta++;
 						prodotto2quantita.put(p, conta);
 					}
@@ -362,7 +364,7 @@ public class ServiceProdotti {
 			}
 
 			this.em.getTransaction().commit();
-			
+
 			return prodotto2quantita;
 
 		} catch (Exception e) {
@@ -370,6 +372,5 @@ public class ServiceProdotti {
 			throw e;
 		}
 	}
-	
 
 }
