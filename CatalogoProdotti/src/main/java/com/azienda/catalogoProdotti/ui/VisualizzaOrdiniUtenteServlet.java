@@ -1,18 +1,11 @@
 package com.azienda.catalogoProdotti.ui;
 
-import java.io.File;
 import java.io.IOException;
-import java.sql.Blob;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.azienda.catalogoProdotti.businessLogic.ServiceProdotti;
-import com.azienda.catalogoProdotti.businessLogic.ServiceUtenti;
 import com.azienda.catalogoProdotti.model.Ordine;
-import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Utente;
-import com.azienda.catalogoProdotti.utils.BlobConverter;
 import com.azienda.catalogoProdotti.utils.GestioneImmagini;
 
 import jakarta.servlet.ServletException;

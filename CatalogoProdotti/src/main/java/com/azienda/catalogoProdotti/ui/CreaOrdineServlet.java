@@ -36,6 +36,7 @@ public class CreaOrdineServlet extends HttpServlet {
 			List<Prodotto> listaProdottiCarrello = utenteInSessione.getCarrelloUtente().getListaProdottiCarrello();
 			List<Prodotto> prodotti = new ArrayList<>();
 			prodotti.addAll(listaProdottiCarrello);
+			
 			prodotti.sort(new ComparatoreProdottiPerNome());
 			GestioneImmagini.creaMappaImmagini(req, listaProdottiCarrello);
 			

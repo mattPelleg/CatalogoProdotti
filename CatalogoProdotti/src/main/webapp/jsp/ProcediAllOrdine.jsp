@@ -26,9 +26,12 @@
 
 	String urlCreaOrdine = request.getContextPath() + "/creaOrdine";
 
-	String messaggioRisultatoCreaOrdine = (String) request.getAttribute("chiave_risultatoCreaOrdine");
-	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getAttribute("chiave_mappaImmagini");
+// 	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getAttribute("chiave_mappaImmagini");
+	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getSession().getAttribute("chiave_mappaImmaginiSessione");
+	
 	List<Prodotto> listaProdotti = (List<Prodotto>)session.getAttribute("chiave_listaProdottiCarrello");
+	
+	String messaggioRisultatoCreaOrdine = (String) request.getAttribute("chiave_risultatoCreaOrdine");
 %>
 
 
@@ -55,14 +58,15 @@
 	<% } else { %> 
 	<div class="container">
 	<table>
-	<thead>
-		<tr><th>Nome</th><th>Prezzo</th><th>Immagine</th></tr>
-	</thead>
-	<tbody>
+		<thead>
+			<tr><th>Nome</th><th>Prezzo</th><th>Immagine</th></tr>
+		</thead>
+		<tbody>
 		<%for(Prodotto p : listaProdotti) {%>
 			<%if(p.isCancellato() == false) { %>		
 			<tr>
-				<td><%= p.getNome()%></td><td><%= p.getPrezzo() %></td> <td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
+				<td><%= p.getNome()%></td><td><%= p.getPrezzo() %></td> 
+				<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 			</tr>
 			<%} %>	
 		<%} %>

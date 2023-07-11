@@ -65,10 +65,10 @@
 		<input type="text" name="nomeFormInput" placeholder= "Nome" required id="form">  <br>
 		 <input type= "number" name= "disponibilitaFormInput" placeholder= "Disponibilità" required id="form"> <br>
 		<input type= "number" step="0.01" name= "prezzoFormInput" placeholder= "Prezzo" required id="form"> <br>
-		<div id="button">
-		<input type="file" name="fileName" >
-		<input type="submit" value="Salva">
-		</div>
+			<div id="button">
+				<input type="file" name="fileName" >
+				<input type="submit" value="Salva">
+			</div>
 	</form>
 	</div>
 	<br><br>

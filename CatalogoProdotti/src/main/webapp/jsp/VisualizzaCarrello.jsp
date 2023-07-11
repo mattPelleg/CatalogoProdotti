@@ -26,12 +26,19 @@
 	String urlRimuovi = request.getContextPath() + "/rimuoviProdotto";
 	String homepageNegozioUrl = request.getContextPath() + "/visualizzaProdottiUtente";
 	String urlOrdini = request.getContextPath() + "/visualizzaOrdiniUtente";
-	String urlProcediAllOrdine = request.getContextPath() + "/creaOrdine";
-	String urlRicercaProdotto = baseUrl + "/jsp/RicercaProdottiUtente.jsp";
-	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
-	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getAttribute("chiave_mappaImmagini");
 	String urlLogout = request.getContextPath() + "/logout";
+	
+// 	String urlProcediAllOrdine = request.getContextPath() + "/creaOrdine";
+	
+	String urlProcediAllOrdine = baseUrl + "/jsp/ProcediAllOrdine.jsp";
+	String urlRicercaProdotto = baseUrl + "/jsp/RicercaProdottiUtente.jsp";
+	
+	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
 	request.setAttribute("chiave_listaCarrello", listaProdotti);
+	
+	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getAttribute("chiave_mappaImmagini");
+	request.setAttribute("chiave_mappaImmagini", mappaImmagini);
+	
 	String messaggioRisultatoRimuoviProdotto = (String) request.getAttribute("chiave_risultatoRisultatoRimuoviProdottoCarrello");
 %>
 
@@ -43,10 +50,9 @@
 
 
 
-	<div>
-		<a href="<%=urlProcediAllOrdine %>">Procedi all'ordine</a> &nbsp;
-		
-	</div>
+<div>
+	<a href="<%=urlProcediAllOrdine %>">Procedi all'ordine</a> &nbsp;
+</div>
 
 
 <!--TORNA ALLA HOME  -->

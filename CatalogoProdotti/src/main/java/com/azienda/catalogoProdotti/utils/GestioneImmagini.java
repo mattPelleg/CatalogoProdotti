@@ -43,6 +43,7 @@ public class GestioneImmagini {
 			}
 		}
 		req.setAttribute("chiave_mappaImmagini", mappaImmagini);
+		req.getSession().setAttribute("chiave_mappaImmaginiSessione", mappaImmagini);
 	}
 
 }
