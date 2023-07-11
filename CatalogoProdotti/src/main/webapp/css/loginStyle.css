@@ -10,7 +10,12 @@ html {
 
 	background: #D3DDEA;
   }
-  
+  .registrato{
+    font-family: 'Nanum Myeongjo', serif;
+  font-size: 20px;
+  color: #2B91AD;
+ text-align: center; 
+  }
   .login-box {
    margin: 50px 0 0;
     position: absolute;

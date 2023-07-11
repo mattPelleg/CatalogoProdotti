@@ -10,6 +10,8 @@ import com.azienda.catalogoProdotti.exception.ProdottoNonDisponibileException;
 import com.azienda.catalogoProdotti.model.Ordine;
 import com.azienda.catalogoProdotti.model.Prodotto;
 import com.azienda.catalogoProdotti.model.Utente;
+import com.azienda.catalogoProdotti.utils.ComparatoreProdottiPerNome;
+import com.azienda.catalogoProdotti.utils.GestioneImmagini;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -34,7 +36,8 @@ public class CreaOrdineServlet extends HttpServlet {
 			List<Prodotto> listaProdottiCarrello = utenteInSessione.getCarrelloUtente().getListaProdottiCarrello();
 			List<Prodotto> prodotti = new ArrayList<>();
 			prodotti.addAll(listaProdottiCarrello);
-			
+			prodotti.sort(new ComparatoreProdottiPerNome());
+			GestioneImmagini.creaMappaImmagini(req, listaProdottiCarrello);
 			
 			ServiceProdotti service = (ServiceProdotti) getServletContext().getAttribute(InitServlet.BUSINESS_LOGIC_PRODOTTO);
 			service.creaOrdine(prodotti, utenteInSessione);

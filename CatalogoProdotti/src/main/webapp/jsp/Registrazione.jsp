@@ -98,10 +98,11 @@
 <!-- 		Password: <input type="password" placeholder="password" name="passwordFormInput"> <br> -->
 <!-- 		<input type="submit" value="Registrati"> -->
 <!-- 	</form> -->
-
+<div class="registrato">
 	<%if(request.getAttribute("chiave_errore") != null) {%>
 		<p><%=request.getAttribute("chiave_errore") %></p>
 	<%} %>	
+	</div>
 	<script>
 	// Script to open and close sidebar
 	function w3_open() {

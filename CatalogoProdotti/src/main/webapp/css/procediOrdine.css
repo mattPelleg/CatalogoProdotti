@@ -1,22 +1,12 @@
 @charset "UTF-8";
-  .w3-top {
-    background-color: #F9DCC4;
-  }
 
-  .w3-center {
-    background-color: #F9DCC4;
-  }
-  h1,p{
+body{
+	background-color:#FEC89A;
+}
+h1,p{
   font-family: 'Nanum Myeongjo', serif;
   }
-   #mySidebar {
-    background-color: #F9DCC4;
-  }
-  body{
-  background-color:#FEC89A;
-  }
-  
-  .container {
+.container {
 	position: absolute;
 	display: flex;
 	flex-direction: row;
@@ -69,7 +59,7 @@ td:hover:before {
 	background-color: rgba(255,255,255,0.2);
 	z-index: -1;
 }
-
+/*TORNA ALLA HOME*/
 :root {
     --bg: #1a1e24;
     --color: #eee;

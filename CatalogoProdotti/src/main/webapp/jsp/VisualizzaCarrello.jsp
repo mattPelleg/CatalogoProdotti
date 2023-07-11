@@ -25,8 +25,8 @@
 
 	String urlRimuovi = request.getContextPath() + "/rimuoviProdotto";
 	String homepageNegozioUrl = request.getContextPath() + "/visualizzaProdottiUtente";
-	String urlOrdini = request.getContextPath() + "/visualizzaCarrello";
-	String urlProcediAllOrdine = baseUrl + "/jsp/ProcediAllOrdine.jsp";
+	String urlOrdini = request.getContextPath() + "/visualizzaOrdiniUtente";
+	String urlProcediAllOrdine = request.getContextPath() + "/creaOrdine";
 	String urlRicercaProdotto = baseUrl + "/jsp/RicercaProdottiUtente.jsp";
 	List<Prodotto> listaProdotti = (List<Prodotto>)request.getAttribute("chiave_listaCarrello");
 	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getAttribute("chiave_mappaImmagini");
@@ -41,10 +41,26 @@
 	<p><%=messaggioRisultatoRimuoviProdotto %></p>
 <%} %>
 
-<nav>
-<%-- 	<a href="<%=homepageNegozioUrl %>">Torna alla home</a> &nbsp; --%>
-	<a href="<%=urlProcediAllOrdine %>">Procedi all'ordine</a> &nbsp;
-</nav>
+
+
+	<div>
+		<a href="<%=urlProcediAllOrdine %>">Procedi all'ordine</a> &nbsp;
+		
+	</div>
+
+
+<!--TORNA ALLA HOME  -->
+	<div class="wrapper">
+		<a  class ="button" href="<%=homepageNegozioUrl %>">Torna alla home</a> &nbsp;
+	</div>
+	<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
 
 <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px;" id="mySidebar">
 	<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Chiudi il Menu</a>
@@ -62,6 +78,7 @@
 		<div class="w3-center w3-padding-16"style=" font-family: 'Nanum Myeongjo', serif;">CARRELLO</div>
 	</div>
 </div>
+
 
 
  <%if(listaProdotti != null && listaProdotti.size()==0) {%> 	

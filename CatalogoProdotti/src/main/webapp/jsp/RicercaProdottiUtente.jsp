@@ -8,6 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Ricerca prodotti utente</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/RicercaProdotti.css" %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -23,21 +29,36 @@
 
 	<h1>Ricerca Prodotti</h1>
 
-	<nav>
-		<a href="<%=homepageNegozioUrl %>">Torna alla home</a> &nbsp;
-	</nav>
+	<!--TORNA ALLA HOME  -->
+	<div class="wrapper" style="text-align:right">
+		<a  class ="button" href="<%=homepageNegozioUrl %>">Torna alla home</a> &nbsp;
+	</div>
+	<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
 	
-	<form action="<%=formAction %>" method="post">
-  		nome: <input type="text" name="nome"> <br>
-  		prezzo: <input type="number" step="0.01" name="prezzo"> <br>
-  	<input type="submit" value="Cerca">
  
- </form>
+ <div id="cover">
+ <form action="<%= formAction %>" method="post"> 
+     <input type="text" id="form" placeholder="Nome" name="nome">
+       <input type="number" step= "0.01" id="form" placeholder="Prezzo" name="prezzo">
+      <input type="submit" id="button" value="Enter">
+      </form>
+</div>
 	
 	 <h3>Risultato Ricerca</h3>
 	<%if(listaProdotti != null && !listaProdotti.isEmpty()) {%> 	
-	<table border=1>
+	<div class="container">
+	<table >
+	<thead>
 	<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Aggiungi al Carrello</th></tr>
+	</thead>
+	<tbody>
 	<%for(Prodotto p : listaProdotti) {%>
 		<%if(p.isCancellato() == false && p.getDisponibilita() > 0) { %>		
 			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> 
@@ -51,7 +72,9 @@
 		</tr>
 		<%} %>	
 	<%} %>
+	</tbody>
 	</table>
+	</div>
 <%} else {%>
 	<p>Lista vuota, effettua una ricerca</p>
 <%} %>
