@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ordini Uteneti</title>
+<title>Ordini Utenti</title>
 
 <link rel="stylesheet"  href="<%=request.getContextPath() + "/css/visualizzaOrdiniAdminStyle.css" %>"">
 </head>

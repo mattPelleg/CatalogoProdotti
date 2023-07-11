@@ -8,7 +8,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ricerca Prodotti</title>
-
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/RicercaProdotti.css" %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 </head>
 <body>
 <% 
@@ -27,21 +30,41 @@
 
 		
 %>
+
 <h1>Form di ricerca prodotti</h1>
 
-	<nav>
-		<a href="<%=homepageAdminUrl %>">Torna alla home</a> &nbsp;
-	</nav>
+	<div class="wrapper">
+		<a  class ="button" href="<%=homepageAdminUrl %>">Torna alla home</a> &nbsp;
+	</div>
+	<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />    
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
 
-<form action="<%= formAction %>" method="post">
-  	nome: <input type="text" name="nome"> <br>
-  	prezzo: <input type="number" step="0.01" name="prezzo"> <br>
-  	<input type="submit" value="Cerca">
+<%-- <form action="<%= formAction %>" method="post"> --%>
+<!--   	nome: <input type="text" name="nome"> <br> -->
+<!--   	prezzo: <input type="number" step="0.01" name="prezzo"> <br> -->
+<!--   	<input type="submit" value="Cerca"> -->
  
- </form>
+<!--  </form> -->
  
- <h3>Risultato Ricerca</h3>
+ 
+ <div id="cover">
+ <form action="<%= formAction %>" method="post"> 
+     <input type="text" id="form" placeholder="Nome" name="nome">
+       <input type="number" step= "0.01" id="form" placeholder="Prezzo" name="prezzo">
+      <input type="submit" id="button" value="Enter">
+      </form>
+</div>
+
+
+ <h3><b> Risultato Ricerca </b></h3>
 <%if(listaProdotti != null && !listaProdotti.isEmpty()) {%> 	
+<div class="container">
 	<table border=1>
 	<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Modifica</th><th>Cancella</th></tr>
 	<%for(Prodotto p : listaProdotti) {%>
@@ -65,6 +88,7 @@
 		<%} %>	
 	<%} %>
 	</table>
+</div>
 <%} else {%>
 	<p>Lista vuota, effettua una ricerca</p>
 <%} %>

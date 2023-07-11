@@ -19,7 +19,6 @@ public class ProfiloDao implements DaoInterface<Profilo> {
 		this.em.persist(object);
 	}
 
-	
 	@Override
 	public List<Profilo> retrieve() {
 		return this.em.createQuery("select p from Profilo p", Profilo.class).getResultList();

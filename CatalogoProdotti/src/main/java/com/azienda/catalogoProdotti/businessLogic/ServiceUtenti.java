@@ -69,7 +69,7 @@ public class ServiceUtenti {
 			u.setCarrelloUtente(carrelloUtente);
 			utenteDao.create(u);
 			carrelloDao.create(carrelloUtente);
-			
+
 			em.getTransaction().commit();
 
 			return u;
@@ -104,17 +104,17 @@ public class ServiceUtenti {
 			throw e;
 		}
 	}
-	
+
 	public Utente findUtenteById(Integer id) throws Exception {
 		try {
 			em.getTransaction().begin();
 
 			this.em.clear();
-			
+
 			List<Utente> utente = utenteDao.findUtenteById(id);
 
 			em.getTransaction().commit();
-			
+
 			return utente.get(0);
 
 		} catch (Exception e) {
@@ -175,12 +175,12 @@ public class ServiceUtenti {
 	}
 
 	/**
-	 * Metodo che salva un prodotto nel database
-	 * Vengono eseguiti i controlli sui parametri passati
+	 * Metodo che salva un prodotto nel database Vengono eseguiti i controlli sui
+	 * parametri passati
 	 * 
-	 * @param nome il nome del prodotto
+	 * @param nome          il nome del prodotto
 	 * @param disponibilita la disponibilità del prodotto
-	 * @param prezzo il prezzo del prodotto
+	 * @param prezzo        il prezzo del prodotto
 	 */
 	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo) throws Exception {
 		try {
@@ -198,7 +198,7 @@ public class ServiceUtenti {
 			List<Prodotto> listaProdotti = prodottoDao.findProdottoByNome(nome);
 			if (listaProdotti.size() > 0) {
 				Prodotto prodotto = listaProdotti.get(0);
-				prodotto.setDisponibilita(prodotto.getDisponibilita() + disponibilita);																		// 1
+				prodotto.setDisponibilita(prodotto.getDisponibilita() + disponibilita); // 1
 				prodottoDao.update(prodotto);
 			} else
 				prodottoDao.create(new Prodotto(nome, disponibilita, prezzo));
@@ -220,18 +220,18 @@ public class ServiceUtenti {
 			throw e;
 		}
 	}
-	
+
 	public void modifica(Integer id, String nome, Integer disp, Float prezzo) {
 		try {
 			em.getTransaction().begin();
 			Prodotto prodottoDb = prodottoDao.findById(id);
-			if(nome != null && !nome.isBlank()) {
+			if (nome != null && !nome.isBlank()) {
 				prodottoDb.setNome(nome);
 			}
-			if(disp >=  0) {
+			if (disp >= 0) {
 				prodottoDb.setDisponibilita(disp);
 			}
-			if(prezzo >= 0) {
+			if (prezzo >= 0) {
 				prodottoDb.setPrezzo(prezzo);
 			}
 			em.getTransaction().commit();
@@ -256,13 +256,13 @@ public class ServiceUtenti {
 	public List<Ordine> visualizzaOrdini() {
 		try {
 			em.getTransaction().begin();
-			
+
 			List<Ordine> listaOrdini = ordineDao.retrieve();
-			
+
 			em.getTransaction().commit();
-			
+
 			return listaOrdini;
-			
+
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			throw e;

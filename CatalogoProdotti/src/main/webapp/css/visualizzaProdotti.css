@@ -1,0 +1,179 @@
+@charset "UTF-8";
+.titolo {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: xx-large;
+}
+
+.navbar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: larger;
+	width: 50%;
+	padding: 2px;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.container {
+
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: calc(50% + 20px); /* Sposta il .container sotto il form aggiungendo 20px di margine */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	border: 1px solid white;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+	flex: 1 1 50%; /* Occupa il 50% della larghezza nella disposizione a due colonne */
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+	text-align: center;
+	
+}
+
+th {
+	text-align: left;
+}
+
+thead th {
+	background-color: #55608f;
+}
+
+tbody tr:hover {
+	background-color: rgba(255,255,255,0.3);
+}
+
+td {
+	position: relative;
+}
+
+td:hover:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -9999px;
+	bottom: -9999px;
+	background-color: rgba(255,255,255,0.2);
+	z-index: -1;
+}
+
+/*NAVBAR*/
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color:#2B91AD;
+  }
+h1{
+	font-family: 'Nanum Myeongjo', serif;
+	text-align: center;
+}
+h3{
+	font-family: 'Nanum Myeongjo', serif;
+	text-align: center;
+}
+  #mySidebar {
+    background-color: #CDECEF;
+  }
+
+  .w3-top {
+    background-color: #CDECEF;
+  }
+
+  .w3-center {
+    background-color: #CDECEF;
+  }
+
+  .visualizza {
+    background-color: #CDECEF;
+  }
+  
+  #form {
+  width: 400px;
+  padding: 10px;
+  font-size: 18px;
+  outline:none;
+  background: #2B91AD;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  transition: all 0.5s;
+   display: flex;
+  flex-direction: column;
+}
+
+  input::placeholder {
+  color: #F2F7F9; /* Cambia il colore del testo del placeholder */
+  opacity: 0.5;
+  font-family: 'Nanum Myeongjo', serif;
+}
+#form:hover {
+  border: 2px solid rgba(255,255,255,0.5);
+}
+#form:focus {
+  border: 2px solid rgba(205, 236, 239, 0);
+  background: #2B91AD;
+}
+
+#button {
+  width: 425px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight:bold;
+  outline:none;
+  background: rgba(205, 236, 239)fixed;
+  border-radius: 10px;
+  border: 5px solid rgba(255,255,255,0.2);
+  color: #2B91AD;
+  transition: all 0.5s;
+  font-family: 'Nanum Myeongjo', serif;
+  flex: 0 0 48%;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+#button:hover {
+  border: 5px solid rgba(255,255,255,0.5);
+  background: #D3DDEA;
+  }
+
+#button:focus {
+  background: rgba( 211, 221, 234) fixed;
+}
+#cover {
+  flex: 1 1 50%; /* Occupa il 50% della larghezza nella disposizione a due colonne */
+}
+.container {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px; /* Spazio tra le colonne */
+}
+
+

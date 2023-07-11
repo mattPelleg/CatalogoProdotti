@@ -1,0 +1,206 @@
+body {
+  background: #2B91AD;
+}
+h3 {
+	font-family: 'Nanum Myeongjo', serif;
+	text-align:center;
+	color: #CDECEF;
+}
+h1 {
+	font-family: 'Nanum Myeongjo', serif;
+	text-align:center;
+	color: #CDECEF;
+}
+.cover {
+  margin: auto;
+  position:relative;
+  top: 200px;
+  width: 40%;
+}
+
+#form {
+  width: 400px;
+  padding: 10px;
+  font-size: 18px;
+  outline:none;
+  background: #2B91AD;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  transition: all 0.5s;
+}
+input::placeholder {
+  color: #F2F7F9; /* Cambia il colore del testo del placeholder */
+  opacity: 0.5;
+  font-family: 'Nanum Myeongjo', serif;
+}
+#form:hover {
+  border: 2px solid rgba(255,255,255,0.5);
+}
+#form:focus {
+  border: 2px solid rgba(205, 236, 239, 0);
+  background: #2B91AD;
+}
+
+#button {
+  width: 425px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight:bold;
+  outline:none;
+  background: rgba(205, 236, 239)fixed;
+  border-radius: 10px;
+  border: 5px solid rgba(255,255,255,0.2);
+  color: #2B91AD;
+  transition: all 0.5s;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+#button:hover {
+  border: 5px solid rgba(255,255,255,0.5);
+  background: #D3DDEA;
+  }
+
+#button:focus {
+  background: rgba( 211, 221, 234) fixed;
+}
+
+/*tabella*/
+.titolo {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: xx-large;
+}
+
+.navbar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: larger;
+	width: 50%;
+	padding: 2px;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: calc(20% +20px); /* Sposta il .container sotto l'h3 aggiungendo 20px di margine */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+table {
+	width: 800px;
+	border-collapse: collapse;
+	border: 1px solid white;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+	text-align: center;
+	font-family: 'Nanum Myeongjo', serif;
+}
+
+th {
+	text-align: left;
+}
+
+thead th {
+	background-color: #55608f;
+}
+
+tbody tr:hover {
+	background-color: rgba(255,255,255,0.3);
+}
+
+td {
+	position: relative;
+}
+
+td:hover:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -9999px;
+	bottom: -9999px;
+	background-color: rgba(255,255,255,0.2);
+	z-index: -1;
+}
+
+/*TORNA ALLA HOME*/
+:root {
+    --bg: #1a1e24;
+    --color: #eee;
+    --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+    padding: 1.5rem 0;
+    filter: url("#goo");
+}
+
+.button {
+    display: inline-block;
+    text-align: center;
+    background: var(--color);
+    color: #2B91AD;
+    font-weight: bold;
+  padding: 0.8em 1em 0.7em; /* Riduci il padding del bottone */
+    line-height: 1;
+    border-radius: 1em;
+    position: relative;
+   min-width: 6em; /* Riduci la larghezza minima del bottone */
+    text-decoration: none;
+   font-family: 'Nanum Myeongjo', serif;
+    font-size: 1rem; /* Riduci la dimensione del font del bottone */
+}
+
+.button:before,
+.button:after {
+   width: 3em; /* Riduci la larghezza del cerchio prima e dopo il bottone */
+  height: 2em; /* Riduci l'altezza del cerchio prima e dopo il bottone */
+    position: absolute;
+    content: "";
+    display: inline-block;
+    background: var(--color);
+    border-radius: 50%;
+    transition: transform 1s ease;
+    transform: scale(0);
+    z-index: -1;
+}
+
+.button:before {
+    top: -25%;
+    left: 20%;
+}
+
+.button:after {
+    bottom: -25%;
+    right: 20%;
+}
+
+.button:hover:before,
+.button:hover:after {
+    transform: none;
+}
+
+/* Demo styles */
+
+
+
