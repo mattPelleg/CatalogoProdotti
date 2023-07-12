@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Gestione Prodotti</title>
-<link rel="stylesheet" href="<%=request.getContextPath() + "/css/visualizzaProdotti.css" %>">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/visualizzaProdottiStyle.css" %>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
 	String messaggioRisultatoInserisciProdotto = (String) request.getAttribute("chiave_erroreInserisciProdotto");
 	String urlRicercaProdotto = baseUrl + "/jsp/RicercaProdotti.jsp";
 %>
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px;background-color:#D3DDEA" id="mySidebar">
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px;background-color:#f4978e" id="mySidebar">
 	<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Chiudi il Menu</a>
 	<a href="<%=urlHomepage%>" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
 	
@@ -45,20 +45,19 @@
 
 <div class="w3-top">
 	<div class="w3-white w3-xlarge" style="max-width:1200px;margin: left">
-		<div class="w3-button w3-padding-16 w3-left" onclick="w3_open()" style= "background-color:#2B91AD; ">☰</div>
-		<div class="w3-center w3-padding-16" style="backbground-color: #CDECEF">
+		<div class="w3-button w3-padding-16 w3-left" onclick="w3_open()" style= "background-color:#f4978e; ">☰</div>
+		<div class="w3-center w3-padding-16" style="backbground-color: #ddbea9">
 
-	<div class="visualizza" style="background-color: #CDECEF">
+	<div class="visualizza" style="background-color: #ddbea9">
  	<jsp:include page="/jsp/MenuAdmin.jsp"></jsp:include> 
 	</div>
 	
 	</div>
 	</div>
 </div>
-	<h1>Pagina gestione prodotti</h1>
+	<h1>Best sito ever</h1>
 
 	<h1>Pagina gestione prodotti</h1>
-	
 	<h3>Form inserisci prodotto</h3>
 	<div class="contenitore">
 	<div id="cover">
@@ -66,10 +65,10 @@
 		<input type="text" name="nomeFormInput" placeholder= "Nome" required id="form">  <br>
 		 <input type= "number" name= "disponibilitaFormInput" placeholder= "Disponibilità" required id="form"> <br>
 		<input type= "number" step="0.01" name= "prezzoFormInput" placeholder= "Prezzo" required id="form"> <br>
-			<div id="button">
-				<input type="file" name="fileName" >
-				<input type="submit" value="Salva">
-			</div>
+		<div id="button">
+		<input type="file" name="fileName" >
+		<input type="submit" value="Salva">
+		</div>
 	</form>
 	</div>
 	<br><br>
@@ -87,8 +86,11 @@
  		<p> Lista prodotti vuota </p>
 	<% } else{ %> 
 	<div class="container">
-	<table border=1>
+	<table>
+	<thead>
 		<tr><th>NOME</th><th>DISPONIBILITÀ</th><th>PREZZO</th><th>IMMAGINE</th><th>MODIFICA</th><th>CANCELLA</th></tr>
+	</thead>
+	<tbody>
 		<%for(Prodotto p : listaProdotti) {%>
 		<%if(p.isCancellato() == false) { %>
 			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> 
@@ -109,6 +111,7 @@
 		</tr>
 		<%} %>	
 	<%} %>
+	</tbody>	
 	</table>
 	</div>
 

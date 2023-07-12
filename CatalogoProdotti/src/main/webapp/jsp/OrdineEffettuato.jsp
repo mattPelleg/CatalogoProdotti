@@ -16,6 +16,7 @@
 	String baseUrl = "http://" + request.getServerName() + ":" +
 		request.getServerPort() + request.getContextPath();
 	String urlHomepage = baseUrl + "/jsp/Homepage.jsp";
+	String urlHomepageNegozio = request.getContextPath() + "/visualizzaProdottiUtente";
 %>
 
     <div class="stripe"></div>
@@ -73,7 +74,7 @@
       <p>
         Controlla la tua mail per tracciare il tuo ordine.
       </p>
-      <a class="btn cart-summary--order-action" href="<%=urlHomepage %>">Torna alla home</a>
+      <a class="btn cart-summary--order-action" href="<%=urlHomepageNegozio %>">Torna alla home</a>
     </div>
   </div>
 </div>

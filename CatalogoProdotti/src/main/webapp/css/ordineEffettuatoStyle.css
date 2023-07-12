@@ -13,7 +13,7 @@ body {
   width: 400%;
   left: 50%;
   top: 50%;
-  background: sandybrown;
+  background: #f08080;
   transform: translate(-50%, -50%) rotate(-30deg);
 }
 
@@ -22,6 +22,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
 }
 
 .card {
@@ -122,14 +123,14 @@ body {
   position: absolute;
   height: 0.5rem;
   width: 3rem;
-  background: #FE5F55;
+  background: #f08080;
   transform: translate(-0.5rem, 0.2rem) rotate(-30deg);
 }
 .car .window {
   position: absolute;
   width: 0.4rem;
   height: 0.9rem;
-  background: #8DA8A6;
+  background: #d5edf7;
   top: 0.1rem;
   left: 2.55rem;
 }
@@ -139,7 +140,7 @@ body {
   left: 0.4rem;
   height: 0;
   width: 0;
-  border-bottom: 0.9rem solid #8DA8A6;
+  border-bottom: 0.9rem solid #d5edf7;
   border-right: 0.9rem solid transparent;
 }
 .car .wheel {

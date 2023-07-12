@@ -46,22 +46,23 @@ table {
 th,
 td {
 	padding: 15px;
-	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+	background-color: #fff1e6;
+	color:#f08080;
 	text-align: center;
 	
 }
 
 th {
 	text-align: left;
+	color: white;
 }
 
 thead th {
-	background-color: #55608f;
+	background-color:#f4978e;
 }
 
 tbody tr:hover {
-	background-color: rgba(255,255,255,0.3);
+	background-color:#ffb5a7;
 }
 
 td {
@@ -75,7 +76,7 @@ td:hover:before {
 	right: 0;
 	top: -9999px;
 	bottom: -9999px;
-	background-color: rgba(255,255,255,0.2);
+	background-color: #ffe8d6;
 	z-index: -1;
 }
 
@@ -84,30 +85,32 @@ td:hover:before {
   body {
     margin: 0;
     padding: 0;
-    background-color:#2B91AD;
+    background-color: #f8edeb;
   }
 h1{
 	font-family: 'Nanum Myeongjo', serif;
 	text-align: center;
+	color: #774936;
 }
 h3{
 	font-family: 'Nanum Myeongjo', serif;
 	text-align: center;
+	color: #774936;
 }
   #mySidebar {
-    background-color: #CDECEF;
+    background-color: #ddbea9;
   }
 
   .w3-top {
-    background-color: #CDECEF;
+    background-color: #ddbea9;
   }
 
   .w3-center {
-    background-color: #CDECEF;
+    background-color: #ddbea9;
   }
 
   .visualizza {
-    background-color: #CDECEF;
+    background-color: #ddbea9;
   }
   
   #form {
@@ -115,17 +118,17 @@ h3{
   padding: 10px;
   font-size: 18px;
   outline:none;
-  background: #2B91AD;
+  background:#e0afa0;
   border-radius: 10px;
   border: 2px solid rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.8);
+  color:#f8edeb;
   transition: all 0.5s;
    display: flex;
   flex-direction: column;
 }
 
   input::placeholder {
-  color: #F2F7F9; /* Cambia il colore del testo del placeholder */
+  color:white; /* Cambia il colore del testo del placeholder */
   opacity: 0.5;
   font-family: 'Nanum Myeongjo', serif;
 }
@@ -134,7 +137,7 @@ h3{
 }
 #form:focus {
   border: 2px solid rgba(205, 236, 239, 0);
-  background: #2B91AD;
+  background:#f8ad9d;
 }
 
 #button {
@@ -144,10 +147,10 @@ h3{
   font-size: 15px;
   font-weight:bold;
   outline:none;
-  background: rgba(205, 236, 239)fixed;
+  background:#f8ad9d;
   border-radius: 10px;
   border: 5px solid rgba(255,255,255,0.2);
-  color: #2B91AD;
+  color:#f8ad9d;
   transition: all 0.5s;
   font-family: 'Nanum Myeongjo', serif;
   flex: 0 0 48%;
@@ -160,11 +163,11 @@ h3{
 
 #button:hover {
   border: 5px solid rgba(255,255,255,0.5);
-  background: #D3DDEA;
+  background:#f08080;
   }
 
 #button:focus {
-  background: rgba( 211, 221, 234) fixed;
+  background: #ffb5a7;
 }
 #cover {
   flex: 1 1 50%; /* Occupa il 50% della larghezza nella disposizione a due colonne */

@@ -1,72 +1,17 @@
+@charset "UTF-8";
+.w3-top {
+	 font-family: 'Nanum Myeongjo', serif;
+	 font-size: 27px;
+	 text-align: center;
+}
 body {
-  background: #2B91AD;
+	background-color:#f5ebe0;
 }
-h3 {
+h1{
 	font-family: 'Nanum Myeongjo', serif;
 	text-align:center;
-	color: #CDECEF;
+	color: #7f5539;
 }
-h1 {
-	font-family: 'Nanum Myeongjo', serif;
-	text-align:center;
-	color: #CDECEF;
-}
-.cover {
-  margin: auto;
-  position:relative;
-  top: 200px;
-  width: 40%;
-}
-
-#form {
-  width: 400px;
-  padding: 10px;
-  font-size: 18px;
-  outline:none;
-  background: #2B91AD;
-  border-radius: 10px;
-  border: 2px solid rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.8);
-  transition: all 0.5s;
-}
-input::placeholder {
-  color: #F2F7F9; /* Cambia il colore del testo del placeholder */
-  opacity: 0.5;
-  font-family: 'Nanum Myeongjo', serif;
-}
-#form:hover {
-  border: 2px solid rgba(255,255,255,0.5);
-}
-#form:focus {
-  border: 2px solid rgba(205, 236, 239, 0);
-  background: #2B91AD;
-}
-
-#button {
-  width: 425px;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight:bold;
-  outline:none;
-  background: rgba(205, 236, 239)fixed;
-  border-radius: 10px;
-  border: 5px solid rgba(255,255,255,0.2);
-  color: #2B91AD;
-  transition: all 0.5s;
-  font-family: 'Nanum Myeongjo', serif;
-}
-
-#button:hover {
-  border: 5px solid rgba(255,255,255,0.5);
-  background: #D3DDEA;
-  }
-
-#button:focus {
-  background: rgba( 211, 221, 234) fixed;
-}
-
-/*tabella*/
 .titolo {
 	display: flex;
 	flex-direction: row;
@@ -82,6 +27,9 @@ input::placeholder {
 	width: 50%;
 	padding: 2px;
 }
+.visualizza{
+	color:#7f5539;
+}
 
 .col {
 	display: flex;
@@ -90,13 +38,13 @@ input::placeholder {
 }
 
 .container {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  top: calc(20% +20px); /* Sposta il .container sotto l'h3 aggiungendo 20px di margine */
-  left: 50%;
-  transform: translateX(-50%);
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 table {
@@ -110,18 +58,20 @@ table {
 th,
 td {
 	padding: 15px;
-	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+	background-color: #f9dcc4;
+	color: #b07d62;
 	text-align: center;
-	font-family: 'Nanum Myeongjo', serif;
 }
 
 th {
-	text-align: left;
+	text-align: center;
+	background-color: #fec89a;
+	color: white;
 }
 
 thead th {
-	background-color: #55608f;
+	background-color: #fec89a;
+	text-align: center;
 }
 
 tbody tr:hover {
@@ -143,23 +93,25 @@ td:hover:before {
 	z-index: -1;
 }
 
-/*TORNA ALLA HOME*/
+
+/*torna alla home*/
 :root {
-    --bg: #1a1e24;
-    --color: #eee;
+    --bg: white;
+    --color: #FFB5A7;
     --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
 }
 
 .wrapper {
     padding: 1.5rem 0;
     filter: url("#goo");
+    text-align: right;
 }
 
 .button {
     display: inline-block;
     text-align: center;
-    background: var(--color);
-    color: #2B91AD;
+    background: #FFB5A7;
+    color: white;
     font-weight: bold;
   padding: 0.8em 1em 0.7em; /* Riduci il padding del bottone */
     line-height: 1;
@@ -178,7 +130,7 @@ td:hover:before {
     position: absolute;
     content: "";
     display: inline-block;
-    background: var(--color);
+    background: #FFB5A7;
     border-radius: 50%;
     transition: transform 1s ease;
     transform: scale(0);
@@ -199,8 +151,3 @@ td:hover:before {
 .button:hover:after {
     transform: none;
 }
-
-/* Demo styles */
-
-
-

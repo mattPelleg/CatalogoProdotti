@@ -10,7 +10,7 @@
 <title>Ricerca prodotti utente</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-<link rel="stylesheet" href="<%=request.getContextPath() + "/css/RicercaProdotti.css" %>">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/RicercaProdottiStyle.css" %>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">

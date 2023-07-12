@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ricerca Prodotti</title>
-<link rel="stylesheet" href="<%=request.getContextPath() + "/css/RicercaProdotti.css" %>">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/RicercaProdottiStyle.css" %>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">

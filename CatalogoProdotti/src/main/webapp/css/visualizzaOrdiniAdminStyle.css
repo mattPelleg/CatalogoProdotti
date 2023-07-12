@@ -6,7 +6,7 @@ body {
 body {
 	margin: 0;
 /*	background: linear-gradient(45deg, #49a09d, #5f2c82);*/
-	background: #F9DCC4;
+	background: #fff1e6;
 	font-family: sans-serif;
 	font-weight: 100;
 }
@@ -20,7 +20,7 @@ p{
 	justify-content: center;
 	font-size: xx-large;
 	 font-family: 'Nanum Myeongjo', serif;
-	 color: #FFB5A7;
+	 color: #7f5539;
 }
 
 .navbar {
@@ -98,8 +98,8 @@ td:hover:before {
 
 /*TORNA ALLA HOME*/
 :root {
-    --bg: #1a1e24;
-    --color: #eee;
+    --bg: white;
+    --color: #FFB5A7;
     --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -112,7 +112,7 @@ td:hover:before {
     display: inline-block;
     text-align: center;
     background: var(--color);
-    color: #FFB5A7;
+    color:white;
     font-weight: bold;
   padding: 0.8em 1em 0.7em; /* Riduci il padding del bottone */
     line-height: 1;

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 body{
-	background-color:#F9DCC4;
+	background-color:#f8edeb;
 }
   .benvenuto {
   font-family: 'Nanum Myeongjo', serif;
   font-size: 20px;
-  color: #2B91AD;
+  color: #774936;
  text-align: center; 
   }
   p{
@@ -15,21 +15,24 @@ body{
 	.titolo {
 	text-align: center;
 	font-family: 'Nanum Myeongjo', serif;
-	color: #2B91AD;
+	color:#774936;
 	padding:40px, 40px, 40px, 40px;
 	
   }
   .visualizza {
   	  text-align: center;
+  	  margin-left: 400px;
 	font-family: 'Nanum Myeongjo', serif;
-	color: #F2F7F9
+	color: #f08080
+	
  }
  .w3-top{
- background-color: #F2F7F9;
+ background-color: #FAE1DD;
 text-align: center;
  }
  h4{
  font-family: 'Nanum Myeongjo', serif; 
+ color: #6c584c;
  }
  
 .col {
@@ -53,6 +56,7 @@ text-align: center;
 	justify-content: center;
 	top: 50%;
 	left: 50%;
+	
 /*	transform: translate(-50%, -50%);*/
 }
 
@@ -62,13 +66,14 @@ table {
 	border: 1px solid white;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+	background-color: #fff1e6;
 }
 
 th,
 td {
 	padding: 15px;
-	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+	background-color:#fff1e6;;
+	color: #E29578;
 	text-align: center;
 	font-family: 'Nanum Myeongjo', serif; 
 }
@@ -80,10 +85,11 @@ th {
 
 thead th {
 	background-color: #FFB5A7;
+	color: white;
 }
 
 tbody tr:hover {
-	background-color: rgba(255,255,255,0.3);
+	background-color: rgba(252, 213, 206,0.3);
 }
 
 td {
@@ -97,6 +103,6 @@ td:hover:before {
 	right: 0;
 	top: -9999px;
 	bottom: -9999px;
-	background-color: rgba(255,255,255,0.2);
+	background-color: rgba(232, 232, 228,0.2);
 	z-index: -1;
 }

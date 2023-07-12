@@ -8,11 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Ordine</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-
-<link rel="stylesheet" href="<%=request.getContextPath() + "/css/procediOrdine.css" %>">
-
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/procediOrdineStyle.css" %>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
@@ -59,10 +57,6 @@
 	<%if(listaProdotti != null && listaProdotti.isEmpty()) {%> 	
  		<p> Nessun prodotto nel carrello </p>
 	<% } else { %> 
-	
-<%-- 	<form id="formId" action="<%=urlPagamento%>" method="POST"> --%>
-<!-- 			<input type="submit" value="Vai al pagamento"> -->
-<!-- 	</form> -->
 	
 	<div class="container">
 	<table>

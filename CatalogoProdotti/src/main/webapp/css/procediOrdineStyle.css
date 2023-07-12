@@ -1,11 +1,70 @@
 @charset "UTF-8";
 
 body{
-	background-color:#FEC89A;
+	background-color:#ECE4DB;
 }
 h1,p{
+  color: #7f5539;
   font-family: 'Nanum Myeongjo', serif;
+  text-align: center;
   }
+  
+/*.container {*/
+/*	position: absolute;*/
+/*	display: flex;*/
+/*	flex-direction: row;*/
+/*	justify-content: center;*/
+/*	top: 50%;*/
+/*	left: 50%;*/
+/*	transform: translate(-50%, -50%);*/
+/*}*/
+
+
+/*table {*/
+/*	width: 800px;*/
+/*	border-collapse: collapse;*/
+/*	border: 1px solid white;*/
+/*	overflow: hidden;*/
+/*	box-shadow: 0 0 20px rgba(0,0,0,0.1);*/
+/*}*/
+
+/*th,*/
+/*td {*/
+/*	padding: 15px;*/
+/*	background-color: rgba(255,255,255,0.2);*/
+/*	color: #7f5539;*/
+/*	text-align: center;*/
+/*	font-family: 'Nanum Myeongjo', serif;*/
+/*}*/
+
+/*th {*/
+/*	text-align: center;*/
+/*}*/
+
+/*thead th {*/
+/*	background-color: #f08080;*/
+/*	color: white;*/
+/*}*/
+
+/*tbody tr:hover {*/
+/*	background-color: rgba(255,255,255,0.3);*/
+/*}*/
+
+/*td {*/
+/*	position: relative;*/
+/*}*/
+
+/*td:hover:before {*/
+/*	content: "";*/
+/*	position: absolute;*/
+/*	left: 0;*/
+/*	right: 0;*/
+/*	top: -9999px;*/
+/*	bottom: -9999px;*/
+/*	background-color: rgba(255,255,255,0.2);*/
+/*	z-index: -1;*/
+/*}*/
+
 .container {
 	position: absolute;
 	display: flex;
@@ -28,21 +87,22 @@ th,
 td {
 	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+	color: #7f5539;
 	text-align: center;
 	font-family: 'Nanum Myeongjo', serif;
 }
 
 th {
-	text-align: left;
+	text-align: center;
 }
 
 thead th {
-	background-color: #55608f;
+	background-color: #f08080;
+	color:white;
 }
 
 tbody tr:hover {
-	background-color: rgba(255,255,255,0.3);
+	background-color: rgba(255, 181, 167,0.3);
 }
 
 td {
@@ -59,10 +119,11 @@ td:hover:before {
 	background-color: rgba(255,255,255,0.2);
 	z-index: -1;
 }
+
 /*TORNA ALLA HOME*/
 :root {
-    --bg: #1a1e24;
-    --color: #eee;
+    --bg: white;
+    --color: #FFB5A7;
     --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -76,7 +137,7 @@ td:hover:before {
     display: inline-block;
     text-align: center;
     background: var(--color);
-    color: #2B91AD;
+    color:white;
     font-weight: bold;
   padding: 0.8em 1em 0.7em; /* Riduci il padding del bottone */
     line-height: 1;

@@ -1,16 +1,72 @@
-@charset "UTF-8";
-.w3-top {
-	 font-family: 'Nanum Myeongjo', serif;
-	 font-size: 30px;
-	 text-align: center;
-}
 body {
-	background-color: #F8EDEB;
+  background: #fff1e6;
 }
-h1{
+h3 {
 	font-family: 'Nanum Myeongjo', serif;
 	text-align:center;
+	color:#7f5539;
 }
+h1 {
+	font-family: 'Nanum Myeongjo', serif;
+	text-align:center;
+	color: #f08080;
+}
+.cover {
+  margin: auto;
+  position:relative;
+  top: 200px;
+  width: 40%;
+}
+
+#form {
+  width: 400px;
+  padding: 10px;
+  font-size: 18px;
+  outline:none;
+  background:#fec89a;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  transition: all 0.5s;
+}
+input::placeholder {
+  color: #9c6644; /* Cambia il colore del testo del placeholder */
+  opacity: 0.5;
+  font-family: 'Nanum Myeongjo', serif;
+}
+#form:hover {
+  border: 2px solid rgba(255,255,255,0.5);
+}
+#form:focus {
+  border: 2px solid rgba(205, 236, 239, 0);
+  background:#fcd5ce;
+}
+
+#button {
+  width: 425px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight:bold;
+  outline:none;
+  background:#ffb5a7;
+  border-radius: 10px;
+  border: 5px solid rgba(255,255,255,0.2);
+  color:#f08080;
+  transition: all 0.5s;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+#button:hover {
+  border: 5px solid rgba(255,255,255,0.5);
+  background: #D3DDEA;
+  }
+
+#button:focus {
+  background: rgba( 211, 221, 234) fixed;
+}
+
+/*tabella*/
 .titolo {
 	display: flex;
 	flex-direction: row;
@@ -34,13 +90,18 @@ h1{
 }
 
 .container {
-	position: absolute;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: calc(20% +20px); /* Sposta il .container sotto l'h3 aggiungendo 20px di margine */
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
+p{
+	text-align:center;
+	color:#7f5539;
 }
 
 table {
@@ -55,8 +116,9 @@ th,
 td {
 	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
-	color: #fff;
+	color: #b08968;
 	text-align: center;
+	font-family: 'Nanum Myeongjo', serif;
 }
 
 th {
@@ -64,7 +126,8 @@ th {
 }
 
 thead th {
-	background-color: #55608f;
+	background-color: #FFB5A7;
+	color: white;
 }
 
 tbody tr:hover {
@@ -86,25 +149,23 @@ td:hover:before {
 	z-index: -1;
 }
 
-
-/*torna alla home*/
+/*TORNA ALLA HOME*/
 :root {
-    --bg: #1a1e24;
-    --color: #eee;
+    --bg: white;
+    --color: #FFB5A7;
     --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
 }
 
 .wrapper {
     padding: 1.5rem 0;
     filter: url("#goo");
-    text-align: right;
 }
 
 .button {
     display: inline-block;
     text-align: center;
-    background: #FFB5A7;
-    color: black;
+    background: var(--color);
+    color: #F8EDEB;
     font-weight: bold;
   padding: 0.8em 1em 0.7em; /* Riduci il padding del bottone */
     line-height: 1;
@@ -123,7 +184,7 @@ td:hover:before {
     position: absolute;
     content: "";
     display: inline-block;
-    background: #FFB5A7;
+    background: var(--color);
     border-radius: 50%;
     transition: transform 1s ease;
     transform: scale(0);
@@ -144,3 +205,8 @@ td:hover:before {
 .button:hover:after {
     transform: none;
 }
+
+/* Demo styles */
+
+
+

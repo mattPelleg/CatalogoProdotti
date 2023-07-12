@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 body{
-  background-image: linear-gradient(to right, #eac1ff, #dfc9ff, #d7d0ff, #d1d6ff, #cedbff);
+  background-color:#F8EDEB;
 }
 .wrapper{
   position: fixed;
@@ -15,10 +15,15 @@ body{
 }
 .content h1{
   font-family: 'Playfair Display', serif;
+  color: white;
+}
+h4 {
+	color:white;
 }
 .main{
-  background-color: white;
-  border: 2px solid #6200EA;
+  background-color:#FFB5A7;
+
+  border: 2px solid #F4978E;
  
   width: 450px;
   height: 350px;
@@ -87,7 +92,7 @@ button{
   width:100%;
   padding: 10px 20px;
   margin: 3px 0;
-  background-color: #96a4e7; 
+  background-color: #ff758f; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -99,7 +104,7 @@ button{
 }
 /*credit card*/
 .card{
-  background-image: linear-gradient(to bottom, #96a4e7, #a7a6ee, #baa7f3, #cda8f7, #e1a9f9);
+  background-color: #FCD5CE;
   position:fixed;
   right:70%;
   top:25%;
@@ -107,16 +112,16 @@ button{
   
   width:300px;
   height:200px;
-  box-shadow: 8px 10px 0px 1px #cedbff ;
+  box-shadow: 8px 10px 0px 1px #f08080 ;
   border-radius: 10px;
   font-family: 'Montserrat Thin';
-  border: 2px solid #6200EA;
+  border: 2px solid #f4978e;
 }
 
 .visa{
   padding-left:220px;
   font-style: italic;
-  text-shadow: #eac1ff 3px 0 1px;
+  text-shadow: #f08080 3px 0 1px;
   color:white;
   /*visa font*/
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;

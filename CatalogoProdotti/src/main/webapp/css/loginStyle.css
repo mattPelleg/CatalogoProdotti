@@ -8,12 +8,17 @@ html {
     font-family: sans-serif;
 /*    background: radial-gradient(circle at 12.5% 12.5%, #e3b3d4 0, #d8a7cc 50%, #cd9bc5 100%);*/
 
-	background: #D3DDEA;
+	background: #fff1e6;
   }
+  
+  .w3-button:hover {
+  background-color: #F9DCC4;
+  }
+  
   .registrato{
     font-family: 'Nanum Myeongjo', serif;
   font-size: 20px;
-  color: #2B91AD;
+  color: #FEC89A;
  text-align: center; 
   }
   .login-box {
@@ -24,7 +29,7 @@ html {
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(42, 144, 172,.5);
+    background: rgba(254, 200, 154,.7);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
@@ -33,7 +38,7 @@ html {
   .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
-    color: #fff;
+    color: #9c6644;
     text-align: center;
   }
   
@@ -45,10 +50,10 @@ html {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #9c6644;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #9c6644;
     outline: none;
     background: transparent;
   }
@@ -58,7 +63,7 @@ html {
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #9c6644;
     pointer-events: none;
     transition: .5s;
   }
@@ -67,7 +72,7 @@ html {
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #D3DDEA;
+    color: #7f5539;
     font-size: 12px;
   }
   
@@ -87,13 +92,13 @@ html {
   
   /*animazione accedi*/
   .login-box a:hover {
-    background: #D3DDEA;
+    background: #7f5539;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #D3DDEA,
-                0 0 25px #D3DDEA,
-                0 0 50px #D3DDEA,
-                0 0 100px #D3DDEA;
+    box-shadow: 0 0 5px #7f5539,
+                0 0 25px #7f5539,
+                0 0 50px #7f5539,
+                0 0 100px #7f5539;
   }
   
   .login-box a span {
@@ -106,7 +111,7 @@ html {
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #D3DDEA);
+    background: linear-gradient(90deg, transparent, #7f5539);
     animation: btn-anim1 1s linear infinite;
   }
   
@@ -124,7 +129,7 @@ html {
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #D3DDEA);
+    background: linear-gradient(180deg, transparent, #7f5539);
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
   }
@@ -143,7 +148,7 @@ html {
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #D3DDEA);
+    background: linear-gradient(270deg, transparent, #7f5539);
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
   }
@@ -162,7 +167,7 @@ html {
     left: 0;
     width: 2px;
     height: 100%;
-  background: linear-gradient(360deg, transparent, #D3DDEA);
+  background: linear-gradient(360deg, transparent, #7f5539);
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
   }

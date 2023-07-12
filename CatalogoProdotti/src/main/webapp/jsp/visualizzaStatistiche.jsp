@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Statistiche acquisti</title>
-<link rel="stylesheet" href="<%=request.getContextPath() + "/css/visualizzaStatistiche.css" %>">
+<link rel="stylesheet" href="<%=request.getContextPath() + "/css/visualizzaStatisticheStyle.css" %>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
