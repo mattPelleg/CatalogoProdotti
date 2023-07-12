@@ -1,4 +1,7 @@
 @charset "UTF-8";
+  body{
+  background-color:#FEC89A;
+  }
   .w3-top {
     background-color: #F9DCC4;
   }
@@ -11,9 +14,6 @@
   }
    #mySidebar {
     background-color: #F9DCC4;
-  }
-  body{
-  background-color:#FEC89A;
   }
   
   .container {

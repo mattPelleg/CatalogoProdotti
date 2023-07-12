@@ -14,6 +14,7 @@ import com.azienda.catalogoProdotti.dao.OrdineDao;
 import com.azienda.catalogoProdotti.dao.ProdottoDao;
 import com.azienda.catalogoProdotti.dao.ProfiloDao;
 import com.azienda.catalogoProdotti.dao.UtenteDao;
+import com.azienda.catalogoProdotti.exception.CarrelloVuotoException;
 import com.azienda.catalogoProdotti.exception.DatiNonValidiException;
 import com.azienda.catalogoProdotti.exception.ProdottoDuplicatoException;
 import com.azienda.catalogoProdotti.exception.ProdottoNonDisponibileException;
@@ -264,6 +265,10 @@ public class ServiceProdotti {
 
 			Ordine nuovoOrdine = new Ordine(LocalDate.now());
 			nuovoOrdine.setUtente(utenteInSessione);
+			
+			if(listaProdottiCarrello.isEmpty()) {
+				throw new CarrelloVuotoException("Il carrello è vuoto!", null);
+			}
 
 			for (Prodotto p : listaProdottiCarrello) {
 

@@ -48,13 +48,6 @@ public class CercaProdottoServlet extends HttpServlet {
 			List<Prodotto> ricercaProdotti = service.ricercaProdotti(nome, prezzo);
 			GestioneImmagini.creaMappaImmagini(req, ricercaProdotti);
 			
-//			Map<Prodotto, Integer> prodotto2quantita = service.contaProdottoOrdine(service.visualizzaProdotti());
-//			for(Prodotto p : prodotto2quantita.keySet()) {
-//				int c = prodotto2quantita.get(p);
-//				System.out.println(p + " " + c);
-//			}
-				
-			
 			if (ruoloUtente.equals("admin")) {
 				req.setAttribute("chiave_ricerca", ricercaProdotti);
 				req.getRequestDispatcher("/jsp/RicercaProdotti.jsp").forward(req, resp);

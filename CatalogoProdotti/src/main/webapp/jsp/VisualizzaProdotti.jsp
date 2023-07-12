@@ -58,6 +58,7 @@
 	<h1>Pagina gestione prodotti</h1>
 
 	<h1>Pagina gestione prodotti</h1>
+	
 	<h3>Form inserisci prodotto</h3>
 	<div class="contenitore">
 	<div id="cover">

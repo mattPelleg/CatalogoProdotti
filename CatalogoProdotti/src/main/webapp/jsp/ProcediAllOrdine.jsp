@@ -10,7 +10,9 @@
 <title>Ordine</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+
 <link rel="stylesheet" href="<%=request.getContextPath() + "/css/procediOrdine.css" %>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
@@ -25,8 +27,9 @@
 	String homepageNegozioUrl = request.getContextPath() + "/visualizzaProdottiUtente";
 
 	String urlCreaOrdine = request.getContextPath() + "/creaOrdine";
+	
+	String urlPagamento = baseUrl + "/jsp/Pagamento.jsp";
 
-// 	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getAttribute("chiave_mappaImmagini");
 	Map<Integer, String> mappaImmagini = (Map<Integer, String>) request.getSession().getAttribute("chiave_mappaImmaginiSessione");
 	
 	List<Prodotto> listaProdotti = (List<Prodotto>)session.getAttribute("chiave_listaProdottiCarrello");
@@ -56,6 +59,11 @@
 	<%if(listaProdotti != null && listaProdotti.isEmpty()) {%> 	
  		<p> Nessun prodotto nel carrello </p>
 	<% } else { %> 
+	
+<%-- 	<form id="formId" action="<%=urlPagamento%>" method="POST"> --%>
+<!-- 			<input type="submit" value="Vai al pagamento"> -->
+<!-- 	</form> -->
+	
 	<div class="container">
 	<table>
 		<thead>
@@ -74,13 +82,17 @@
 	</table>
 	</div>
 		
-		<form id="formId" action="<%=urlCreaOrdine %>" method="POST">
-			<input type="submit" value="Conferma Ordine">
-		</form>
+		
+	<form id="formId" action="<%=urlCreaOrdine %>" method="POST">
+		<input id="confermaOrdine" type="submit" value="Conferma Ordine">
+	</form>
+		
 	<%} %>
 	
-<%-- 	<button class="glow-on-hover" type="button" form="formId" formaction="<%=urlCreaOrdine %>">Bottone ordine</button> &nbsp; --%>
+	<button id="bottonePagamento"><a href="<%=urlPagamento %>">Vai al pagamento</a></button>
 	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/scriptPagamento.js"></script>
 	<script src="../js/script.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath() + "/css/visualizzaUtenti.css" %>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 
@@ -29,7 +30,7 @@
 	String urlRicercaProdotto = baseUrl + "/jsp/RicercaProdotti.jsp";
 	List<Utente> listaUtenti = (List<Utente>) request.getAttribute("chiave_listaUtenti");
 %>
-<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px;background-color:#D3DDEA" id="mySidebar">
+<nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px;background-color: #DC143C;" id="mySidebar">
 	<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Chiudi il Menu</a>
 	<a href="<%=urlHomepage%>" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
 	
