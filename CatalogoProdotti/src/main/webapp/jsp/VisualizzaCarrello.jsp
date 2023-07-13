@@ -47,8 +47,8 @@
 	<br></br>
 	
 
-	<div>
-		<a href="<%=urlProcediAllOrdine %>">Procedi all'ordine</a> &nbsp;
+	<div style="text-align: center;">
+		<a href="<%=urlProcediAllOrdine %>"><button class="big-button">Procedi all'ordine</button></a> &nbsp;
 	</div>
 
 
@@ -95,7 +95,7 @@
 			<%if(p.isCancellato() == false) { %>		
 			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 				<td>
-					<form action="<%=urlRimuovi %>" method="POST">
+					<form action="<%=urlRimuovi %>" method="POST" class="beige-button">
 						<input type="hidden" name="id" value="<%=p.getId() %>">
 						<input type="submit" value="rimuovi">
 					</form>

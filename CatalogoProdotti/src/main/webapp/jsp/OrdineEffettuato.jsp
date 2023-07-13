@@ -22,7 +22,7 @@
     <div class="stripe"></div>
 <div class="center">
   <div class="card">
-    <div class="dismiss"></div>
+<!--     <div class="dismiss"></div> -->
     <div class="illustration">
       <div class="car">
         <div class="body">

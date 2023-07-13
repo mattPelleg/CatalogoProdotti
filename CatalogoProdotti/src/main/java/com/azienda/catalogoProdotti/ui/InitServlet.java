@@ -77,7 +77,7 @@ public class InitServlet extends HttpServlet {
 			
 			serviceProdotti.salvaProdotto("Maglione", 3, 4f, blobMaglione, nomeMaglione);
 			serviceProdotti.salvaProdotto("Gilet", 3, 5f, blobGilet, nomeGilet);
-			serviceProdotti.salvaProdotto("Top", 0, 5f, blobTop, nomeGilet);
+			serviceProdotti.salvaProdotto("Top", 0, 5f, blobTop, nomeTop);
 			serviceProdotti.salvaProdotto("Borsa", 1, 8f, blobBorsa, nomeBorsa);
 			serviceProdotti.salvaProdotto("Berretto", 3, 2f, blobBerretto, nomeBerretto);
 			
