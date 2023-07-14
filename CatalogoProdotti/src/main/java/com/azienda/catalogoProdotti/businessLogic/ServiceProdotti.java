@@ -239,7 +239,11 @@ public class ServiceProdotti {
 			this.em.getTransaction().begin();
 
 			// prendo il carrello dell'utente
-			Carrello carrelloUtente = utente.getCarrelloUtente();
+			
+			Utente utenteDb = utenteDao.findUtenteById(utente.getId()).get(0);
+			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
+			
+//			Carrello carrelloUtente = utente.getCarrelloUtente();
 
 			// prendo la lista dei prodotti contenuti nel carrello
 			List<Prodotto> prodottiNelCarrello = carrelloUtente.getListaProdottiCarrello();
