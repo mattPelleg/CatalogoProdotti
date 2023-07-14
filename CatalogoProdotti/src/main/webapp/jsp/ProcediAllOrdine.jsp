@@ -77,7 +77,7 @@
 	</div>
 		
 		
-	<form id="formId" action="<%=urlCreaOrdine %>" method="POST">
+	<form id="formId" action="<%=urlCreaOrdine %>" method="POST" style="text-align:center; ">
 		<input id="confermaOrdine" type="submit" value="Conferma Ordine">
 	</form>
 		

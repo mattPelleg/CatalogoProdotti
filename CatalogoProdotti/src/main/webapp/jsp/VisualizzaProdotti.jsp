@@ -48,29 +48,31 @@
 		<div class="w3-button w3-padding-16 w3-left" onclick="w3_open()" style= "background-color:#f4978e; ">☰</div>
 		<div class="w3-center w3-padding-16" style="backbground-color: #ddbea9">
 
-	<div class="visualizza" style="background-color: #ddbea9">
+	<div class="visualizza" style="background-color: #ddbea9; text-align:center; margin-left:20px;">
  	<jsp:include page="/jsp/MenuAdmin.jsp"></jsp:include> 
 	</div>
 	
 	</div>
 	</div>
 </div>
-	<h1>Best sito ever</h1>
+	<h1>***</h1>
 
 	<h1>Pagina gestione prodotti</h1>
-	<h3>Form inserisci prodotto</h3>
+	 <h3>&nbsp;&nbsp; Form inserisci prodotto</h3>
+	
 	<div class="contenitore">
-	<div id="cover">
-	<form action="<%= urlCreaProdotto %>"method="post" enctype="multipart/form-data">
-		<input type="text" name="nomeFormInput" placeholder= "Nome" required id="form">  <br>
-		 <input type= "number" name= "disponibilitaFormInput" placeholder= "Disponibilità" required id="form"> <br>
-		<input type= "number" step="0.01" name= "prezzoFormInput" placeholder= "Prezzo" required id="form"> <br>
-		<div id="button">
-		<input type="file" name="fileName" >
-		<input type="submit" value="Salva">
+		<div id="cover">
+		<br> <br> 
+		<form action="<%= urlCreaProdotto %>"method="post" enctype="multipart/form-data">
+			<input type="text" name="nomeFormInput" placeholder= "Nome" required id="form">  <br>
+			 <input type= "number" name= "disponibilitaFormInput" placeholder= "Disponibilità" required id="form"> <br>
+			<input type= "number" step="0.01" name= "prezzoFormInput" placeholder= "Prezzo" required id="form"> <br>
+			<div id="button">
+			<input type="file" name="fileName" >
+			<input type="submit" value="Salva">
 		</div>
-	</form>
-	</div>
+		</form>
+	
 	<br><br>
 	
 	<!-- 	stampa un messaggio quando si modifica un prodotto -->
@@ -113,6 +115,7 @@
 	<%} %>
 	</tbody>	
 	</table>
+	</div>
 	</div>
 
 <%} %>

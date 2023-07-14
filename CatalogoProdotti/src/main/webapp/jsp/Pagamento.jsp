@@ -21,7 +21,7 @@
     <div class="wrapper">
         <div class="card">  
           <h2 class="visa">VISA</h2>
-          <h3 class="num">nÂ° 4539  7111  0342  0778</h3>
+          <h3 class="num">n° 4539  7111  0342  0778</h3>
       
             <h4>Name</br>Rossi</h4>
             <h4>EXP</br>10/21</h4>
@@ -34,14 +34,14 @@
             <form>
               
            <!--   <label>Name</label>-->
-              <input id="name" type="name" value="Rossi">
+              <input id="name" type="name" value="Rossi" required>
               
              <!-- <label>Card Number</label>-->
-              <input type="text" value="4539 7111 0342 0778">
+              <input type="text" value="4539 7111 0342 0778" required>
               
             <!--  <label>Expiration Date</label>-->
-              <input type="month" value="2021-10">
-              <input type="user" value="014">
+              <input type="month" value="2021-10" required>
+              <input type="user" value="014" required>
               
             </form>
             <div class="payment">

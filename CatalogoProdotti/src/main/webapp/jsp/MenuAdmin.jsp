@@ -9,7 +9,7 @@
 	String visualizzaStatisticheUrl = request.getContextPath()+ "/visualizzaStatistiche";
 %>
 
-<nav style="color: #f08080">
+<nav style="color: #ce4257; margin-left: 90px">
 	<a href = "<%=visualizzaUtentiUrl%>"> Visualizza Utenti </a> &nbsp;
 	<a href = "<%=visualizzaProdottiUrl%>"> Visualizza Prodotti </a> &nbsp;
 	<a href = "<%=visualizzaOrdiniAdminUrl%>"> Visualizza Ordini Utenti </a> &nbsp;

@@ -22,16 +22,30 @@
 }
 
 .container {
-
   position: absolute;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  top: calc(50% + 20px); /* Sposta il .container sotto il form aggiungendo 20px di margine */
+ /* top: calc(50% + 20px);  Sposta il .container sotto il form aggiungendo 20px di margine */
   left: 50%;
-  transform: translateX(-50%);
+/*   transform: translateX(-50%); */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px; /* Spazio tra le colonne */
 }
 
+.contenitore{
+	display: flex;
+	flex-direction:row;
+	
+}
+#cover {
+/*   flex: 1 1 50%; Occupa il 50% della larghezza nella disposizione a due colonne */
+	display: flex;
+	flex-direction:row;
+	margin-left: 20px;
+	margin-top: 20px;
+}
 
 
 table {
@@ -40,7 +54,7 @@ table {
 	border: 1px solid white;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
-	flex: 1 1 50%; /* Occupa il 50% della larghezza nella disposizione a due colonne */
+/* 	flex: 1 1 50%; Occupa il 50% della larghezza nella disposizione a due colonne */
 }
 
 th,
@@ -85,7 +99,7 @@ td:hover:before {
   body {
     margin: 0;
     padding: 0;
-    background-color: #f8edeb;
+    background-color: #f5ebe0;
   }
 h1{
 	font-family: 'Nanum Myeongjo', serif;
@@ -94,8 +108,9 @@ h1{
 }
 h3{
 	font-family: 'Nanum Myeongjo', serif;
-	text-align: center;
+	text-align: left;
 	color: #774936;
+	margin-left: 20px;
 }
   #mySidebar {
     background-color: #ddbea9;
@@ -110,7 +125,11 @@ h3{
   }
 
   .visualizza {
+  display: flex;
+  flex-direction: row;
     background-color: #ddbea9;
+  
+    justify-content: center;
   }
   
   #form {
@@ -169,14 +188,7 @@ h3{
 #button:focus {
   background: #ffb5a7;
 }
-#cover {
-  flex: 1 1 50%; /* Occupa il 50% della larghezza nella disposizione a due colonne */
-}
-.container {
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px; /* Spazio tra le colonne */
-}
+
 
 
