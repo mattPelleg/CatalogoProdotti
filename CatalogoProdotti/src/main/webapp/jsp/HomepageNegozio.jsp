@@ -102,7 +102,7 @@
 			<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 				
 				<td>
-					<form action="<%= urlAggiungiAlCarrello %>" method="post">
+					<form action="<%= urlAggiungiAlCarrello %>" method="post" class="beige-button">
 						<input type="hidden" name="idProdotto" value="<%= p.getId() %>">
 						<input type="submit" value="aggiungi">
 					</form>

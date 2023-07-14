@@ -58,6 +58,11 @@
  		<p> Nessun prodotto nel carrello </p>
 	<% } else { %> 
 	
+	<form id="formId" class="beige-button" action="<%=urlCreaOrdine %>" method="POST" style="margin-left: 42.5%;">
+		<input id="confermaOrdine" type="submit" value="Conferma Ordine">
+	</form>
+	<br><br>
+<!-- 	<br><br><br><br><br><br><br><br><br><br> -->
 	<div class="container">
 	<table>
 		<thead>
@@ -77,13 +82,14 @@
 	</div>
 		
 		
-	<form id="formId" action="<%=urlCreaOrdine %>" method="POST" style="text-align:center; ">
-		<input id="confermaOrdine" type="submit" value="Conferma Ordine">
-	</form>
 		
 	<%} %>
 	
-	<button id="bottonePagamento"><a href="<%=urlPagamento %>">Vai al pagamento</a></button>
+<%-- 	<button id="bottonePagamento" class="beige-button"><a href="<%=urlPagamento %>">Vai al pagamento</a></button> --%>
+	
+	<form id="bottonePagamento" class="beige-button" action="<%=urlPagamento %>" method="POST" style="margin-left: 43.75%;">
+		<input id="confermaOrdine" type="submit" value="Vai al pagamento">
+	</form>
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/scriptPagamento.js"></script>
