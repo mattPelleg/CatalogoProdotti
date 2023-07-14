@@ -32,7 +32,7 @@ public class InitServlet extends HttpServlet {
 	protected static final String BUSINESS_LOGIC_UTENTE = "businessLogicUtente";
 	protected static final String BUSINESS_LOGIC_PRODOTTO = "businessLogicProdotto";
 	
-	protected static final String PERCORSO_CARTELLA_FOTO = "/Users/matteopellegrini/Desktop/MAYONE/foto_progetto/";
+	protected static final String PERCORSO_CARTELLA_FOTO = "/Users/matteopellegrini/Desktop/GENERATION/MAYONE/foto_progetto/";
 	
 	@Override
 	public void init() throws ServletException {
