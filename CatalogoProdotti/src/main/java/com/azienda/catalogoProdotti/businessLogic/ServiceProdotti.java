@@ -239,12 +239,9 @@ public class ServiceProdotti {
 			this.em.getTransaction().begin();
 
 			// prendo il carrello dell'utente
-			
 			Utente utenteDb = utenteDao.findUtenteById(utente.getId()).get(0);
 			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
 			
-//			Carrello carrelloUtente = utente.getCarrelloUtente();
-
 			// prendo la lista dei prodotti contenuti nel carrello
 			List<Prodotto> prodottiNelCarrello = carrelloUtente.getListaProdottiCarrello();
 			// rimuovo il carrello dal prodotto --> rimuove l'associazione carrello-prodotto
@@ -266,9 +263,11 @@ public class ServiceProdotti {
 		try {
 
 			this.em.getTransaction().begin();
+			
+			Utente utenteDb = utenteDao.findUtenteById(utenteInSessione.getId()).get(0);
 
 			Ordine nuovoOrdine = new Ordine(LocalDate.now());
-			nuovoOrdine.setUtente(utenteInSessione);
+			nuovoOrdine.setUtente(utenteDb);
 			
 			if(listaProdottiCarrello.isEmpty()) {
 				throw new CarrelloVuotoException("Il carrello è vuoto!", null);
@@ -304,7 +303,9 @@ public class ServiceProdotti {
 			this.em.getTransaction().begin();
 
 			// prendo il carrello dell'utente
-			Carrello carrelloUtente = utente.getCarrelloUtente();
+			Utente utenteDb = utenteDao.findUtenteById(utente.getId()).get(0);
+
+			Carrello carrelloUtente = utenteDb.getCarrelloUtente();
 
 			// prendo la lista dei prodotti contenuti nel carrello
 			List<Prodotto> prodottiNelCarrello = carrelloUtente.getListaProdottiCarrello();
