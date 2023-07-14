@@ -57,21 +57,11 @@
 	
 </nav>
 
-<!-- <div class="w3-top" style="color: #D3DDEA"> -->
 	<div class="w3-white w3-xlarge" style="max-width:1200px; margin: left">
 		<span class="w3-button w3-padding-16 w3-left" onclick="w3_open()" style= "background-color:#FFB5A7;">☰</span>
-<!-- 		<div class="w3-center w3-padding-16" style="backbground-color: #CDECEF"> -->
-	
 		</div>
 		</div>
-<!-- </div> -->
-<!-- 	<h1>Form di login</h1> -->
-	
-<%-- 	<form action="<%=uriWebApp%>" method="POST"> --%>
-<!-- 		<input type="email" placeholder="email" name="emailFormInput" autofocus="autofocus"> <br> -->
-<!-- 		<input type="password" placeholder="password" name="passwordFormInput"> <br> -->
-<!-- 		<input type="submit" value="Accedi"> -->
-<!-- 	</form> -->
+
 	
 	<span class="immagineLogo">
     <img src="<%=request.getContextPath() + "/static/immagineLogo.jpg" %>" alt= "Immagine logo" class="round-image" width="200px" height="200px">
@@ -87,7 +77,6 @@
             <input type="password" name="passwordFormInput" required="">
             <label>Password</label>
           </div>
-<!--           <input type="submit" value="Accedi"> -->
           <a>
             <span></span>
             <span></span>
