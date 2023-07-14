@@ -93,7 +93,7 @@
 	<tbody>
 		<%for(Prodotto p : listaProdotti) {%>
 			<%if(p.isCancellato() == false) { %>		
-			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> <td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
+			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %> €</td> <td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 				<td>
 					<form action="<%=urlRimuovi %>" method="POST" class="beige-button">
 						<input type="hidden" name="id" value="<%=p.getId() %>">

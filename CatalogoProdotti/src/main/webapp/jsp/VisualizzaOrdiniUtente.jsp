@@ -56,10 +56,10 @@
 			<tr><td><%=o.getId() %></td><td><%=o.getDataAcquisto() %></td><td></td><td></td><td></td><td></td>
 			<%for(Prodotto p: o.getListaOrdineProdotti()) {%>
 				<%tot += p.getPrezzo(); %>
-				<tr><td></td><td></td><td><%=p.getNome() %></td><td><%=p.getPrezzo() %></td>
+				<tr><td></td><td></td><td><%=p.getNome() %></td><td><%=p.getPrezzo() %> €</td>
 				<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 			<%} %>
-				<td><%=tot %></td>
+				<td><%=tot %> €</td>
 				</tr>
 			</tr>
 	<%} %>

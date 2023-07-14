@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Ordine {
 
 	private LocalDate dataAcquisto;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Utente utente;
 
 	@ManyToMany

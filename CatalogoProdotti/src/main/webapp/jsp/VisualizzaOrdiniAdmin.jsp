@@ -67,11 +67,10 @@
 			<tr><td><%=o.getUtente().getId() %></td><td><%=o.getUtente().getEmail()%></td><td><%=o.getId() %></td><td><%=o.getDataAcquisto() %></td><td></td><td></td>
 			<%for(Prodotto p: o.getListaOrdineProdotti()) {%>
 				<%tot += p.getPrezzo(); %>
-				<tr><td></td><td></td><td></td><td></td><td><%=p.getNome() %></td><td><%=p.getPrezzo() %></td>
+				<tr><td></td><td></td><td></td><td></td><td><%=p.getNome() %></td><td><%=p.getPrezzo() %> €</td>
 			<%} %>
-<%-- 				<td><%=tot %></td> --%>
 				</tr>
-				<tr><td>TOT</td><td></td><td></td><td></td><td></td><td><%=tot %></td></tr>
+				<tr><td>TOT</td><td></td><td></td><td></td><td></td><td><%=tot %> €</td></tr>
 			</tr>
 		<%} %>
 		

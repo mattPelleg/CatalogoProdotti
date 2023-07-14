@@ -72,7 +72,7 @@
 		<%for(Prodotto p : listaProdotti) {%>
 			<%if(p.isCancellato() == false) { %>		
 			<tr>
-				<td><%= p.getNome()%></td><td><%= p.getPrezzo() %></td> 
+				<td><%= p.getNome()%></td><td><%= p.getPrezzo() %> €</td> 
 				<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 			</tr>
 			<%} %>	

@@ -45,13 +45,6 @@
     </defs>
 </svg>
 
-<%-- <form action="<%= formAction %>" method="post"> --%>
-<!--   	nome: <input type="text" name="nome"> <br> -->
-<!--   	prezzo: <input type="number" step="0.01" name="prezzo"> <br> -->
-<!--   	<input type="submit" value="Cerca"> -->
- 
-<!--  </form> -->
- 
  
  <div id="cover">
  <form action="<%= formAction %>" method="post"> 
@@ -66,10 +59,10 @@
 <%if(listaProdotti != null && !listaProdotti.isEmpty()) {%> 	
 <div class="container">
 	<table border=1>
-	<tr><th>Nome</th><th>Disponibiit�</th><th>Prezzo</th><th>Immagine</th><th>Modifica</th><th>Cancella</th></tr>
+	<tr><th>Nome</th><th>Disponibiità</th><th>Prezzo</th><th>Immagine</th><th>Modifica</th><th>Cancella</th></tr>
 	<%for(Prodotto p : listaProdotti) {%>
 		<%if(p.isCancellato() == false) { %>		
-			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> 
+			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %> €</td> 
 			<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 			<td>
 				<form action="<%= urlModifica %>" method="post">

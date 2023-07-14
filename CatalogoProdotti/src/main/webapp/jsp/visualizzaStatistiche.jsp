@@ -56,7 +56,7 @@
 	<table border=1>
 		<tr><th>NOME</th><th>N_VOLTE_ORDINATO</th><th>TOT_SPESO</th></tr>
 		<%for(Prodotto p : prodotto2quantita.keySet()) {%>
-		<tr><td><%= p.getNome()%></td><td><%=prodotto2quantita.get(p) %></td><td><%=prodotto2quantita.get(p) * p.getPrezzo() %></td></tr>
+		<tr><td><%= p.getNome()%></td><td><%=prodotto2quantita.get(p) %></td><td><%=prodotto2quantita.get(p) * p.getPrezzo() %> €</td></tr>
 		<%} %>	
 	</table>
 <%} %>

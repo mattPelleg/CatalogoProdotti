@@ -98,7 +98,7 @@
 			<tbody>
 			<%for(Prodotto p : listaProdotti) {%>
 			<%if(p.isCancellato() == false && p.getDisponibilita() > 0) { %>		
-			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %></td> 
+			<tr><td><%= p.getNome()%></td><td><%=p.getDisponibilita() %></td><td><%= p.getPrezzo() %> €</td> 
 			<td><img alt="" src="<%= mappaImmagini.get(p.getId()) %>" width="100" height="100" ></td>
 				
 				<td>

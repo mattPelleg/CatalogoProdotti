@@ -75,11 +75,11 @@ public class InitServlet extends HttpServlet {
 			Blob blobBerretto = BlobConverter.generateBlob(PERCORSO_CARTELLA_FOTO + "berretto.webp");
 			String nomeBerretto = "berretto.webp";
 			
-			serviceProdotti.salvaProdotto("Maglione", 3, 4f, blobMaglione, nomeMaglione);
-			serviceProdotti.salvaProdotto("Gilet", 3, 5f, blobGilet, nomeGilet);
-			serviceProdotti.salvaProdotto("Top", 0, 5f, blobTop, nomeTop);
-			serviceProdotti.salvaProdotto("Borsa", 1, 8f, blobBorsa, nomeBorsa);
-			serviceProdotti.salvaProdotto("Berretto", 3, 2f, blobBerretto, nomeBerretto);
+			serviceProdotti.salvaProdotto("Maglione", 3, 20f, blobMaglione, nomeMaglione);
+			serviceProdotti.salvaProdotto("Gilet", 3, 19f, blobGilet, nomeGilet);
+			serviceProdotti.salvaProdotto("Top", 0, 17f, blobTop, nomeTop);
+			serviceProdotti.salvaProdotto("Borsa", 1, 18f, blobBorsa, nomeBorsa);
+			serviceProdotti.salvaProdotto("Berretto", 3, 24f, blobBerretto, nomeBerretto);
 			
 			getServletContext().setAttribute(BUSINESS_LOGIC_UTENTE, serviceUtenti);
 			getServletContext().setAttribute(BUSINESS_LOGIC_PRODOTTO, serviceProdotti);
