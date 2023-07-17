@@ -269,11 +269,13 @@ public class ServiceProdotti {
 			Ordine nuovoOrdine = new Ordine(LocalDate.now());
 			nuovoOrdine.setUtente(utenteDb);
 			
-			if(listaProdottiCarrello.isEmpty()) {
+			List<Prodotto> listaProdotti = utenteDb.getCarrelloUtente().getListaProdottiCarrello();
+			
+			if(listaProdotti.isEmpty()) {
 				throw new CarrelloVuotoException("Il carrello è vuoto!", null);
 			}
 
-			for (Prodotto p : listaProdottiCarrello) {
+			for (Prodotto p : listaProdotti) {
 
 				if (p.getDisponibilita() == 0) {
 					String s = "Il prodotto " + p.getNome()
@@ -327,8 +329,10 @@ public class ServiceProdotti {
 	public List<Ordine> visualizzaOrdiniUtente(Utente u) {
 		try {
 			this.em.getTransaction().begin();
+			
+			Utente utenteDb = utenteDao.findUtenteById(u.getId()).get(0);
 
-			List<Ordine> listaOrdiniUtente = this.ordineDao.findOrdiniUtente(u);
+			List<Ordine> listaOrdiniUtente = this.ordineDao.findOrdiniUtente(utenteDb);
 
 			this.em.getTransaction().commit();
 

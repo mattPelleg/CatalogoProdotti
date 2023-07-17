@@ -46,10 +46,11 @@
 	<br></br>
 	<br></br>
 	
-
-	<div style="text-align: center;">
-		<a href="<%=urlProcediAllOrdine %>"><button class="big-button">Procedi all'ordine</button></a> &nbsp;
-	</div>
+	<%if(!listaProdotti.isEmpty()) {%>
+		<div style="text-align: center;">
+			<a href="<%=urlProcediAllOrdine %>"><button class="big-button">Procedi all'ordine</button></a> &nbsp;
+		</div>
+	<%} %>
 
 
 <!--TORNA ALLA HOME  -->
