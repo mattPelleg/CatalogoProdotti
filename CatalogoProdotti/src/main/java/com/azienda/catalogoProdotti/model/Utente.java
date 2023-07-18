@@ -28,7 +28,7 @@ public class Utente {
 	@ManyToOne
 	private Profilo profiloUtente;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne
 	private Carrello carrelloUtente;
 
 	@OneToMany(mappedBy = "utente")
