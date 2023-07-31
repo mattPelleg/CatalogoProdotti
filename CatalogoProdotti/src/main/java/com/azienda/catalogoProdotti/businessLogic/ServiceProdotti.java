@@ -61,6 +61,7 @@ public class ServiceProdotti {
 	 */
 	public void salvaProdotto(String nome, Integer disponibilita, Float prezzo, Blob immagine, String nomeImmagine) throws Exception {
 		try {
+			
 			em.getTransaction().begin();
 
 			if (nome == null || nome.isBlank())
